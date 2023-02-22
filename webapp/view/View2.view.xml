@@ -1,0 +1,36 @@
+<mvc:View xmlns:composite="sap.uiext.inbox.composite" controllerName="moc.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <headerContent>
+            <Image id="image1" src="/images/logo_forc.png" height="35px"/>
+            <Image id="image2" src="/images/infrabeat.png" height="20px"/>
+        </headerContent>
+        <IconTabBar id="idIconTabBarNoIcons">
+            <items>
+                <IconTabFilter id="_IDGenIconTabFilter1" text="General" icon="sap-icon://company-view">
+                    <core:Fragment fragmentName="moc.fragments.General" type="XML"/>
+                </IconTabFilter>
+
+                <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review" icon="sap-icon://approvals">
+                    <core:Fragment fragmentName="moc.fragments.approval" type="XML"/>
+                </IconTabFilter>
+                <IconTabFilter id="_IDGenIconTabFilter3" text="External Files" icon="sap-icon://sap-box">
+                    <core:Fragment fragmentName="moc.fragments.externalfiles" type="XML"/>
+                </IconTabFilter>
+                <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log" icon="sap-icon://notes"/>
+            </items>
+        </IconTabBar>
+        <content />
+        <footer>
+            <Toolbar id="_IDGenToolbar1">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <Button id="_IDGenButton1" type="Accept" text="Submit" press="onSave" width="150px"/>
+                <Button id="_IDGenButton2" type="Neutral" text="Reset" press="onReset" width="150px"/>
+                <Button id="_IDGenButton3" type="Reject" text="Cancel" press="onCancel" width="150px"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

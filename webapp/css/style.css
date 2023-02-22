@@ -1,0 +1,14 @@
+/* Enter your custom styles here */
+.ani {
+    text-align: left !important;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+  }

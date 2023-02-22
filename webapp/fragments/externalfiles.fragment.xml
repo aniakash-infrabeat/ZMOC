@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:up="sap.m.upload"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <!-- <l:VerticalLayout id="_IDGenVerticalLayout1"> -->
+    <HBox id="hbox">
+        <f:SimpleForm id="externalfile" editable="true" title="Attachment Details">
+            <Label id="addedby" text="Added By"/>
+            <Input id="addedin"/>
+            <Label id="comment" text="Comments"/>
+            <TextArea id="comments" />
+            <u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" uploadComplete="handleUploadComplete"/>
+            <Button id="upload" text="Upload File" press="handleUploadPress"/>
+        </f:SimpleForm>
+    </HBox>
+    <!-- </l:VerticalLayout> -->
+</core:FragmentDefinition>

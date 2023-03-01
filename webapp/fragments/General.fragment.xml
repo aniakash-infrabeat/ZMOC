@@ -11,13 +11,13 @@
         <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
-            <Input id="_IDGenInput1" />
+            <Input id="_IDGenInput1"/>
             <Label id="_IDGenText2" text="Object of Change" />
-            <Input id="_IDGenInput2" />
+            <Input id="_IDGenInput2"/>
             <Label id="_IDGenText3" text="Request Date" />
-            <DatePicker id="DP1" placeholder="Select Date" />
+            <DatePicker id="DP1" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />
-            <Input id="_IDGenInput3" />
+            <Input id="_IDGenInput3"/>
             <!-- </f:content> -->
             <!-- </f:SimpleForm> -->
             <!-- </VBox> -->
@@ -25,15 +25,21 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm2" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText5" text="Created by" />
-            <Input id="_IDGenInput4" />
+            <Input id="_IDGenInput4"/>
             <Label id="_IDGenText6" text="Department" />
             <Input id="_IDGenInput5" />
             <Label id="_IDGenText7" text="Change of Date" />
-            <DatePicker id="DP2" placeholder="Select Date" />
-            <Label id="_IDGenText8" text="Type of Change" />
-            <ComboBox id="_IDGenComboBox1" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
-                <core:Item id="_IDGenItem1" key="{key}" text="{text}" />
+            <DatePicker id="DP2" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
+            <Label id="_IDGenText8" text="Type of Change"/>
+            <ComboBox>
+                <items>
+                    <core:Item text="Permanent" key="P" />
+                    <core:Item text="Temporary" key="T" />
+                </items>
             </ComboBox>
+            <!-- <ComboBox id="_IDGenComboBox1" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
+                <core:Item id="_IDGenItem1" key="{key}" text="{text}" />
+            </ComboBox> -->
             <!-- </f:content> -->
             <!-- </f:SimpleForm> -->
 
@@ -53,27 +59,41 @@
 
     <HBox id="_IDGenVBox1" class="sapUiSmallMargin">
         <!-- <f:SimpleForm id="_IDGenSimpleForm2" title="Change Title"/> -->
-        <f:SimpleForm id="form01" editable="true" title="Change Title" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4">
-            <CheckBox id="org" text="Organisation" selected="true" width="500px"/>
-            <CheckBox id="personnel" text="Personnel" selected="true" width="1000px"/>
-            <CheckBox id="system" text="System" selected="true" width="1000px"/>
-            <CheckBox id="process" text="Process/Procedure" selected="true" width="1000px"/>
-            <CheckBox id="rig" text="Rig" selected="true" width="1000px"/>
-            <CheckBox id="equip" text="Equipment" selected="true" width="1000px"/>
-            <CheckBox id="material" text="Material" selected="true" width="1000px"/>
-            <CheckBox id="lawandreg" text="Laws and regulation" selected="true" width="1000px"/>
-        </f:SimpleForm>
+
+        <f:SimpleForm id="form01" editable="true" title="Change Title" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4"/>
+
+        <!-- <f:SimpleForm id="form12" editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4"> -->
+
+        <!-- </f:SimpleForm> -->
     </HBox>
+    <VBox>
+        <HBox>
+            <CheckBox id="org" text="Organisation" selected="false" class="sapUiLargeMarginEnd"/>
+            <Text text=" "/>
+
+            <CheckBox id="personnel" text="Personnel" selected="false"/>
+            <Text text=" "/>
+            <CheckBox id="system" text="System" selected="false"/>
+            <Text text=" "/>
+            <CheckBox id="process" text="Process/Procedure" selected="false"/>
+        </HBox>
+        <HBox>
+            <CheckBox id="rig" text="Rig" selected="false" />
+            <CheckBox id="equip" text="Equipment" selected="false"/>
+            <CheckBox id="material" text="Material" selected="false"/>
+            <CheckBox id="lawandreg" text="Laws and regulation" selected="false"/>
+        </HBox>
+    </VBox>
     <VBox id="def">
         <l:Splitter id="split1">
             <f:SimpleForm id="jkl" title="Details of Change:">
-                <TextArea id="mno" maxLength="400"/>
+                <TextArea id="mno" maxLength="400" height="150px"/>
             </f:SimpleForm>
             <f:SimpleForm id="ghi" title="Reason for Change:">
-                <TextArea id="pqr" maxLength="400"/>
+                <TextArea id="pqr" maxLength="400" height="150px"/>
             </f:SimpleForm>
             <f:SimpleForm id="stu" title="Proposed timeline for Change">
-                <TextArea id="vwx" maxLength="400"/>
+                <TextArea id="vwx" maxLength="400" height="150px"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>

@@ -13,14 +13,41 @@
             <Image id="image2" src="/images/infrabeat.png" height="20px"/>
         </headerContent>
         <VBox id="smartfilter">
-            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="STTA_C_MP_Product" persistencyKey="SmartFilter_Explored">
-                <smartFilterBar:layoutData>
-                    <FlexItemData id="_IDGenFlexItemData1" shrinkFactor="0" />
-                </smartFilterBar:layoutData>
+            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZMOC_DETSet" persistencyKey="SmartFilter_Explored">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="codeno" key="Code" visibleInAdvancedArea="true">
+                        <smartFilterBar:customControl>
+                            <MultiInput id="filterReport" valueHelpRequest=".onReportReqVHRequested">
+                            </MultiInput>
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+
+                    <smartFilterBar:ControlConfiguration id="status" key="Status" visibleInAdvancedArea="true">
+                        <smartFilterBar:customControl>
+                            <ComboBox id="statusComboBox" change="handleChange" items="{path:'/StatusSet',filters:[{path : 'AppType',operator : 'EQ',value1:'NM'}]}" selectionChange="customFieldChange">
+                                <core:Item id="_IDGenItem2" key="{Status}" text="{Status}"/>
+                            </ComboBox>
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+
+                    <smartFilterBar:ControlConfiguration id="plant" key="Plant" visibleInAdvancedArea="true">
+                        <smartFilterBar:customControl>
+                            <MultiInput id="filterPlant" valueHelpRequest=".onPlantVHRequested">
+                            </MultiInput>
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+                    <!-- <smartFilterBar:ControlConfiguration id="sfb_status" key="STATUS" visibleInAdvancedArea="true" /> -->
+                    <smartFilterBar:ControlConfiguration id="created_date" key="CreatedDate" visibleInAdvancedArea="true">
+                        <smartFilterBar:customControl>
+                            <DatePicker id="filterDate" value="{ path:'CreatedDate', type:'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" />
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+
+                </smartFilterBar:controlConfiguration>
             </smartFilterBar:SmartFilterBar>
         </VBox>
 
-        <HBox id="hbox1" class="sapUiSmallMargin">
+        <!-- <VBox id="hbox1" class="sapUiSmallMargin">
             <f:SimpleForm id="simp1" editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4">
                 <Label id="reportno" text="Report Number"/>
                 <TextArea id="reportnotxt" width="250px" height="15px"/>
@@ -33,83 +60,75 @@
                 <Label id="createdat" text="Created Date"/>
                 <DatePicker id="created" placeholder="Select Date" width="250px"/>
             </f:SimpleForm>
-        </HBox>
+        </VBox> -->
+        <smartTable:SmartTable id="ReportSmartTable" beforeRebindTable="onBeforeRebindTable" entitySet="ZMOC_DETSet" smartFilterId="reportSmartFilterBar" tableType="ResponsiveTable" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" showTablePersonalisation="true" header="Reports" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding">
 
-
-        <smartTable:SmartTable id="ReportSmartTable" beforeRebindTable="onBeforeRebindTable" entitySet="ZACC_DETAILSet" smartFilterId="reportSmartFilterBar" tableType="ResponsiveTable" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" showTablePersonalisation="true" header="Reports" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding">
-
-                <smartTable:customToolbar>
-                    <OverflowToolbar id="otoolbar" design="Transparent">
-                        <ToolbarSpacer id="tbs"/>
-                        <Button id="createReportbtn" icon="sap-icon://create" text="Create New Report" visible="false" type="Transparent" press="onCreateNewReport" />
-                        <!-- <OverflowToolbarButton id="tbbtn" icon="sap-icon://create" tooltip="Create New Report" press="onCreateNewReport"/> -->
-                    </OverflowToolbar>
-                </smartTable:customToolbar>
+            <smartTable:customToolbar>
+                <OverflowToolbar id="otoolbar" design="Transparent">
+                    <ToolbarSpacer id="tbs"/>
+                    <Button id="createReportbtn" icon="sap-icon://create" text="Create New Report" type="Transparent" press="onCreateNewReport" />
+                    <!-- <OverflowToolbarButton id="tbbtn" icon="sap-icon://create" text="Create New Report" tooltip="Create New Report" press="onCreateNewReport"/> -->
+                </OverflowToolbar>
+            </smartTable:customToolbar>
 
             <Table id="tblreport" sticky="ColumnHeaders,HeaderToolbar" mode="SingleSelectMaster" growing="true" growingThreshold="25" selectionChange=".onRowSelect">
                 <columns>
-                    <Column id="REPORT_NO" hAlign="Begin">
+                    <Column id="CODE" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "REPORT_NO", "autoColumnWidth": \{ "visibleProperty": "REPORT_NO" }, "columnIndex": 0, "leadingProperty": "REPORT_NO", "sortProperty": "REPORT_NO"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "Code", "autoColumnWidth": \{ "visibleProperty": "Code" }, "columnIndex": 0, "leadingProperty": "Code", "sortProperty": "Code"}' />
                         </customData>
-                        <Text id="txtreport" text="X" />
+                        <Text id="txtreport" text="{/#ZMOC_DETSet/Code/@sap:label}" />
                     </Column>
                     <Column id="ColPLANT" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "PLANT", "autoColumnWidth": true, "columnIndex":1,  "leadingProperty": "PLANT", "sortProperty": "PLANT"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "Plant", "autoColumnWidth": true, "columnIndex":1,  "leadingProperty": "Plant", "sortProperty": "Plant"}' />
                         </customData>
-                        <Text id="txtplant" text="X" />
+                        <Text id="txtplant" text="{/#ZMOC_DETSet/Plant/@sap:label}" />
                     </Column>
                     <Column id="ColTitle" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "TITLE", "autoColumnWidth": true, "columnIndex":2,  "leadingProperty": "TITLE", "sortProperty": "TITLE"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "Title", "autoColumnWidth": true, "columnIndex":2,  "leadingProperty": "Title", "sortProperty": "Title"}' />
                         </customData>
-                        <Text id="txttitle" text="X" />
+                        <Text id="txttitle" text="{/#ZMOC_DETSet/Title/@sap:label}" />
                     </Column>
                     <Column id="ColON_CDATE" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "CREATED_DATE", "autoColumnWidth": true, "columnIndex":3,  "leadingProperty": "CREATED_DATE", "sortProperty": "CREATED_DATE"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "CreatedDate", "autoColumnWidth": true, "columnIndex":3,  "leadingProperty": "CreatedDate", "sortProperty": "CreatedDate"}' />
                         </customData>
-                        <Text id="txtCdate" text="X" />
+                        <Text id="txtCdate" text="{/#ZMOC_DETSet/CreatedDate/@sap:label}" />
                     </Column>
                     <Column id="ColON_MDATE" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "MODIFIED_DATE", "autoColumnWidth": true, "columnIndex":4,  "leadingProperty": "MODIFIED_DATE", "sortProperty": "MODIFIED_DATE"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "ModifiedDate", "autoColumnWidth": true, "columnIndex":4,  "leadingProperty": "ModifiedDate", "sortProperty": "ModifiedDate"}' />
                         </customData>
-                        <Text id="txtMdate" text="X" />
+                        <Text id="txtMdate" text="{/#ZMOC_DETSet/ModifiedDate/@sap:label}" />
                     </Column>
                     <Column id="ColON_STATUS" hAlign="Begin">
                         <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "STATUS", "autoColumnWidth": true, "columnIndex":5,  "leadingProperty": "STATUS", "sortProperty": "STATUS"}' />
+                            <core:CustomData key="p13nData" value='\{"columnKey": "Status", "autoColumnWidth": true, "columnIndex":5,  "leadingProperty": "Status", "sortProperty": "Status"}' />
                         </customData>
-                        <Text id="txtSTATUS" text="X" />
+                        <Text id="txtSTATUS" text="{/#ZMOC_DETSet/Status/@sap:label}" />
                     </Column>
-                    <!--<Column id="ColON_TYPE" hAlign="Begin">
-                        <customData>
-                            <core:CustomData key="p13nData" value='\{"columnKey": "TYPE", "autoColumnWidth": true, "columnIndex":6,  "leadingProperty": "TYPE", "sortProperty": "TYPE"}' />
-                        </customData>
-                        <Text id="txtTYPE" text="{/#ZACC_DETAILSet/TYPE/@sap:label}" />
-                    </Column>-->
                 </columns>
                 <items>
                     <ColumnListItem id="cli">
                         <cells>
-                            <Text id="celltxtreport" text="{REPORT_NO}" />
+                            <Text id="celltxtreport" text="{Code}" />
                         </cells>
                         <cells>
-                            <Text id="celltxtplant" text="{PLANT}" />
+                            <Text id="celltxtplant" text="{Plant}" />
                         </cells>
                         <cells>
-                            <Text id="celltxttitle" text="{TITLE}" />
+                            <Text id="celltxttitle" text="{Title}" />
                         </cells>
                         <cells>
-                            <Text id="celltxtcreateddate" text="{path:'CREATED_DATE', type:'sap.ui.model.type.Date', formatOptions : { style:'medium', UTC: true}}" />
+                            <Text id="celltxtcreateddate" text="{path:'CreatedDate', type:'sap.ui.model.type.Date', formatOptions : { style:'medium', UTC: true}}" />
                         </cells>
                         <cells>
-                            <Text id="celltxtmodifieddate" text="{path:'MODIFIED_DATE', type:'sap.ui.model.type.Date', formatOptions : { style:'medium', UTC: true}}" />
+                            <Text id="celltxtmodifieddate" text="{path:'ModifiedDate', type:'sap.ui.model.type.Date', formatOptions : { style:'medium', UTC: true}}" />
                         </cells>
                         <cells>
-                            <Text id="celltxtstatus" text="{STATUS}" />
+                            <Text id="celltxtstatus" text="{Status}" />
                         </cells>
                         <!--<cells>
                             <Text id="celltxttype" text="{path:'TYPE',formatter:'.formatReportType'}" />
@@ -118,5 +137,9 @@
                 </items>
             </Table>
         </smartTable:SmartTable>
+
+
+
+
     </Page>
 </mvc:View>

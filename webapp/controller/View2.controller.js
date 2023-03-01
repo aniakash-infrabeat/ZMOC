@@ -9,7 +9,10 @@ sap.ui.define([
 
         return Controller.extend("moc.controller.View2", {
             onInit: function () {
-
-            }
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
+            },
+            
         });
+       
     });

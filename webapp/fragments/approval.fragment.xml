@@ -7,34 +7,34 @@
         <l:Splitter id="split5">
             <f:SimpleForm width="600px" id="simpleform1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="1" title="Approval to continue change">
                 <Label id="_IDGenLabel1" textAlign="Begin" wrapping="false" text="Are the 'details of change' adequately defined?"/>
-                <RadioButtonGroup width="500px" id="_IDGenRadioButtonGroup1" columns="6">
-                    <RadioButton id="y1" text="Y" selected="true"/>
-                    <RadioButton id="n1" text="N"/>
-                    <RadioButton id="na1" text="N/A"/>
+                <RadioButtonGroup id="_IDGenRadioButtonGroup1" columns="6">
+                    <RadioButton id="y1" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="n1" text="N" width="100px"/>
+                    <RadioButton id="na1" text="N/A" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel2" text="Are the reasons of change adequately defined?"/>
-                <RadioButtonGroup width="500px" id="_IDGenRadioButtonGroup2" columns="3">
-                    <RadioButton id="y2" text="Y" selected="true" />
-                    <RadioButton id="n2" text="N" />
-                    <RadioButton id="na2" text="N/A" />
+                <RadioButtonGroup id="_IDGenRadioButtonGroup2" columns="3">
+                    <RadioButton id="y2" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="n2" text="N" width="100px"/>
+                    <RadioButton id="na2" text="N/A" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel3" text="Is the change necessary?"/>
-                <RadioButtonGroup width="500px" id="_IDGenRadioButtonGroup3" columns="3">
-                    <RadioButton id="y3" text="Y" selected="true" />
-                    <RadioButton id="n3" text="N" />
-                    <RadioButton id="na3" text="N/A" />
+                <RadioButtonGroup id="_IDGenRadioButtonGroup3" columns="3">
+                    <RadioButton id="y3" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="n3" text="N" width="100px"/>
+                    <RadioButton id="na3" text="N/A" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel4" text="Is approval given to risk assessment?"/>
-                <RadioButtonGroup width="500px" id="_IDGenRadioButtonGroup4" columns="3">
-                    <RadioButton id="y4" text="Y" selected="true" />
-                    <RadioButton id="n4" text="N" />
-                    <RadioButton id="na4" text="N/A" />
+                <RadioButtonGroup id="_IDGenRadioButtonGroup4" columns="3">
+                    <RadioButton id="y4" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="n4" text="N" width="100px"/>
+                    <RadioButton id="na4" text="N/A" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel5" text="Date risk assessment to be completed by"/>
-                <RadioButtonGroup width="500px" id="_IDGenRadioButtonGroup5" columns="3">
-                    <RadioButton id="y5" text="Y" selected="true" />
-                    <RadioButton id="n5" text="N" />
-                    <RadioButton id="na5" text="N/A" />
+                <RadioButtonGroup id="_IDGenRadioButtonGroup5" columns="3">
+                    <RadioButton id="y5" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="n5" text="N" width="100px"/>
+                    <RadioButton id="na5" text="N/A" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="abc" text=""/>
                 <DatePicker id="_IDGenDatePicker1" placeholder="Select Date" width="50%"/>
@@ -45,7 +45,7 @@
                 <Label id="asd" textAlign="Begin" text="Position"/>
                 <Input id="dog"/>
                 <Label id="dfg" textAlign="Begin" text="Date"/>
-                <DatePicker id="DP6" placeholder="Select Date" />
+                <DatePicker id="DP6" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>
@@ -57,15 +57,15 @@
                 <Label id="_IDGenLabel7" text="Position" width="100px"/>
                 <Input id="_IDGenInput21"/>
                 <Label id="_IDGenLabel8" text="Date" width="100px"/>
-                <DatePicker id="_IDGenDatePicker2" placeholder="Select Date"/>
+                <DatePicker id="_IDGenDatePicker2" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
             <!-- </VBox> -->
             <!-- <VBox id="_IDGenVBox2"> -->
-            <f:SimpleForm id="abc1" title="Risk Assesment">
-                <Label id="abc2" text="Who is reponsible for the change?"/>
-                <Input id="abc3" width="40%"/>
-                <Label id="abc4" text="Risk Assessment Date"/>
-                <DatePicker id="abc5" placeholder="Select Date" width="40%"/>
+            <f:SimpleForm id="abc1" title="Risk Assesment" width="700px">
+                <Label id="abc2" text="Who is reponsible for the change?" width="250px"/>
+                <Input id="abc3"/>
+                <Label id="abc4" text="Risk Assessment Date" width="250px"/>
+                <DatePicker id="abc5" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>
@@ -79,37 +79,54 @@
         </f:SimpleForm>
         <f:SimpleForm id="abc1313">
             <Text id="abc13" text="Risk Level"/>
-            <ComboBox id="people" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
-                <core:Item id="gen1" key="{key}" text="{text}" />
+            <ComboBox id="people">
+                <items>
+                    <core:Item text="Low" key="L" />
+                    <core:Item text="Medium" key="M" />
+                    <core:Item text="High" key="H" />
+                </items>
             </ComboBox>
-            <ComboBox id="env" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
-                <core:Item id="gen2" key="{key}" text="{text}" />
+            <ComboBox id="env">
+                <items>
+                    <core:Item text="Low" key="L" />
+                    <core:Item text="Medium" key="M" />
+                    <core:Item text="High" key="H" />
+                </items>
             </ComboBox>
-            <ComboBox id="prop" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
-                <core:Item id="gen3" key="{key}" text="{text}" />
+            <ComboBox id="prop">
+                <items>
+                    <core:Item text="Low" key="L" />
+                    <core:Item text="Medium" key="M" />
+                    <core:Item text="High" key="H" />
+                </items>
             </ComboBox>
-            <ComboBox id="plant" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
-                <core:Item id="gen4" key="{key}" text="{text}" />
+            <ComboBox id="plant">
+                <items>
+                    <core:Item text="Low" key="L" />
+                    <core:Item text="Medium" key="M" />
+                    <core:Item text="High" key="H" />
+                </items>
             </ComboBox>
         </f:SimpleForm>
     </VBox>
     <VBox id="vbox12">
         <!-- <l:Splitter id="split3"> -->
-        <f:SimpleForm id="abra" title="Summary of key mitigating actions">
-            <TextArea id="onam" maxLength="400"/>
-        </f:SimpleForm>
         <f:SimpleForm id="kadab" title="What manuals/procedures/drawings will need an update?">
             <TextArea id="boom" maxLength="400"/>
         </f:SimpleForm>
+        <f:SimpleForm id="abra" title="Summary of key mitigating actions">
+            <TextArea id="onam" maxLength="400"/>
+        </f:SimpleForm>
+
         <!-- </l:Splitter> -->
     </VBox>
     <VBox id="vbox13">
         <l:Splitter id="split4">
-            <f:SimpleForm id="bam" title="Identify persons/teams/vessels affected by change:">
+            <f:SimpleForm id="bam" title="Identify persons/teams affected by change:">
                 <TextArea id="badam" maxLength="400"/>
             </f:SimpleForm>
             <f:SimpleForm id="boon" title="What is target date of completion?">
-                <DatePicker id="date15" placeholder="Select date of completion" />
+                <DatePicker id="date15" placeholder="Select date of completion" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
         </l:Splitter>
         <f:SimpleForm id="mnb" title="What is estimated cost of change, including all mitigating measures?">
@@ -118,71 +135,71 @@
     </VBox>
     <VBox id="vbox14">
         <l:Splitter id="split6">
-            <f:SimpleForm id="tyu" title="Implementation">
+            <f:SimpleForm id="tyu" title="Implementation" width="500px">
                 <Label id="imp1" text="Mitigation measure completed"/>
-                <DatePicker id="date1" placeholder="" width="30%"/>
+                <DatePicker id="date1" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp2" text="Notification of change completed"/>
-                <DatePicker id="date2" placeholder="" width="30%"/>
+                <DatePicker id="date2" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp3" text="All appropriate manuals/procedures/drawings updated"/>
-                <DatePicker id="date3" placeholder="" width="30%"/>
+                <DatePicker id="date3" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp4" text="Appropriate training conducted"/>
-                <DatePicker id="date4" placeholder="" width="30%"/>
+                <DatePicker id="date4" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp5" text="Details of change communicated"/>
-                <DatePicker id="date5" placeholder="" width="30%"/>
+                <DatePicker id="date5" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp6" text="Change process completed"/>
-                <DatePicker id="date6" placeholder="" width="30%"/>
+                <DatePicker id="date6" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp7" text="Request for extension to target date"/>
-                <DatePicker id="date7" placeholder="" width="30%"/>
+                <DatePicker id="date7" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp8" text="Approval of extend target date, if applicable"/>
-                <DatePicker id="date8" placeholder="" width="30%"/>
+                <DatePicker id="date8" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp9" text="Additional requirements to extend target date completed"/>
-                <DatePicker id="date9" placeholder="" width="30%"/>
+                <DatePicker id="date9" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp10" text="Name"/>
                 <Input id="inp1"/>
                 <Label id="imp11" text="Position"/>
                 <Input id="inp2"/>
                 <Label id="imp12" text="Date"/>
-                <DatePicker id="date10" placeholder="" width="30%"/>
+                <DatePicker id="date10" placeholder="" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
             <f:SimpleForm id="fad" title="Review">
-                <Label id="imp13" text="Was change process followed"/>
+                <Label id="imp13" text="Was change process followed" textAlign="Begin"/>
                 <HBox id="rad1">
                     <RadioButtonGroup id="req1" columns="3">
-                        <RadioButton id="reqy1" text="Y" selected="true" />
-                        <RadioButton id="reqn1" text="N" />
-                        <RadioButton id="reqna1" text="N/A" />
+                        <RadioButton id="reqy1" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqn1" text="N" width="100px"/>
+                        <RadioButton id="reqna1" text="N/A" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp14" text="Was change effective?"/>
                 <HBox id="rad2">
                     <RadioButtonGroup id="req2" columns="3">
-                        <RadioButton id="reqy2" text="Y" selected="true" />
-                        <RadioButton id="reqn2" text="N" />
-                        <RadioButton id="reqna2" text="N/A" />
+                        <RadioButton id="reqy2" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqn2" text="N" width="100px"/>
+                        <RadioButton id="reqna2" text="N/A" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
-                <Label id="imp15" text="If no, identify actions required to be complated "/>
+                <Label id="imp15" text="If no, identify actions required to be completed "/>
                 <HBox id="rad3">
                     <RadioButtonGroup id="req3" columns="3">
-                        <RadioButton id="reqy3" text="Y" selected="true" />
-                        <RadioButton id="reqn3" text="N" />
-                        <RadioButton id="reqna3" text="N/A" />
+                        <RadioButton id="reqy3" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqn3" text="N" width="100px"/>
+                        <RadioButton id="reqna3" text="N/A" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp16" text="Was the management of change process effective?"/>
                 <HBox id="rad4">
                     <RadioButtonGroup id="req4" columns="3">
-                        <RadioButton id="reqy4" text="Y" selected="true" />
-                        <RadioButton id="reqn4" text="N" />
-                        <RadioButton id="reqna4" text="N/A" />
+                        <RadioButton id="reqy4" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqn4" text="N" width="100px"/>
+                        <RadioButton id="reqna4" text="N/A" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
-                <Label id="imp17" text="If no, identify amendments and initiate a chanmge to QMS"/>
+                <Label id="imp17" text="If no, identify amendments and initiate a change to QMS"/>
                 <HBox id="rad5">
                     <RadioButtonGroup id="req5" columns="3">
-                        <RadioButton id="reqy5" text="Y" selected="true" />
-                        <RadioButton id="reqn5" text="N" />
-                        <RadioButton id="reqna5" text="N/A" />
+                        <RadioButton id="reqy5" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqn5" text="N" width="100px"/>
+                        <RadioButton id="reqna5" text="N/A" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
             </f:SimpleForm>

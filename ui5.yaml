@@ -15,6 +15,11 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: http://ds4:44300
+            client: '110'
+            destination: DS4
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

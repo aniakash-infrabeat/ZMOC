@@ -10,17 +10,17 @@
         </headerContent>
         <IconTabBar id="idIconTabBarNoIcons">
             <items>
-                <IconTabFilter id="_IDGenIconTabFilter1" text="General" icon="sap-icon://company-view">
+                <IconTabFilter id="_IDGenIconTabFilter1" text="General" >
                     <core:Fragment fragmentName="moc.fragments.General" type="XML"/>
                 </IconTabFilter>
 
-                <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review" icon="sap-icon://approvals">
+                <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review">
                     <core:Fragment fragmentName="moc.fragments.approval" type="XML"/>
                 </IconTabFilter>
-                <IconTabFilter id="_IDGenIconTabFilter3" text="External Files" icon="sap-icon://sap-box">
+                <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
                     <core:Fragment fragmentName="moc.fragments.externalfiles" type="XML"/>
                 </IconTabFilter>
-                <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log" icon="sap-icon://notes"/>
+                <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log"/>
             </items>
         </IconTabBar>
         <content />

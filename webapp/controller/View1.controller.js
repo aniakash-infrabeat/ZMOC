@@ -6,7 +6,7 @@ sap.ui.define([
     "sap/ui/core/UIComponent"
 ],
 
-    function (Controller, _JSONModel, _FilterOperator, _Filter, _Fragment, _History, _UIComponent) {
+    function (Controller, JSONModel, FilterOperator, Filter, Fragment, History, UIComponent) {
         "use strict";
 
         return Controller.extend("moc.controller.View1", {
@@ -18,9 +18,78 @@ sap.ui.define([
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("View2");
             },
-            onRowSelect: function () {
+            onRowSelect: function (oEvent) {
+                var oSelectedItem = oEvent.getParameter("listItem");
+                var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2");
+                if (oSelectedRowData.Code) {
+                    oRouter.navTo("View2", { codeno: oSelectedRowData.Code});
+                }
+            },
+            onCodeVHPRequested: function () {
+                var oView = this.getView();
+
+                if (!this._codeValueHelpDialog) {
+                    this._codeValueHelpDialog = Fragment.load({
+                        id: oView.getId(),
+                        name: "moc.fragments.CodeValueHelp",
+                        controller: this
+                    }).then(function (oCodeValueHelpDialog) {
+                        oView.addDependent(oCodeValueHelpDialog);
+                        return oCodeValueHelpDialog;
+                    });
+                }
+                this._codeValueHelpDialog.then(function (oCodeValueHelpDialog) {
+                    //this._configPantValueHelpDialog();
+                    oCodeValueHelpDialog.open();
+                }.bind(this));
+            },
+            onCodeSearch: function (oEvent) {
+                var sValue = oEvent.getParameter("value");
+                var oFilter = new sap.ui.model.Filter("Code", sap.ui.model.FilterOperator.Contains, sValue);
+                var oBinding = oEvent.getParameter("itemsBinding");
+                oBinding.filter([oFilter]);
+            },
+            onCodeValueHelpDialogClose: function (oEvent) {
+                var oSelectedItems = oEvent.getParameter("selectedItems"),
+                    oInput = this.byId("filterReport");
+
+                if (!oSelectedItems) {
+                    oInput.resetProperty("value");
+                    return;
+                } else {
+                    oInput.setValue(oSelectedItems[0].getTitle())
+                }
+            },
+            onPlantVHRequested: function () {
+                var oView = this.getView();
+
+                if (!this._plantValueHelpDialog) {
+                    this._plantValueHelpDialog = Fragment.load({
+                        id: oView.getId(),
+                        name: "moc.fragments.PlantValueHelp",
+                        controller: this
+                    }).then(function (oPlantValueHelpDialog) {
+                        oView.addDependent(oPlantValueHelpDialog);
+                        return oPlantValueHelpDialog;
+                    });
+                }
+                this._plantValueHelpDialog.then(function (oPlantValueHelpDialog) {
+                    //this._configPantValueHelpDialog();
+                    oPlantValueHelpDialog.open();
+                }.bind(this));
+            },
+            onPlantValueHelpDialogClose: function (oEvent) {
+                var aToken = [];
+                var oSelectedItems = oEvent.getParameter("selectedItems"),
+                    oInput = this.byId("filterPlant");
+
+                if (!oSelectedItems) {
+                    oInput.resetProperty("value");
+                    return;
+                } else {
+                    oInput.setValue(oSelectedItems[0].getTitle())
+                }
             }
             // ,
             // onBeforeRebindTable: function (oEvent) {

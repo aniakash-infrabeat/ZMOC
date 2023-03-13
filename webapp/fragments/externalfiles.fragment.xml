@@ -6,20 +6,20 @@
     xmlns="sap.m"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <!-- <l:VerticalLayout id="_IDGenVerticalLayout1"> -->
-    <VBox id="vbox1" class="sapUiSmallMargin">
-        <f:SimpleForm id="externalfile" width="500px" title="Attachment Details" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+    <VBox id="vbox1" class="sapUiLargeMarginEnd">
+        <f:SimpleForm id="externalfile" title="Attachment Details" editable="true" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" layout="ResponsiveGridLayout">
             <Label id="addedby" text="Added By"/>
-            <Input id="addedin" width="370px"/>
+            <Input id="addedin"/>
             <Label id="comment" text="Comments"/>
-            <TextArea id="comments" rows="2" height="70px"/>
+            <TextArea id="comments" placeholder="" rows="2"/>
+         </f:SimpleForm>
          
-         
+        <up:UploadSet id="attachmentUpl" icon="sap-icon://upload-to-cloud" instantUpload="false" maxFileSize="2" noDataDescription="" noDataText="" selectionChanged="onSelectionChangeAttachment" uploadCompleted="onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILE" visible="true" beforeUploadStarts="onBeforeUploadStarts" fileTypes="pdf,doc,docx,docm,ppt,pptx,xls,xlsx,jpg,jpeg,png,txt" fileTypeMismatch="onFileTypeMismatch" fileSizeExceeded="onFileSizeExceeded">
+        </up:UploadSet>   
+            <!-- <u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_FILESet" uploadComplete="handleUploadComplete" width="100px" icon="sap-icon://browse-folder"/> -->
+            <!-- <Button id="upload" text="Upload File" press="handleUploadPress" icon="sap-icon://upload-to-cloud"/> -->
+           
         
-           
-            <u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_FILESet" uploadComplete="handleUploadComplete" width="100px" icon="sap-icon://browse-folder"/>
-            <Button id="upload" text="Upload File" press="handleUploadPress" icon="sap-icon://upload-to-cloud"/>
-           
-        </f:SimpleForm>
    </VBox>
     <!-- </l:VerticalLayout> -->
 </core:FragmentDefinition>

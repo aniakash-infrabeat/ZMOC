@@ -17,15 +17,15 @@
                 <smartFilterBar:controlConfiguration>
                     <smartFilterBar:ControlConfiguration id="codeno" key="Code" visibleInAdvancedArea="true">
                         <smartFilterBar:customControl>
-                            <MultiInput id="filterReport" valueHelpRequest=".onReportReqVHRequested">
+                            <MultiInput id="filterCode" valueHelpRequest=".onCodeVHPRequested">
                             </MultiInput>
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
 
                     <smartFilterBar:ControlConfiguration id="status" key="Status" visibleInAdvancedArea="true">
                         <smartFilterBar:customControl>
-                            <ComboBox id="statusComboBox" change="handleChange" items="{path:'/StatusSet',filters:[{path : 'AppType',operator : 'EQ',value1:'NM'}]}" selectionChange="customFieldChange">
-                                <core:Item id="_IDGenItem2" key="{Status}" text="{Status}"/>
+                            <ComboBox id="statusComboBox" change="handleChange" items="{path:'/ZMOC_STATUSSet'}" selectionChange="customFieldChange">
+                                <core:Item id="_IDGenItem2" key="Status" text="{Status}"/>
                             </ComboBox>
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
@@ -47,21 +47,7 @@
             </smartFilterBar:SmartFilterBar>
         </VBox>
 
-        <!-- <VBox id="hbox1" class="sapUiSmallMargin">
-            <f:SimpleForm id="simp1" editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4">
-                <Label id="reportno" text="Report Number"/>
-                <TextArea id="reportnotxt" width="250px" height="15px"/>
-                <Label id="reportstat" text="Report Status"/>
-                <ComboBox id="ComboBox1" width="250px" items="{path: '/reportstats',sorter: { path: 'text' }}">
-                    <core:Item id="_IDGenItem1" key="{key}" text="{text}" />
-                </ComboBox>
-                <Label id="plant" text="Plant"/>
-                <TextArea id="planttxt" width="250px" height="15px"/>
-                <Label id="createdat" text="Created Date"/>
-                <DatePicker id="created" placeholder="Select Date" width="250px"/>
-            </f:SimpleForm>
-        </VBox> -->
-        <smartTable:SmartTable id="ReportSmartTable" beforeRebindTable="onBeforeRebindTable" entitySet="ZMOC_DETSet" smartFilterId="reportSmartFilterBar" tableType="ResponsiveTable" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" showTablePersonalisation="true" header="Reports" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding">
+        <smartTable:SmartTable id="ReportSmartTable" beforeRebindTable="onBeforeRebindTable" entitySet="ZMOC_DETSet" smartFilterId="smartFilterBar" tableType="ResponsiveTable" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" showTablePersonalisation="true" header="Reports" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding">
 
             <smartTable:customToolbar>
                 <OverflowToolbar id="otoolbar" design="Transparent">

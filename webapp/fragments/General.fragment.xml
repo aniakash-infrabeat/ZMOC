@@ -4,20 +4,17 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:html="http://www.w3.org/1999/xhtml">
-
-
-
-    <VBox id="_IDGenVB2" class="sapUiSmallMargin">
+<VBox id="_IDGenVB2" class="sapUiSmallMargin">
         <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
-            <Input id="_IDGenInput1"/>
-            <Label id="_IDGenText2" text="Object of Change" />
+            <Input id="_IDGenInput1" value="{ZMOC_DETSet>/Code}"/>
+            <Label id="_IDGenText2" text="Object of Change" value="{ZMOC_DETSet>/ObjOfChange}"/>
             <Input id="_IDGenInput2"/>
-            <Label id="_IDGenText3" text="Request Date" />
+            <Label id="_IDGenText3" text="Request Date" value="{ZMOC_DETSet>/RequestDate}"/>
             <DatePicker id="DP1" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />
-            <Input id="_IDGenInput3"/>
+            <Input id="_IDGenInput3" value="{ZMOC_DETSet>/RequestedBy}"/>
             <!-- </f:content> -->
             <!-- </f:SimpleForm> -->
             <!-- </VBox> -->
@@ -25,11 +22,11 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm2" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText5" text="Created by" />
-            <Input id="_IDGenInput4"/>
+            <Input id="_IDGenInput4" value="{ZMOC_DETSet>/CreatedBy}"/>
             <Label id="_IDGenText6" text="Department" />
-            <Input id="_IDGenInput5" />
+            <Input id="_IDGenInput5" value="{ZMOC_DETSet>/Department}"/>
             <Label id="_IDGenText7" text="Change of Date" />
-            <DatePicker id="DP2" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
+            <DatePicker id="DP2" placeholder="Select Date" value="{ZMOC_DETSet>/ChangeDate}" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText8" text="Type of Change"/>
             <ComboBox>
                 <items>
@@ -47,7 +44,7 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm3" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText9" text="Status" />
-            <Input id="_IDGenInput9" />
+            <Input id="_IDGenInput9" value="{ZMOC_DETSet>/Status}"/>
             <Label id="_IDGenText10" text="Security Attribute" visible="false"/>
             <Input id="_IDGenInput10" visible="false"/>
             <!-- </f:content> -->
@@ -69,31 +66,27 @@
     <VBox>
         <HBox>
             <CheckBox id="org" text="Organisation" selected="false" class="sapUiLargeMarginEnd"/>
-            <Text text=" "/>
-
-            <CheckBox id="personnel" text="Personnel" selected="false"/>
-            <Text text=" "/>
-            <CheckBox id="system" text="System" selected="false"/>
-            <Text text=" "/>
-            <CheckBox id="process" text="Process/Procedure" selected="false"/>
+            <CheckBox id="personnel" text="Personnel" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="system" text="System" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="process" text="Process/Procedure" selected="false" class="sapUiLargeMarginEnd"/>
         </HBox>
         <HBox>
-            <CheckBox id="rig" text="Rig" selected="false" />
-            <CheckBox id="equip" text="Equipment" selected="false"/>
-            <CheckBox id="material" text="Material" selected="false"/>
-            <CheckBox id="lawandreg" text="Laws and regulation" selected="false"/>
+            <CheckBox id="rig" text="Rig" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="equip" text="Equipment" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="material" text="Material" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="lawandreg" text="Laws and regulation" selected="false" class="sapUiLargeMarginEnd"/>
         </HBox>
     </VBox>
     <VBox id="def">
         <l:Splitter id="split1">
             <f:SimpleForm id="jkl" title="Details of Change:">
-                <TextArea id="mno" maxLength="400" height="150px"/>
+                <TextArea id="mno" maxLength="400" height="150px" value="{ZMOC_DETSet>/DetailsOfChange}"/>
             </f:SimpleForm>
             <f:SimpleForm id="ghi" title="Reason for Change:">
-                <TextArea id="pqr" maxLength="400" height="150px"/>
+                <TextArea id="pqr" maxLength="400" height="150px" value="{ZMOC_DETSet>/ReasonOfChange}"/>
             </f:SimpleForm>
             <f:SimpleForm id="stu" title="Proposed timeline for Change">
-                <TextArea id="vwx" maxLength="400" height="150px"/>
+                <TextArea id="vwx" maxLength="400" height="150px" value="{ZMOC_DETSet>/ProposeChange}"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>

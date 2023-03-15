@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No Plant"
+		title="Select Plant"
+		search=".onPlantSearch"
+		multiSelect="false"
+		confirm=".onPlantValueHelpDialogClose"
+		cancel=".onPlantValueHelpDialogClose"
+		showClearButton="false"
+		items="{
+			path: '/ZMOC_PLANTSet',
+			sorter: {
+				path: 'Plant',
+				descending: false
+			}
+		}">
+		<StandardListItem
+			title="{Plant}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

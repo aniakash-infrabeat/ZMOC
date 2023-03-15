@@ -13,6 +13,12 @@ sap.ui.define([
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
             },
+
+            _onRouteMatched: function(oEvent){
+                var Code = oEvent.getParameter("arguments").codeno;
+                
+        
+            },
             
             onNavBack: function () {
                 var oHistory = History.getInstance();
@@ -24,13 +30,44 @@ sap.ui.define([
                     var oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("View1", {}, true);
                 }
-            }
-        });
-        // function (oEvent) { _onRouteMatched
+            },
 
-        //     this.ReportModel = this.getView().getModel("ReportModel");
-        //     this.ReportId = oEvent.getParameter("arguments").codeno;
-        // };
-        
-       
+            // getEmptyReportModel: function () {
+            //     var oEntity = {
+            //         "Code": "VK",
+            //         "ObjOfChange": "",
+            //         "RequestDate": "",
+            //         "RequestedBy": "",
+            //         "CreatedBy": "",
+            //         "Department": "",
+            //         "Status": "",
+            //         "DetailsOfChange": "",
+            //         "ReasonOfChange": "",
+            //         "ProposeChange":"",
+            //     };
+            //     return oEntity;
+            // },
+            // setDefaultModel: function () {
+            //     var oModel = new sap.ui.model.json.JSONModel(this.getEmptyReportModel());
+            //     oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
+            //     this.getView().setModel(oModel, "ReportModel");
+            // },
+            // function (oEvent) { _onRouteMatched
+
+               
+            // this.ReportModel = this.getView().getModel("ReportModel");
+            // this.ReportId = oEvent.getParameter("arguments").codeno;
+            // if (this.ReportId) {
+            //     this.bindData(this.ReportId);
+            // } else {
+            //     this.ReportModel.setData(this.getEmptyReportModel());
+                
+            // }
+
+
+            // },
+
+            
+
+        });
     });

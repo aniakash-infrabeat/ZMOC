@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_MOC_DATA_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZMOC_RISK_LEVEL" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DocumentNo"/>
+                </Key>
+                <Property Name="DocumentNo" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Document No" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RiskLevel" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_EXT_FILE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                    <PropertyRef Name="Filename"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="256" sap:unicode="false" sap:label="File Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Doccontent" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Accident/ Incident Doc Content" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docadd" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Accident/ Incident Doc Added By" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docpara" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Accident/ Incident Doc Parameter 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docdesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Accident/ Incident Doc Desc 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Mime Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Accident/ Incident Document Sr. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_FILE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                    <PropertyRef Name="Filename"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="256" sap:unicode="false" sap:label="File Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Doccontent" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Accident/ Incident Doc Content" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docadd" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Accident/ Incident Doc Added By" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docpara" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Accident/ Incident Doc Parameter 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docdesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Accident/ Incident Doc Desc 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Mime Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createddate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Createdtime" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Field of type TIMS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Accident/ Incident Document Sr. No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="F4_Code" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_DET" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="RequestedBy" Type="Edm.String" Nullable="false" MaxLength="150" sap:unicode="false" sap:label="Requested By" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Change Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjOfChange" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Object of Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Created By" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeOfChange" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Type of Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Request Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Department" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Status" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ChngTitleOrg" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for Organization" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitlePerson" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for Person" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitleSys" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for System" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitlePro" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for Process" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitleRig" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title For Rig" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitleEqui" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for Equipment" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitleMat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Change Title for Material" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChngTitleLaws" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="ChangeTitle for Laws" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DetailsOfChange" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Details of Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReasonOfChange" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Reason for Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProposeChange" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Propose Timeline For Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PersonName" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Person Name" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PersonPosition" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Responsible Person position" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PersonDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Person Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApprovalName" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Approval Name" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApprovalPos" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Approval Position" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApprovalDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Approval Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RiskChange" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Assessment Responsible Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RiskDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Risk Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="People" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Environment" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RiskPlant" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Risk Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Summary" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Summary of key Actions" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcUpdate" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Procedure Update" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AffectChange" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Affected By Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompletionDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Completion Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstimateCost" Type="Edm.String" Nullable="false" MaxLength="400" sap:unicode="false" sap:label="Estimate Cost" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpMigration" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Migration Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpNotification" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Notification Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpUpdated" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Updated Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpConducted" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Conducted Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpCommunicated" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Communicated Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpCompleted" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Completed Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpTargetDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Target Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpApprovalDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Approval Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpExtendDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Extend Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpName" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Implemantation Name" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpPosition" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Implementation Posit" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ImpDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Title" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Created Date" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ModifiedDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Modified Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppDetChange" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Approval Detail of Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppReasonChange" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Approval Reason of Change" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppNecessary" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Approval Necessary" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppRiskApproval" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Risk Approval" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppRiskComplete" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Approval Risk Completed" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AppRiskDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Risk Date" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewProcess" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Review Process" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewEffective" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Review Effective" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewComplete" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Review Complete" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewMgmt" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Review Management" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewQMS" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Review QMS" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_TYPE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DocumentNo"/>
+                </Key>
+                <Property Name="DocumentNo" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Document No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeOfChange" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Type of Change" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_PLANT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_DOCUMENTNO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZMOC_STATUS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Code" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_MOC_DATA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZMOC_RISK_LEVELSet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_RISK_LEVEL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_EXT_FILESet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_EXT_FILE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_FILESet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_FILE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="F4_CodeSet" EntityType="ZGW_MOC_DATA_SRV.F4_Code" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_DETSet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_DET" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_TYPESet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_TYPE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_PLANTSet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_PLANT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_DOCUMENTNOSet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_DOCUMENTNO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZMOC_STATUSSet" EntityType="ZGW_MOC_DATA_SRV.ZMOC_STATUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://vhfgsds4ci.hec.foresight-group.com:44300/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="https://vhfgsds4ci.hec.foresight-group.com:44300/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

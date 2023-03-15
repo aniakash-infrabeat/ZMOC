@@ -19,13 +19,12 @@ sap.ui.define([
                 oRouter.navTo("View2");
             },
             onRowSelect: function (oEvent) {
-                var oSelectedItem = oEvent.getParameter("listItem");
-                var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
-                var oRouter = this.getOwnerComponent().getRouter();
-                if (oSelectedRowData.Code) {
-                    oRouter.navTo("View2", { codeno: oSelectedRowData.Code});
-                }
+                var oContext = oEvent.getParameter("listItem").getBindingContext().getObject();
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("View2", { codeno: oContext.Code });
             },
+            
+
             onCodeVHPRequested: function () {
                 var oView = this.getView();
 
@@ -50,17 +49,25 @@ sap.ui.define([
                 var oBinding = oEvent.getParameter("itemsBinding");
                 oBinding.filter([oFilter]);
             },
+            onPlantSearch: function (oEvent) {
+                var sValue = oEvent.getParameter("value");
+                var oFilter = new sap.ui.model.Filter("Plant", sap.ui.model.FilterOperator.Contains, sValue);
+                var oBinding = oEvent.getParameter("itemsBinding");
+                oBinding.filter([oFilter]);
+            },
             onCodeValueHelpDialogClose: function (oEvent) {
-                var oSelectedItems = oEvent.getParameter("selectedItems"),
-                    oInput = this.byId("filterReport");
+                var aToken = [];
+                var oSelectedItems = oEvent.getParameter("selectedItems");
+                var oInput = this.getView().byId("filterCode");
 
                 if (!oSelectedItems) {
                     oInput.resetProperty("value");
                     return;
                 } else {
-                    oInput.setValue(oSelectedItems[0].getTitle())
+                    oInput.setValue(oSelectedItems[0].getTitle());
                 }
             },
+
             onPlantVHRequested: function () {
                 var oView = this.getView();
 
@@ -81,14 +88,14 @@ sap.ui.define([
             },
             onPlantValueHelpDialogClose: function (oEvent) {
                 var aToken = [];
-                var oSelectedItems = oEvent.getParameter("selectedItems"),
-                    oInput = this.byId("filterPlant");
+                var oSelectedItems = oEvent.getParameter("selectedItems");
+                var oInput = this.getView().byId("filterPlant");
 
                 if (!oSelectedItems) {
-                    oInput.resetProperty("value");
+                   oInput.resetProperty("value");
                     return;
                 } else {
-                    oInput.setValue(oSelectedItems[0].getTitle())
+                   oInput.setValue(oSelectedItems[0].getTitle());
                 }
             }
             // ,

@@ -9,10 +9,10 @@
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
             <Input id="_IDGenInput1" value="{ZMOC_DETSet>/Code}"/>
-            <Label id="_IDGenText2" text="Object of Change" value="{ZMOC_DETSet>/ObjOfChange}"/>
-            <Input id="_IDGenInput2"/>
-            <Label id="_IDGenText3" text="Request Date" value="{ZMOC_DETSet>/RequestDate}"/>
-            <DatePicker id="DP1" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
+            <Label id="_IDGenText2" text="Object of Change"/>
+            <Input id="_IDGenInput2" value="{ZMOC_DETSet>/ObjOfChange}"/>
+            <Label id="_IDGenText3" text="Request Date" />
+            <DatePicker id="DP1" placeholder="Select Date" value="{ZMOC_DETSet>/RequestDate}" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />
             <Input id="_IDGenInput3" value="{ZMOC_DETSet>/RequestedBy}"/>
             <!-- </f:content> -->

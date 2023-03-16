@@ -11,7 +11,7 @@
         <IconTabBar id="idIconTabBarNoIcons">
             <items>
                 <IconTabFilter id="_IDGenIconTabFilter1" text="General">
-                    <core:Fragment fragmentName="moc.fragments.General" type="XML" binding="{path:'ZMOC_DETSet'}"/>
+                    <core:Fragment fragmentName="moc.fragments.General" id="generalfrag" type="XML" binding="{path:'ZMOC_DETSet'}"/>
                 </IconTabFilter>
 
                 <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review">

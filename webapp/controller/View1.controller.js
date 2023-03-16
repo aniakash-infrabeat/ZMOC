@@ -19,9 +19,17 @@ sap.ui.define([
                 oRouter.navTo("View2");
             },
             onRowSelect: function (oEvent) {
-                var oContext = oEvent.getParameter("listItem").getBindingContext().getObject();
+            
+                var oSelectedItem = oEvent.getParameter("listItem");
+                var oContext = oSelectedItem.getBindingContext();
+                var oData = oContext.getObject();
+
+                var oModel = new JSONModel();
+                oModel.setData(oData);
+                this.getOwnerComponent().setModel(oModel, "selectedData");
+                
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("View2", { codeno: oContext.Code });
+                oRouter.navTo("View2");
             },
             
 

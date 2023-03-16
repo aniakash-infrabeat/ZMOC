@@ -98,48 +98,44 @@ sap.ui.define([
                    oInput.setValue(oSelectedItems[0].getTitle());
                 }
             }
-            // ,
-            // onBeforeRebindTable: function (oEvent) {
-            //     var oBindingParams = oEvent.getParameter("bindingParams");
-            //     var oSmartTable = oEvent.getSource();
-            //     var sFilterValue;
-            //     var oFilter = new sap.ui.model.Filter("TYPE", sap.ui.model.FilterOperator.EQ, "NM");
-            //     oBindingParams.filters.push(oFilter);
+            ,
+            onBeforeRebindTable: function (oEvent) {
+                var oBindingParams = oEvent.getParameter("bindingParams");
+                var oSmartTable = oEvent.getSource();
+                var sFilterValue;
+                var oSmartFilterBar = this.byId(oSmartTable.getSmartFilterId());
 
-            //     var oSmartFilterBar = this.byId(oSmartTable.getSmartFilterId());
-            //     var oCustomControl = oSmartFilterBar.getControlByKey("Code");
-            //     if (oCustomControl) {
-            //         sFilterValue = oCustomControl.getValue();
-            //         if (sFilterValue) {
-            //             oBindingParams.filters.push(new sap.ui.model.Filter("Code", "EQ", sFilterValue))
-            //         }
-            //     }
-            //     oCustomControl = oSmartFilterBar.getControlByKey("Status");
-            //     if (oCustomControl) {
-            //         //sFilterValue = oCustomControl.getTokens();
-            //         sFilterValue = oCustomControl.getValue();
-            //         if (sFilterValue) {
-            //             oBindingParams.filters.push(new sap.ui.model.Filter("Status", "EQ", sFilterValue));
-            //         }
-            //     }
-            //     oCustomControl = oSmartFilterBar.getControlByKey("Plant");
-            //     if (oCustomControl) {
-            //         //sFilterValue = oCustomControl.getTokens();
-            //         sFilterValue = oCustomControl.getValue();
-            //         if (sFilterValue) {
-            //             oBindingParams.filters.push(new sap.ui.model.Filter("Plant", "EQ", sFilterValue));
-            //         }
-            //     }
-            //     oCustomControl = oSmartFilterBar.getControlByKey("CreatedDate");
-            //     if (oCustomControl) {
-            //         //sFilterValue = oCustomControl.getTokens();
-            //         sFilterValue = oCustomControl.getValue();
-            //         if (sFilterValue) {
-            //             var sSelectedDate = new Date(new Date(sFilterValue).toDateString());
-            //             oBindingParams.filters.push(new sap.ui.model.Filter("CreatedDate", "EQ", sSelectedDate));
-            //         }
-            //     }
+                               // Custom control for Smart Filter Bar //
+                var oCustomControl = oSmartFilterBar.getControlByKey("Code");
+                if (oCustomControl) {
+                    sFilterValue = oCustomControl.getValue();
+                    if (sFilterValue) {
+                        oBindingParams.filters.push(new sap.ui.model.Filter("Code", "EQ", sFilterValue))
+                    }
+                }
+                oCustomControl = oSmartFilterBar.getControlByKey("Status");
+                if (oCustomControl) {
+                    sFilterValue = oCustomControl.getValue();
+                    if (sFilterValue) {
+                        oBindingParams.filters.push(new sap.ui.model.Filter("Status", "EQ", sFilterValue));
+                    }
+                }
+                oCustomControl = oSmartFilterBar.getControlByKey("Plant");
+                if (oCustomControl) {
+                    sFilterValue = oCustomControl.getValue();
+                    if (sFilterValue) {
+                        oBindingParams.filters.push(new sap.ui.model.Filter("Plant", "EQ", sFilterValue));
+                    }
+                }
+                oCustomControl = oSmartFilterBar.getControlByKey("CreatedDate");
+                if (oCustomControl) {
+                    sFilterValue = oCustomControl.getValue();
+                    if (sFilterValue) {
+                        var sSelectedDate = new Date(new Date(sFilterValue).toDateString());
+                        oBindingParams.filters.push(new sap.ui.model.Filter("CreatedDate", "EQ", sSelectedDate));
+                    }
+                }
 
-            // },
+            },
         });
     });

@@ -15,23 +15,26 @@ sap.ui.define([
             },
 
             onCreateNewReport: function () {
+                var code_input = null;
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2");
+                oRouter.navTo("View2",{codeno:code_input});
+
             },
             onRowSelect: function (oEvent) {
-            
+
                 var oSelectedItem = oEvent.getParameter("listItem");
                 var oContext = oSelectedItem.getBindingContext();
                 var oData = oContext.getObject();
+                var code_input = oData.Code;
 
-                var oModel = new JSONModel();
-                oModel.setData(oData);
-                this.getOwnerComponent().setModel(oModel, "selectedData");
-                
+                // var oModel = new JSONModel();
+                // oModel.setData(oData);
+                // this.getOwnerComponent().setModel(oModel, "selectedData");
+
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("View2");
+                oRouter.navTo("View2", {codeno:code_input});
             },
-            
+
 
             onCodeVHPRequested: function () {
                 var oView = this.getView();
@@ -100,10 +103,10 @@ sap.ui.define([
                 var oInput = this.getView().byId("filterPlant");
 
                 if (!oSelectedItems) {
-                   oInput.resetProperty("value");
+                    oInput.resetProperty("value");
                     return;
                 } else {
-                   oInput.setValue(oSelectedItems[0].getTitle());
+                    oInput.setValue(oSelectedItems[0].getTitle());
                 }
             }
             ,
@@ -113,7 +116,7 @@ sap.ui.define([
                 var sFilterValue;
                 var oSmartFilterBar = this.byId(oSmartTable.getSmartFilterId());
 
-                               // Custom control for Smart Filter Bar //
+                // Custom control for Smart Filter Bar //
                 var oCustomControl = oSmartFilterBar.getControlByKey("Code");
                 if (oCustomControl) {
                     sFilterValue = oCustomControl.getValue();

@@ -11,21 +11,11 @@ sap.ui.define([
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
 
-      // var fragmentId = this.getView().createId("generalfrag");
-      // var oCodeInput = Fragment.byId(fragmentId, "_IDGenInput1");
-      // if (oCodeInput !== null) {
-      //     oCodeInput.setValue("");
-      //     oCodeInput.setEditable(false);
-      //  }
-
-      // var oModel = this.getOwnerComponent().getModel("selectedData");
-      //  if (oModel === null) {
-      // var fragmentId = oView.createId("generalfrag");
-      // var oCodeInput = Fragment.byId(fragmentId, "_IDGenInput1");
-      // oCodeInput.setValue("");
-      // oCodeInput.setEditable(true);
-      // }
     },
+    // onExit: function()
+    // {
+    //   this.getView().destroy();
+    // },
 
     onNavBack: function () {
       var oHistory = History.getInstance();
@@ -38,13 +28,6 @@ sap.ui.define([
         oRouter.navTo("View1", {}, true);
         this.getOwnerComponent().setModel(null, "selectedData");
 
-        // var oView = this.getView();
-        // var fragmentId = oView.createId("generalfrag");
-        // var oCodeInput = Fragment.byId(fragmentId, "_IDGenInput1");
-        // if (oCodeInput !== null) {
-        //     oCodeInput.setValue("");
-        //     oCodeInput.setEditable(true);
-        //  }
       }
     },
     _onRouteMatched: function (oEvent) {
@@ -72,71 +55,55 @@ sap.ui.define([
         }
       }
     },
+    onSave: function () {
+      var codei = this.byId(Fragment.createId("generalfrag","_IDGenInput1")).getValue();
+      var objc = this.byId(Fragment.createId("generalfrag","_IDGenInput2")).getValue();
+      var reqd = this.byId(Fragment.createId("generalfrag","DP1")).getValue();
+      var reqb = this.byId(Fragment.createId("generalfrag","_IDGenInput3")).getValue();
+      var toc = this.byId(Fragment.createId("generalfrag","typeofc")).getValue();
+      var creb = this.byId(Fragment.createId("generalfrag","_IDGenInput4")).getValue();
+      var dept = this.byId(Fragment.createId("generalfrag","_IDGenInput5")).getValue();
+      var cod = this.byId(Fragment.createId("generalfrag","DP2")).getValue();
+      var stat = this.byId(Fragment.createId("generalfrag","_IDGenInput9")).getValue();
+      //Checkboxes
+      var checkb1 = this.byId(Fragment.createId("generalfrag","org")).getSelected();
+      var checkb2 = this.byId(Fragment.createId("generalfrag","personnel")).getSelected();
+      var checkb3 = this.byId(Fragment.createId("generalfrag","system")).getSelected();
+      var checkb4 = this.byId(Fragment.createId("generalfrag","process")).getSelected();
+      var checkb5 = this.byId(Fragment.createId("generalfrag","rig")).getSelected();
+      var checkb6 = this.byId(Fragment.createId("generalfrag","equip")).getSelected();
+      var checkb7 = this.byId(Fragment.createId("generalfrag","material")).getSelected();
+      var checkb8 = this.byId(Fragment.createId("generalfrag","lawandreg")).getSelected();
+      //Text Areas
+      var doc = this.byId(Fragment.createId("generalfrag","mno")).getValue();
+      var rfc = this.byId(Fragment.createId("generalfrag","pqr")).getValue();
+      var ptfc = this.byId(Fragment.createId("generalfrag","vwx")).getValue();
+    
+      var oData1 = {};
+
+      oData1.Code = codei;
+      oData1.ObjOfChange = objc;
+      oData1.RequestDate = reqd;
+      oData1.RequestedBy = reqb;
+      oData1.TypeOfChange = toc;
+      oData1.CreatedBy = creb;
+      oData1.Department = dept;
+      oData1.ChangeDate = cod;
+      oData1.Status = stat;
+      // oData1. = checkb1;
+      // oData1. = checkb2;
+      // oData1. = checkb3;
+      // oData1. = checkb4;
+      // oData1. = checkb5;
+      // oData1. = checkb6;
+      // oData1. = checkb7;
+      // oData1. = checkb8;
+      oData1.DetailsOfChange = doc;
+      oData1.ReasonOfChange = rfc;
+      oData1.ProposeChange = ptfc;
 
 
-    // _onRouteMatched: function () {
-    //   var oModel = this.getOwnerComponent().getModel("selectedData");
-    //   if (oModel !==""){
-
-
-    //   var oData = oModel.getData();
-    //   var oView = this.getView();
-    //   var fragmentId = this.getView().createId("generalfrag");
-    //   var oCodeInput = Fragment.byId(fragmentId, "_IDGenInput1");
-    //   //  if (oCodeInput !== "") {
-    //               // sap.ui.getCore().byId("_IDGenInput1").setValue(Code);
-    //               // sap.ui.getCore().byId("_IDGenInput1").setEditable(false);
-    //               oCodeInput.setValue(oData.Code);
-    //               oCodeInput.setEditable(false);}
-    //           // }
-    //           else {
-    //               // sap.ui.getCore().byId("_IDGenInput1").setEditable(true);
-    //               oCodeInput.setEditable(true);
-    //           }
-    //   // var oFragment = sap.ui.getCore().byId("generalfrag");
-    //   // var oCodeInput = oFragment.byId("_IDGenInput1");
-    //   // oCodeInput.byId("generalfrag", "_IDGenInput1")?.setValue(oData.Code);
-    //   // oCodeInput.setValue(oData.Code);
-    // },
-    // _onRouteMatched: function ()  {
-    //     var oModel = this.getOwnerComponent().getModel("selectedData");
-    //     var oData = oModel.getData();
-    //     var oView = this.getView();
-    //     var pFragmentLoaded = new Promise(function(resolve, reject) {
-    //       var oFragment = oView.byId("generalfrag");
-    //       if (oFragment) {
-    //         resolve(oFragment);
-    //       } else {
-    //         Fragment.load({
-    //           id: oView.getId(),
-    //           name: "moc.fragments.General",
-    //           controller: this
-    //         }).then(function(oFragment) {
-    //           oView.addDependent(oFragment);
-    //           resolve(oFragment);
-    //         });
-    //       }
-    //     }.bind(this));
-    //     pFragmentLoaded.then(function(oFragment) {
-    //       var oCodeInput = sap.ui.core.Fragment.byId("generalfrag", "_IDGenInput1");
-    //       oCodeInput.setValue(oData.Code);
-    //     });
-    //   },
-    // _onRouteMatched: function () {
-    //   var oModel = this.getOwnerComponent().getModel("selectedData");
-    //   var oData = oModel.getData();
-    //   var oView = this.getView();
-    //   var oFragment = sap.ui.core.Fragment.byId("idIconTabBarNoIcons", "generalfrag");
-    //   Fragment.load({
-    //     id: oView.getId(),
-    //     name: "moc.view.General",
-    //     controller: this
-    //   }).then(function(oFragment) {
-    //     oView.addContent(oFragment);
-    //     var oCodeInput = oFragment.byId("_IDGenInput1");
-    //     oCodeInput.setValue(oData.Code);
-    //   });
-    // },
+    },
 
   });
 });

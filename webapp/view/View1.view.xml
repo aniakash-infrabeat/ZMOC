@@ -10,7 +10,7 @@
     <Page id="page" title="{i18n>title}">
         <headerContent>
             <Image id="image1" src="/images/logo_forc.png" height="35px"/>
-            <Image id="image2" src="/images/infrabeat.png" height="20px"/>
+            <!-- <Image id="image2" src="/images/infrabeat.png" height="20px"/> -->
         </headerContent>
         <VBox id="smartfilter">
             <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZMOC_DETSet" persistencyKey="SmartFilter_Explored">

@@ -4,7 +4,7 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:html="http://www.w3.org/1999/xhtml">
-<VBox id="_IDGenVB2" class="sapUiSmallMargin">
+    <VBox id="_IDGenVB2" class="sapUiSmallMargin">
         <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
@@ -12,7 +12,7 @@
             <Label id="_IDGenText2" text="Object of Change"/>
             <Input id="_IDGenInput2" />
             <Label id="_IDGenText3" text="Request Date" />
-            <DatePicker id="DP1" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
+            <DatePicker id="DP1" placeholder="Select Date" valueFormat="yyyy-mm-dd" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />
             <Input id="_IDGenInput3"/>
             <!-- </f:content> -->
@@ -26,7 +26,7 @@
             <Label id="_IDGenText6" text="Department" />
             <Input id="_IDGenInput5"/>
             <Label id="_IDGenText7" text="Change of Date" />
-            <DatePicker id="DP2" placeholder="Select Date" valueFormat="dd.MM.yyyy" displayFormat="dd-MM-yyyy"/>
+            <DatePicker id="DP2" placeholder="Select Date" valueFormat="yyyy-mm-dd" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText8" text="Type of Change"/>
             <ComboBox id="typeofc">
                 <items>

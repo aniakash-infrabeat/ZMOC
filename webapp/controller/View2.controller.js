@@ -56,6 +56,8 @@ sap.ui.define([
       }
     },
     onSave: function () {
+
+      // General fragment fields
       var codei = this.byId(Fragment.createId("generalfrag","_IDGenInput1")).getValue();
       var objc = this.byId(Fragment.createId("generalfrag","_IDGenInput2")).getValue();
       var reqd = this.byId(Fragment.createId("generalfrag","DP1")).getValue();
@@ -65,20 +67,119 @@ sap.ui.define([
       var dept = this.byId(Fragment.createId("generalfrag","_IDGenInput5")).getValue();
       var cod = this.byId(Fragment.createId("generalfrag","DP2")).getValue();
       var stat = this.byId(Fragment.createId("generalfrag","_IDGenInput9")).getValue();
-      //Checkboxes
-      var checkb1 = this.byId(Fragment.createId("generalfrag","org")).getSelected();
-      var checkb2 = this.byId(Fragment.createId("generalfrag","personnel")).getSelected();
-      var checkb3 = this.byId(Fragment.createId("generalfrag","system")).getSelected();
-      var checkb4 = this.byId(Fragment.createId("generalfrag","process")).getSelected();
-      var checkb5 = this.byId(Fragment.createId("generalfrag","rig")).getSelected();
-      var checkb6 = this.byId(Fragment.createId("generalfrag","equip")).getSelected();
-      var checkb7 = this.byId(Fragment.createId("generalfrag","material")).getSelected();
-      var checkb8 = this.byId(Fragment.createId("generalfrag","lawandreg")).getSelected();
-      //Text Areas
+            //Checkboxes
+      if(this.byId(Fragment.createId("generalfrag","org")).getSelected()=== true) {
+        var checkb1 = "YES";
+      }     
+        else {
+            checkb1 = "NO";
+        }
+        if(this.byId(Fragment.createId("generalfrag","personnel")).getSelected()=== true) {
+          var checkb2 = "YES";
+        }     
+          else {
+            checkb2 = "NO";
+          }
+
+          if(this.byId(Fragment.createId("generalfrag","system")).getSelected()=== true) {
+            var checkb3 = "YES";
+          }     
+            else {
+              checkb3 = "NO";
+            }
+            if(this.byId(Fragment.createId("generalfrag","process")).getSelected()=== true) {
+              var checkb4 = "YES";
+            }     
+              else {
+                checkb4 = "NO";
+              }
+              if(this.byId(Fragment.createId("generalfrag","rig")).getSelected()=== true) {
+                var checkb5 = "YES";
+              }     
+                else {
+                  checkb5 = "NO";
+                }
+                if(this.byId(Fragment.createId("generalfrag","equip")).getSelected()=== true) {
+                  var checkb6 = "YES";
+                }     
+                  else {
+                    checkb6 = "NO";
+                  }
+                  if(this.byId(Fragment.createId("generalfrag","material")).getSelected()=== true) {
+                    var checkb7 = "YES";
+                  }     
+                    else {
+                      checkb7 = "NO";
+                    }
+                    if(this.byId(Fragment.createId("generalfrag","lawandreg")).getSelected()=== true) {
+                      var checkb8 = "YES";
+                    }     
+                      else {
+                        checkb8 = "NO";
+                      }
+      
+             //Text Areas
       var doc = this.byId(Fragment.createId("generalfrag","mno")).getValue();
       var rfc = this.byId(Fragment.createId("generalfrag","pqr")).getValue();
       var ptfc = this.byId(Fragment.createId("generalfrag","vwx")).getValue();
-    
+      
+      // Approval fragment fields
+
+      //Approval to continue change
+      var docd = this.byId("_IDGenRadioButtonGroup1").getSelectedButton().getText();
+      var rocd = this.byId("_IDGenRadioButtonGroup2").getSelectedButton().getText();
+      var cnec = this.byId("_IDGenRadioButtonGroup3").getSelectedButton().getText();
+      var agtr = this.byId("_IDGenRadioButtonGroup4").getSelectedButton().getText();
+      var drat = this.byId("_IDGenRadioButtonGroup5").getSelectedButton().getText();
+      var atcdate = this.byId("_IDGenDatePicker1").getValue();
+
+       //Approval of change.Risk Assessment Review
+       var aocname = this.byId("weq").getValue();
+       var aocpos = this.byId("dog").getValue();
+       var aocdate = this.byId("DP6").getValue();
+
+       //Reponsible Person
+       var repname = this.byId("_IDGenInput19").getValue();
+       var reppos = this.byId("_IDGenInput21").getValue();
+       var repdate = this.byId("_IDGenDatePicker2").getValue();
+
+       //Risk Assessment
+       var risname = this.byId("abc3").getValue();
+       var risdate = this.byId("abc5").getValue();
+ 
+      //Result of Risk Assessment
+      var rispep = this.byId("people").getValue();
+      var risenv = this.byId("env").getValue();
+      var risprp = this.byId("prop").getValue();
+      var rispla = this.byId("plant").getValue();
+
+      var mpdwu = this.byId("boom").getValue();
+      var sokma = this.byId("onam").getValue();
+      var iptac = this.byId("badam").getValue();
+      var trdat = this.byId("date15").getValue();
+      var ecoc = this.byId("wnkj").getValue();
+      
+      //Implementation
+      var dat1 = this.byId("date1").getValue();
+      var dat2 = this.byId("date2").getValue();
+      var dat3 = this.byId("date3").getValue();
+      var dat4 = this.byId("date4").getValue();
+      var dat5 = this.byId("date5").getValue();
+      var dat6 = this.byId("date6").getValue();
+      var dat7 = this.byId("date7").getValue();
+      var dat8 = this.byId("date8").getValue();
+      var dat9 = this.byId("date9").getValue();
+      var impn = this.byId("inp1").getValue();
+      var impp = this.byId("inp2").getValue();
+      var dat10 = this.byId("date10").getValue();
+
+      //Review
+      var wcpf = this.byId("req1").getSelectedButton().getText();
+      var wcpe = this.byId("req2").getSelectedButton().getText();
+      var niar = this.byId("req3").getSelectedButton().getText();
+      var wmcp = this.byId("req4").getSelectedButton().getText();
+      var ictq = this.byId("req5").getSelectedButton().getText();
+
       var oData1 = {};
 
       oData1.Code = codei;
@@ -90,18 +191,81 @@ sap.ui.define([
       oData1.Department = dept;
       oData1.ChangeDate = cod;
       oData1.Status = stat;
-      // oData1. = checkb1;
-      // oData1. = checkb2;
-      // oData1. = checkb3;
-      // oData1. = checkb4;
-      // oData1. = checkb5;
-      // oData1. = checkb6;
-      // oData1. = checkb7;
-      // oData1. = checkb8;
+
+      oData1.ChngTitleOrg = checkb1;
+      oData1.ChngTitlePerson = checkb2;
+      oData1.ChngTitleSys = checkb3;
+      oData1.ChngTitlePro = checkb4;
+      oData1.ChngTitleRig = checkb5;
+      oData1.ChngTitleEqui = checkb6;
+      oData1.ChngTitleMat = checkb7;
+      oData1.ChngTitleLaws = checkb8;
+
       oData1.DetailsOfChange = doc;
       oData1.ReasonOfChange = rfc;
       oData1.ProposeChange = ptfc;
 
+      oData1.AppDetChange = docd;
+      oData1.AppReasonChange = rocd;
+      oData1.AppNecessary = cnec;
+      oData1.AppRiskApproval = agtr;
+      oData1.AppRiskComplete = drat;
+      oData1.AppRiskDate = atcdate;
+
+      oData1.ApprovalName = aocname;
+      oData1.ApprovalPos = aocpos;
+      oData1.ApprovalDate = aocdate;
+
+      oData1.PersonName = repname;
+      oData1.PersonPosition = reppos;
+      oData1.PersonDate = repdate;
+
+      oData1.RiskChange = risname;
+      oData1.RiskDate = risdate;
+
+      oData1.People = rispep;
+      oData1.Environment = risenv;
+      oData1.Material = risprp;
+      oData1.RiskPlant = rispla;
+
+      oData1.ProcUpdate = mpdwu;
+      oData1.Summary = sokma;
+      oData1.AffectChange = iptac;
+      oData1.CompletionDate = trdat;
+      oData1.EstimateCost = ecoc;
+
+      oData1.ImpMigration = dat1;
+      oData1.ImpNotification = dat2;
+      oData1.ImpUpdated = dat3;
+      oData1.ImpConducted = dat4;
+      oData1.ImpCommunicated = dat5;
+      oData1.ImpCompleted = dat6;
+      oData1.ImpTargetDate = dat7;
+      oData1.ImpApprovalDate = dat8;
+      oData1.ImpExtendDate = dat9;
+      oData1.ImpName = impn;
+      oData1.ImpPosition = impp;
+      oData1.ImpDate = dat10;
+
+      oData1.ReviewProcess = wcpf;
+      oData1.ReviewEffective = wcpe;
+      oData1.ReviewComplete = niar;
+      oData1.ReviewMgmt = wmcp;
+      oData1.ReviewQMS = ictq;
+
+      var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/"); 
+      var obj = oData1;
+      saveModel.create("/ZMOC_DETSet", obj, {
+          success: function() {
+        
+            sap.m.MessageToast.show("Data saved successfully");
+    },
+          error: function() {
+        
+            sap.m.MessageToast.show("Error while saving data");
+    }
+
+      });
 
     },
 

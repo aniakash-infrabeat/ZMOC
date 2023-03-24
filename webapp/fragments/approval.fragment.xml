@@ -135,31 +135,31 @@
     </VBox>
     <VBox id="vbox14">
         <l:Splitter id="split6">
-            <f:SimpleForm id="tyu" title="Implementation" width="500px">
+            <f:SimpleForm id="tyu" title="Implementation" width="1000px">
                 <Label id="imp1" text="Mitigation measure completed"/>
-                <DatePicker id="date1" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date1" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp2" text="Notification of change completed"/>
-                <DatePicker id="date2" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date2" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp3" text="All appropriate manuals/procedures/drawings updated"/>
-                <DatePicker id="date3" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date3" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp4" text="Appropriate training conducted"/>
-                <DatePicker id="date4" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date4" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp5" text="Details of change communicated"/>
-                <DatePicker id="date5" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date5" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp6" text="Change process completed"/>
-                <DatePicker id="date6" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date6" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp7" text="Request for extension to target date"/>
-                <DatePicker id="date7" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date7" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp8" text="Approval of extend target date, if applicable"/>
-                <DatePicker id="date8" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date8" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp9" text="Additional requirements to extend target date completed"/>
-                <DatePicker id="date9" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date9" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
                 <Label id="imp10" text="Name"/>
-                <Input id="inp1"/>
+                <Input id="inp1" width="40%"/>
                 <Label id="imp11" text="Position"/>
-                <Input id="inp2"/>
+                <Input id="inp2" width="40%"/>
                 <Label id="imp12" text="Date"/>
-                <DatePicker id="date10" placeholder="" width="30%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+                <DatePicker id="date10" placeholder="" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
             <f:SimpleForm id="fad" title="Review">
                 <Label id="imp13" text="Was change process followed" textAlign="Begin"/>

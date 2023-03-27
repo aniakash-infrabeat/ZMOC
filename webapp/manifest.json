@@ -1,5 +1,5 @@
 {
-    "_version": "1.49.0",
+    "_version": "1.28.0",
     "sap.app": {
         "id": "moc",
         "type": "application",
@@ -12,7 +12,7 @@
         "resources": "resources.json",
         "sourceTemplate": {
             "id": "@sap/generator-fiori:basic",
-            "version": "1.8.6",
+            "version": "1.8.1",
             "toolsId": "7d499f7e-eb87-4503-bf9c-332d827ca4f8"
         },
         "dataSources": {
@@ -46,7 +46,7 @@
     "sap.ui5": {
         "flexEnabled": true,
         "dependencies": {
-            "minUI5Version": "1.110.1",
+            "minUI5Version": "1.84.1",
             "libs": {
                 "sap.m": {},
                 "sap.ui.core": {},
@@ -88,42 +88,45 @@
         },
         "routing": {
             "config": {
-              "routerClass": "sap.m.routing.Router",
-              "viewType": "XML",
-              "viewPath": "moc.view",
-              "controlId": "app",
-              "controlAggregation": "pages",
-              "async": true
-                    },
-            
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "moc.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
             "routes": [
-              {
-                "pattern": "",
-                "name": "View1",
-                "target": "View1"
-              },
-              {
-                "pattern": "View2/:codeno:",
-                "name": "View2",
-                "target": "View2"
-              }
+                {
+                    "pattern": "",
+                    "name": "View1",
+                    "target": "View1"
+                },
+                {
+                    "pattern": "View2/:codeno:",
+                    "name": "View2",
+                    "target": "View2"
+                }
             ],
             "targets": {
-              "View1": {
-                "viewName": "View1",
-                "viewLevel":1
-              },
-              "View2": {
-                "viewName": "View2",
-                "viewLevel":2
-              }
+                "View1": {
+                    "viewName": "View1",
+                    "viewLevel": 1
+                },
+                "View2": {
+                    "viewName": "View2",
+                    "viewLevel": 2
+                }
             }
-          },
+        },
         "rootView": {
             "viewName": "moc.view.App",
             "type": "XML",
             "async": true,
             "id": "App"
         }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "moc"
     }
 }

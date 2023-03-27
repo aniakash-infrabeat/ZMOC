@@ -55,6 +55,10 @@ sap.ui.define([
         }
       }
     },
+
+    onReset: function(){
+      
+    },
     onSave: function () {
 
       // General fragment fields

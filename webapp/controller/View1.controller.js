@@ -12,12 +12,47 @@ sap.ui.define([
         return Controller.extend("moc.controller.View1", {
             onInit: function () {
 
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.getRoute("View1").attachPatternMatched(this._onRouteMatched, this);
+                this.CreateReportFlag = true;
+
             },
+
+            _onRouteMatched: function (oEvent) {
+                this.smartTable = this.getView().byId("ReportSmartTable");
+                //this.smartTable.getModel().updateBindings();
+                this.smartTable.getModel().refresh(true);
+                this.smartTable.setNoData("Check approval matrix / Check with administrator.");
+
+                this.oTable = this.getView().byId("tblreport");
+                this.oTable.removeSelections();
+                this.getUserDetails();
+            },
+
+            // getUserDetails: function () {
+            //     var oCreatreportBtn = this.getView().byId("createReportbtn");
+            //     if (this.CreateReportFlag) {
+            //         var that = this;
+            //         this.getView().getModel().read("/ZMOC_DETSet('')", {
+            //             success: function (data) {
+            //                 if (data.CREATEREPORTFLAG === "X") {
+            //                     oCreatreportBtn.setVisible(true);
+            //                     that.CreateReportFlag = true;
+            //                 } else {
+            //                     oCreatreportBtn.setVisible(false);
+            //                     that.CreateReportFlag = false;
+            //                 }
+            //             },
+            //             error: function (e) {
+            //             }
+            //         });
+            //     }
+            // },
 
             onCreateNewReport: function () {
                 var code_input = null;
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2",{codeno:code_input});
+                oRouter.navTo("View2", { codeno: code_input });
 
             },
             onRowSelect: function (oEvent) {
@@ -32,7 +67,7 @@ sap.ui.define([
                 // this.getOwnerComponent().setModel(oModel, "selectedData");
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("View2", {codeno:code_input});
+                oRouter.navTo("View2", { codeno: code_input });
             },
 
 

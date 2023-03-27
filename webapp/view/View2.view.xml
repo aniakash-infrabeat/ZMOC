@@ -28,7 +28,7 @@
             <Toolbar id="_IDGenToolbar1">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                 <Button id="_IDGenButton1" type="Accept" text="Submit" press=".onSave" width="150px"/>
-                <Button id="_IDGenButton2" type="Neutral" text="Reset" press="onReset" width="150px"/>
+                <Button id="_IDGenButton2" type="Neutral" text="Reset" press=".onReset" width="150px"/>
                 <Button id="_IDGenButton3" type="Reject" text="Back" press=".onNavBack" width="150px"/>
             </Toolbar>
         </footer>

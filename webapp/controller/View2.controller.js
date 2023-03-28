@@ -35,6 +35,9 @@ sap.ui.define([
 
       var oevparam = oEvent.getParameter("arguments");
       var Code = oevparam.codeno;
+      var Status = oevparam.status;
+      var Department = oevparam.department;
+      var TypeofChange = oevparam.typeofchange;
       var oModel = this.getOwnerComponent().getModel("selectedData");
       if (Code !== null && Code !== undefined) {
         // var oData = oModel.getData();
@@ -44,7 +47,14 @@ sap.ui.define([
         if (oCodeInput !== null) {
           oCodeInput.setValue(Code);
           oCodeInput.setEditable(false);
+
         }
+        var oStatusInput = Fragment.byId(fragmentId, "_IDGenInput9");
+        oStatusInput.setValue(Status);
+        var oDeptInput = Fragment.byId(fragmentId, "_IDGenInput5");
+        oDeptInput.setValue(Department);
+        var oTypeInput = Fragment.byId(fragmentId, "typeofc");
+        oTypeInput.setValue(TypeofChange);
       }
       else {
         var oView = this.getView();
@@ -53,6 +63,7 @@ sap.ui.define([
         if (oCodeInput !== null) {
           oCodeInput.setValue("");
           oCodeInput.setEditable(true);
+
         }
       }
     },
@@ -98,48 +109,48 @@ sap.ui.define([
       var aocname = this.byId("weq").setValue("");
       var aocpos = this.byId("dog").setValue("");
       var aocdate = this.byId("DP6").setValue("");
-      
+
       //Reponsible Person
       var repname = this.byId("_IDGenInput19").setValue("");
       var reppos = this.byId("_IDGenInput21").setValue("");
       var repdate = this.byId("_IDGenDatePicker2").setValue("");
 
-       //Risk Assessment
-       var risname = this.byId("abc3").setValue("");
-       var risdate = this.byId("abc5").setValue("");
- 
-       //Result of Risk Assessment
-       var rispep = this.byId("people").setValue("");
-       var risenv = this.byId("env").setValue("");
-       var risprp = this.byId("prop").setValue("");
-       var rispla = this.byId("plant").setValue("");
- 
-       var mpdwu = this.byId("boom").setValue("");
-       var sokma = this.byId("onam").setValue("");
-       var iptac = this.byId("badam").setValue("");
-       var trdat = this.byId("date15").setValue("");
-       var ecoc = this.byId("wnkj").setValue("");
- 
-       //Implementation
-       var dat1 = this.byId("date1").setValue("");
-       var dat2 = this.byId("date2").setValue("");
-       var dat3 = this.byId("date3").setValue("");
-       var dat4 = this.byId("date4").setValue("");
-       var dat5 = this.byId("date5").setValue("");
-       var dat6 = this.byId("date6").setValue("");
-       var dat7 = this.byId("date7").setValue("");
-       var dat8 = this.byId("date8").setValue("");
-       var dat9 = this.byId("date9").setValue("");
-       var impn = this.byId("inp1").setValue("");
-       var impp = this.byId("inp2").setValue("");
-       var dat10 = this.byId("date10").setValue("");
-       
-       //Review
-       var wcpf = this.byId("req1").setSelectedButton("Y");
-       var wcpe = this.byId("req2").setSelectedButton("Y");
-       var niar = this.byId("req3").setSelectedButton("Y");
-       var wmcp = this.byId("req4").setSelectedButton("Y");
-       var ictq = this.byId("req5").setSelectedButton("Y");       
+      //Risk Assessment
+      var risname = this.byId("abc3").setValue("");
+      var risdate = this.byId("abc5").setValue("");
+
+      //Result of Risk Assessment
+      var rispep = this.byId("people").setValue("");
+      var risenv = this.byId("env").setValue("");
+      var risprp = this.byId("prop").setValue("");
+      var rispla = this.byId("plant").setValue("");
+
+      var mpdwu = this.byId("boom").setValue("");
+      var sokma = this.byId("onam").setValue("");
+      var iptac = this.byId("badam").setValue("");
+      var trdat = this.byId("date15").setValue("");
+      var ecoc = this.byId("wnkj").setValue("");
+
+      //Implementation
+      var dat1 = this.byId("date1").setValue("");
+      var dat2 = this.byId("date2").setValue("");
+      var dat3 = this.byId("date3").setValue("");
+      var dat4 = this.byId("date4").setValue("");
+      var dat5 = this.byId("date5").setValue("");
+      var dat6 = this.byId("date6").setValue("");
+      var dat7 = this.byId("date7").setValue("");
+      var dat8 = this.byId("date8").setValue("");
+      var dat9 = this.byId("date9").setValue("");
+      var impn = this.byId("inp1").setValue("");
+      var impp = this.byId("inp2").setValue("");
+      var dat10 = this.byId("date10").setValue("");
+
+      //Review
+      var wcpf = this.byId("req1").setSelectedButton("Y");
+      var wcpe = this.byId("req2").setSelectedButton("Y");
+      var niar = this.byId("req3").setSelectedButton("Y");
+      var wmcp = this.byId("req4").setSelectedButton("Y");
+      var ictq = this.byId("req5").setSelectedButton("Y");
     },
     onSave: function () {
 
@@ -345,11 +356,11 @@ sap.ui.define([
       saveModel.create("/ZMOC_DETSet", obj, {
         success: function () {
 
-          
+          sap.m.MessageToast.show("Data saved successfully");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
           oRouter.navTo("View1");
 
-          sap.m.MessageToast.show("Data saved successfully");
+
           that.onReset();
         },
         error: function () {

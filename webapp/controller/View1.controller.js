@@ -61,13 +61,15 @@ sap.ui.define([
                 var oContext = oSelectedItem.getBindingContext();
                 var oData = oContext.getObject();
                 var code_input = oData.Code;
-
+                var status_input = oData.Status;
+                var dep_input = oData.Department;
+                var type_of_change = oData.TypeofChange;
                 // var oModel = new JSONModel();
                 // oModel.setData(oData);
                 // this.getOwnerComponent().setModel(oModel, "selectedData");
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("View2", { codeno: code_input });
+                oRouter.navTo("View2", { codeno: code_input,status: status_input,department: dep_input,typeofchange: type_of_change});
             },
 
 

@@ -23,11 +23,12 @@ sap.ui.define([
 
       if (sPreviousHash !== undefined) {
         window.history.go(-1);
+        this.onReset.call(this);
       } else {
         var oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("View1", {}, true);
         this.getOwnerComponent().setModel(null, "selectedData");
-
+        this.onReset.call(this);
       }
     },
     _onRouteMatched: function (oEvent) {
@@ -56,77 +57,158 @@ sap.ui.define([
       }
     },
 
-    onReset: function(){
+    onReset: function () {
+
+      // General fragment fields
+      var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
+      var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
+      var reqd = this.byId(Fragment.createId("generalfrag", "DP1")).setValue("");
+      var reqb = this.byId(Fragment.createId("generalfrag", "_IDGenInput3")).setValue("");
+      var toc = this.byId(Fragment.createId("generalfrag", "typeofc")).setValue("");
+      var creb = this.byId(Fragment.createId("generalfrag", "_IDGenInput4")).setValue("");
+      var dept = this.byId(Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
+      var cod = this.byId(Fragment.createId("generalfrag", "DP2")).setValue("");
+      var stat = this.byId(Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
+
+      //Checkboxes
+      var checkb1 = this.byId(Fragment.createId("generalfrag", "org")).setSelected(false);
+      var checkb2 = this.byId(Fragment.createId("generalfrag", "personnel")).setSelected(false);
+      var checkb3 = this.byId(Fragment.createId("generalfrag", "system")).setSelected(false);
+      var checkb4 = this.byId(Fragment.createId("generalfrag", "process")).setSelected(false);
+      var checkb5 = this.byId(Fragment.createId("generalfrag", "rig")).setSelected(false);
+      var checkb6 = this.byId(Fragment.createId("generalfrag", "equip")).setSelected(false);
+      var checkb7 = this.byId(Fragment.createId("generalfrag", "material")).setSelected(false);
+      var checkb8 = this.byId(Fragment.createId("generalfrag", "lawandreg")).setSelected(false);
+
+      //Text Areas
+      var doc = this.byId(Fragment.createId("generalfrag", "mno")).setValue("");
+      var rfc = this.byId(Fragment.createId("generalfrag", "pqr")).setValue("");
+      var ptfc = this.byId(Fragment.createId("generalfrag", "vwx")).setValue("");
+
+      // Approval fragment fields
+      //Approval to continue change
+      var docd = this.byId("_IDGenRadioButtonGroup1").setSelectedButton("Y");
+      var rocd = this.byId("_IDGenRadioButtonGroup2").setSelectedButton("Y");
+      var cnec = this.byId("_IDGenRadioButtonGroup3").setSelectedButton("Y");
+      var agtr = this.byId("_IDGenRadioButtonGroup4").setSelectedButton("Y");
+      var drat = this.byId("_IDGenRadioButtonGroup5").setSelectedButton("Y");
+      var atcdate = this.byId("_IDGenDatePicker1").setValue("");
+
+      //Approval of change.Risk Assessment Review
+      var aocname = this.byId("weq").setValue("");
+      var aocpos = this.byId("dog").setValue("");
+      var aocdate = this.byId("DP6").setValue("");
       
+      //Reponsible Person
+      var repname = this.byId("_IDGenInput19").setValue("");
+      var reppos = this.byId("_IDGenInput21").setValue("");
+      var repdate = this.byId("_IDGenDatePicker2").setValue("");
+
+       //Risk Assessment
+       var risname = this.byId("abc3").setValue("");
+       var risdate = this.byId("abc5").setValue("");
+ 
+       //Result of Risk Assessment
+       var rispep = this.byId("people").setValue("");
+       var risenv = this.byId("env").setValue("");
+       var risprp = this.byId("prop").setValue("");
+       var rispla = this.byId("plant").setValue("");
+ 
+       var mpdwu = this.byId("boom").setValue("");
+       var sokma = this.byId("onam").setValue("");
+       var iptac = this.byId("badam").setValue("");
+       var trdat = this.byId("date15").setValue("");
+       var ecoc = this.byId("wnkj").setValue("");
+ 
+       //Implementation
+       var dat1 = this.byId("date1").setValue("");
+       var dat2 = this.byId("date2").setValue("");
+       var dat3 = this.byId("date3").setValue("");
+       var dat4 = this.byId("date4").setValue("");
+       var dat5 = this.byId("date5").setValue("");
+       var dat6 = this.byId("date6").setValue("");
+       var dat7 = this.byId("date7").setValue("");
+       var dat8 = this.byId("date8").setValue("");
+       var dat9 = this.byId("date9").setValue("");
+       var impn = this.byId("inp1").setValue("");
+       var impp = this.byId("inp2").setValue("");
+       var dat10 = this.byId("date10").setValue("");
+       
+       //Review
+       var wcpf = this.byId("req1").setSelectedButton("Y");
+       var wcpe = this.byId("req2").setSelectedButton("Y");
+       var niar = this.byId("req3").setSelectedButton("Y");
+       var wmcp = this.byId("req4").setSelectedButton("Y");
+       var ictq = this.byId("req5").setSelectedButton("Y");       
     },
     onSave: function () {
 
       // General fragment fields
-      var codei = this.byId(Fragment.createId("generalfrag","_IDGenInput1")).getValue();
-      var objc = this.byId(Fragment.createId("generalfrag","_IDGenInput2")).getValue();
-      var reqd = this.byId(Fragment.createId("generalfrag","DP1")).getValue();
-      var reqb = this.byId(Fragment.createId("generalfrag","_IDGenInput3")).getValue();
-      var toc = this.byId(Fragment.createId("generalfrag","typeofc")).getValue();
-      var creb = this.byId(Fragment.createId("generalfrag","_IDGenInput4")).getValue();
-      var dept = this.byId(Fragment.createId("generalfrag","_IDGenInput5")).getValue();
-      var cod = this.byId(Fragment.createId("generalfrag","DP2")).getValue();
-      var stat = this.byId(Fragment.createId("generalfrag","_IDGenInput9")).getValue();
-            //Checkboxes
-      if(this.byId(Fragment.createId("generalfrag","org")).getSelected()=== true) {
+      var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).getValue();
+      var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).getValue();
+      var reqd = this.byId(Fragment.createId("generalfrag", "DP1")).getValue();
+      var reqb = this.byId(Fragment.createId("generalfrag", "_IDGenInput3")).getValue();
+      var toc = this.byId(Fragment.createId("generalfrag", "typeofc")).getValue();
+      var creb = this.byId(Fragment.createId("generalfrag", "_IDGenInput4")).getValue();
+      var dept = this.byId(Fragment.createId("generalfrag", "_IDGenInput5")).getValue();
+      var cod = this.byId(Fragment.createId("generalfrag", "DP2")).getValue();
+      var stat = this.byId(Fragment.createId("generalfrag", "_IDGenInput9")).getValue();
+      //Checkboxes
+      if (this.byId(Fragment.createId("generalfrag", "org")).getSelected() === true) {
         var checkb1 = "YES";
-      }     
-        else {
-            checkb1 = "NO";
-        }
-        if(this.byId(Fragment.createId("generalfrag","personnel")).getSelected()=== true) {
-          var checkb2 = "YES";
-        }     
-          else {
-            checkb2 = "NO";
-          }
+      }
+      else {
+        checkb1 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "personnel")).getSelected() === true) {
+        var checkb2 = "YES";
+      }
+      else {
+        checkb2 = "NO";
+      }
 
-          if(this.byId(Fragment.createId("generalfrag","system")).getSelected()=== true) {
-            var checkb3 = "YES";
-          }     
-            else {
-              checkb3 = "NO";
-            }
-            if(this.byId(Fragment.createId("generalfrag","process")).getSelected()=== true) {
-              var checkb4 = "YES";
-            }     
-              else {
-                checkb4 = "NO";
-              }
-              if(this.byId(Fragment.createId("generalfrag","rig")).getSelected()=== true) {
-                var checkb5 = "YES";
-              }     
-                else {
-                  checkb5 = "NO";
-                }
-                if(this.byId(Fragment.createId("generalfrag","equip")).getSelected()=== true) {
-                  var checkb6 = "YES";
-                }     
-                  else {
-                    checkb6 = "NO";
-                  }
-                  if(this.byId(Fragment.createId("generalfrag","material")).getSelected()=== true) {
-                    var checkb7 = "YES";
-                  }     
-                    else {
-                      checkb7 = "NO";
-                    }
-                    if(this.byId(Fragment.createId("generalfrag","lawandreg")).getSelected()=== true) {
-                      var checkb8 = "YES";
-                    }     
-                      else {
-                        checkb8 = "NO";
-                      }
-      
-             //Text Areas
-      var doc = this.byId(Fragment.createId("generalfrag","mno")).getValue();
-      var rfc = this.byId(Fragment.createId("generalfrag","pqr")).getValue();
-      var ptfc = this.byId(Fragment.createId("generalfrag","vwx")).getValue();
-      
+      if (this.byId(Fragment.createId("generalfrag", "system")).getSelected() === true) {
+        var checkb3 = "YES";
+      }
+      else {
+        checkb3 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "process")).getSelected() === true) {
+        var checkb4 = "YES";
+      }
+      else {
+        checkb4 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "rig")).getSelected() === true) {
+        var checkb5 = "YES";
+      }
+      else {
+        checkb5 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "equip")).getSelected() === true) {
+        var checkb6 = "YES";
+      }
+      else {
+        checkb6 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "material")).getSelected() === true) {
+        var checkb7 = "YES";
+      }
+      else {
+        checkb7 = "NO";
+      }
+      if (this.byId(Fragment.createId("generalfrag", "lawandreg")).getSelected() === true) {
+        var checkb8 = "YES";
+      }
+      else {
+        checkb8 = "NO";
+      }
+
+      //Text Areas
+      var doc = this.byId(Fragment.createId("generalfrag", "mno")).getValue();
+      var rfc = this.byId(Fragment.createId("generalfrag", "pqr")).getValue();
+      var ptfc = this.byId(Fragment.createId("generalfrag", "vwx")).getValue();
+
       // Approval fragment fields
 
       //Approval to continue change
@@ -137,20 +219,20 @@ sap.ui.define([
       var drat = this.byId("_IDGenRadioButtonGroup5").getSelectedButton().getText();
       var atcdate = this.byId("_IDGenDatePicker1").getValue();
 
-       //Approval of change.Risk Assessment Review
-       var aocname = this.byId("weq").getValue();
-       var aocpos = this.byId("dog").getValue();
-       var aocdate = this.byId("DP6").getValue();
+      //Approval of change.Risk Assessment Review
+      var aocname = this.byId("weq").getValue();
+      var aocpos = this.byId("dog").getValue();
+      var aocdate = this.byId("DP6").getValue();
 
-       //Reponsible Person
-       var repname = this.byId("_IDGenInput19").getValue();
-       var reppos = this.byId("_IDGenInput21").getValue();
-       var repdate = this.byId("_IDGenDatePicker2").getValue();
+      //Reponsible Person
+      var repname = this.byId("_IDGenInput19").getValue();
+      var reppos = this.byId("_IDGenInput21").getValue();
+      var repdate = this.byId("_IDGenDatePicker2").getValue();
 
-       //Risk Assessment
-       var risname = this.byId("abc3").getValue();
-       var risdate = this.byId("abc5").getValue();
- 
+      //Risk Assessment
+      var risname = this.byId("abc3").getValue();
+      var risdate = this.byId("abc5").getValue();
+
       //Result of Risk Assessment
       var rispep = this.byId("people").getValue();
       var risenv = this.byId("env").getValue();
@@ -162,7 +244,7 @@ sap.ui.define([
       var iptac = this.byId("badam").getValue();
       var trdat = this.byId("date15").getValue();
       var ecoc = this.byId("wnkj").getValue();
-      
+
       //Implementation
       var dat1 = this.byId("date1").getValue();
       var dat2 = this.byId("date2").getValue();
@@ -257,17 +339,23 @@ sap.ui.define([
       oData1.ReviewMgmt = wmcp;
       oData1.ReviewQMS = ictq;
 
-      var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/"); 
+      var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
       var obj = oData1;
+      var that = this;
       saveModel.create("/ZMOC_DETSet", obj, {
-          success: function() {
-        
-            sap.m.MessageToast.show("Data saved successfully");
-    },
-          error: function() {
-        
-            sap.m.MessageToast.show("Error while saving data");
-    }
+        success: function () {
+
+          
+          var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
+          oRouter.navTo("View1");
+
+          sap.m.MessageToast.show("Data saved successfully");
+          that.onReset();
+        },
+        error: function () {
+
+          sap.m.MessageToast.show("Error while saving data");
+        }
 
       });
 

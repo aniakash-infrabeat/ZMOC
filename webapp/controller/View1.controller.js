@@ -26,7 +26,7 @@ sap.ui.define([
 
                 this.oTable = this.getView().byId("tblreport");
                 this.oTable.removeSelections();
-                this.getUserDetails();
+                // this.getUserDetails();
             },
 
             // getUserDetails: function () {

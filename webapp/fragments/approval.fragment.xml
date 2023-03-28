@@ -8,31 +8,31 @@
             <f:SimpleForm width="600px" id="simpleform1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="1" title="Approval to continue change">
                 <Label id="_IDGenLabel1" textAlign="Begin" wrapping="false" text="Are the 'details of change' adequately defined?"/>
                 <RadioButtonGroup id="_IDGenRadioButtonGroup1" columns="6">
-                    <RadioButton id="y1" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="y1" text="Y" width="100px"/>
                     <RadioButton id="n1" text="N" width="100px"/>
                     <RadioButton id="na1" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel2" text="Are the reasons of change adequately defined?"/>
                 <RadioButtonGroup id="_IDGenRadioButtonGroup2" columns="3">
-                    <RadioButton id="y2" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="y2" text="Y" width="100px"/>
                     <RadioButton id="n2" text="N" width="100px"/>
                     <RadioButton id="na2" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel3" text="Is the change necessary?"/>
                 <RadioButtonGroup id="_IDGenRadioButtonGroup3" columns="3">
-                    <RadioButton id="y3" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="y3" text="Y" width="100px"/>
                     <RadioButton id="n3" text="N" width="100px"/>
                     <RadioButton id="na3" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel4" text="Is approval given to risk assessment?"/>
                 <RadioButtonGroup id="_IDGenRadioButtonGroup4" columns="3">
-                    <RadioButton id="y4" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="y4" text="Y" width="100px"/>
                     <RadioButton id="n4" text="N" width="100px"/>
                     <RadioButton id="na4" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel5" text="Date risk assessment to be completed by"/>
                 <RadioButtonGroup id="_IDGenRadioButtonGroup5" columns="3">
-                    <RadioButton id="y5" text="Y" selected="true" width="100px"/>
+                    <RadioButton id="y5" text="Y" width="100px"/>
                     <RadioButton id="n5" text="N" width="100px"/>
                     <RadioButton id="na5" text="NA" width="100px"/>
                 </RadioButtonGroup>
@@ -165,7 +165,7 @@
                 <Label id="imp13" text="Was change process followed" textAlign="Begin"/>
                 <HBox id="rad1">
                     <RadioButtonGroup id="req1" columns="3">
-                        <RadioButton id="reqy1" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqy1" text="Y" width="100px"/>
                         <RadioButton id="reqn1" text="N" width="100px"/>
                         <RadioButton id="reqna1" text="NA" width="100px"/>
                     </RadioButtonGroup>
@@ -173,7 +173,7 @@
                 <Label id="imp14" text="Was change effective?"/>
                 <HBox id="rad2">
                     <RadioButtonGroup id="req2" columns="3">
-                        <RadioButton id="reqy2" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqy2" text="Y" width="100px"/>
                         <RadioButton id="reqn2" text="N" width="100px"/>
                         <RadioButton id="reqna2" text="NA" width="100px"/>
                     </RadioButtonGroup>
@@ -181,7 +181,7 @@
                 <Label id="imp15" text="If no, identify actions required to be completed "/>
                 <HBox id="rad3">
                     <RadioButtonGroup id="req3" columns="3">
-                        <RadioButton id="reqy3" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqy3" text="Y" width="100px"/>
                         <RadioButton id="reqn3" text="N" width="100px"/>
                         <RadioButton id="reqna3" text="NA" width="100px"/>
                     </RadioButtonGroup>
@@ -189,7 +189,7 @@
                 <Label id="imp16" text="Was the management of change process effective?"/>
                 <HBox id="rad4">
                     <RadioButtonGroup id="req4" columns="3">
-                        <RadioButton id="reqy4" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqy4" text="Y" width="100px"/>
                         <RadioButton id="reqn4" text="N" width="100px"/>
                         <RadioButton id="reqna4" text="NA" width="100px"/>
                     </RadioButtonGroup>
@@ -197,7 +197,7 @@
                 <Label id="imp17" text="If no, identify amendments and initiate a change to QMS"/>
                 <HBox id="rad5">
                     <RadioButtonGroup id="req5" columns="3">
-                        <RadioButton id="reqy5" text="Y" selected="true" width="100px"/>
+                        <RadioButton id="reqy5" text="Y" width="100px"/>
                         <RadioButton id="reqn5" text="N" width="100px"/>
                         <RadioButton id="reqna5" text="NA" width="100px"/>
                     </RadioButtonGroup>

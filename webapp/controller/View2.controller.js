@@ -37,7 +37,13 @@ sap.ui.define([
       var Code = oevparam.codeno;
       var Status = oevparam.status;
       var Department = oevparam.department;
-      var TypeofChange = oevparam.typeofchange;
+      var RequestedBy = oevparam.requestedby;
+      var ObjectofChange = oevparam.objchng;
+      var CreatedBy = oevparam.crtdby;
+      var DetailsofChange = oevparam.detochng;
+      var ReasonofChange = oevparam.refchang;
+      var ProposedtforChange = oevparam.prtfrc;
+
       var oModel = this.getOwnerComponent().getModel("selectedData");
       if (Code !== null && Code !== undefined) {
         // var oData = oModel.getData();
@@ -53,8 +59,18 @@ sap.ui.define([
         oStatusInput.setValue(Status);
         var oDeptInput = Fragment.byId(fragmentId, "_IDGenInput5");
         oDeptInput.setValue(Department);
-        var oTypeInput = Fragment.byId(fragmentId, "typeofc");
-        oTypeInput.setValue(TypeofChange);
+        var oRequestedBy = Fragment.byId(fragmentId, "_IDGenInput3");
+        oRequestedBy.setValue(RequestedBy);
+        var oObjectofChange = Fragment.byId(fragmentId, "_IDGenInput2");
+        oObjectofChange.setValue(ObjectofChange);
+        var oCreatedBy = Fragment.byId(fragmentId, "_IDGenInput4");
+        oCreatedBy.setValue(CreatedBy);
+        var oDetailsofChange = Fragment.byId(fragmentId, "mno");
+        oDetailsofChange.setValue(DetailsofChange);
+        var oReasonofChange = Fragment.byId(fragmentId, "pqr");
+        oReasonofChange.setValue(ReasonofChange);
+        var oProposedtforChange = Fragment.byId(fragmentId, "vwx");
+        oProposedtforChange.setValue(ProposedtforChange);
       }
       else {
         var oView = this.getView();

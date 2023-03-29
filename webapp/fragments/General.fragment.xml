@@ -86,7 +86,7 @@
                 <TextArea id="pqr" maxLength="400" height="150px"/>
             </f:SimpleForm>
             <f:SimpleForm id="stu" title="Proposed timeline for Change">
-                <TextArea id="vwx" maxLength="400" height="150px"/>
+                <TextArea id="" maxLength="400" height="150px"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>

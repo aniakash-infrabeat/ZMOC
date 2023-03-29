@@ -102,7 +102,7 @@
                     "target": "View1"
                 },
                 {
-                    "pattern": "View2/:codeno:/:status:/:department:/:typeofchange:",
+                    "pattern": "View2/:codeno:/:status:/:department:/:requestedby:/:objchng:/:crtdby:/:detochng:/:refchang:/:prtfrc:",
                     "name": "View2",
                     "target": "View2"
                 }

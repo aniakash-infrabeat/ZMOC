@@ -63,13 +63,20 @@ sap.ui.define([
                 var code_input = oData.Code;
                 var status_input = oData.Status;
                 var dep_input = oData.Department;
-                var type_of_change = oData.TypeofChange;
-                // var oModel = new JSONModel();
-                // oModel.setData(oData);
-                // this.getOwnerComponent().setModel(oModel, "selectedData");
+                var requested_by = oData.RequestedBy;
+                var obj_of_change = oData.ObjectofChange;
+                var created_by = oData.CreatedBy;
+                var details_of_change = oData.DetailsofChange;
+                var reason_of_change = oData.ReasonofChange;
+                var proposed_t_for_change = oData.ProposedtforChange;
+               
 
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("View2", { codeno: code_input,status: status_input,department: dep_input,typeofchange: type_of_change});
+                // var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("View2", { codeno: code_input,status: status_input,department: dep_input,
+                    requestedby: requested_by,objchng: obj_of_change,crtdby: created_by,detochng: details_of_change,
+                    refchang: reason_of_change,prtfrc: proposed_t_for_change
+                });
             },
 
 

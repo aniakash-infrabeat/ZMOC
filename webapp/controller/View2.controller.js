@@ -85,7 +85,7 @@ sap.ui.define([
     },
 
     onReset: function () {
-
+      // window.location.reload();
       // General fragment fields
       var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
       var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
@@ -114,11 +114,11 @@ sap.ui.define([
 
       // Approval fragment fields
       //Approval to continue change
-      var docd = this.byId("_IDGenRadioButtonGroup1").setSelectedButton("Y");
-      var rocd = this.byId("_IDGenRadioButtonGroup2").setSelectedButton("Y");
-      var cnec = this.byId("_IDGenRadioButtonGroup3").setSelectedButton("Y");
-      var agtr = this.byId("_IDGenRadioButtonGroup4").setSelectedButton("Y");
-      var drat = this.byId("_IDGenRadioButtonGroup5").setSelectedButton("Y");
+      var docd = this.byId("_IDGenRadioButtonGroup1").setSelectedButton("");
+      var rocd = this.byId("_IDGenRadioButtonGroup2").setSelectedButton("");
+      var cnec = this.byId("_IDGenRadioButtonGroup3").setSelectedButton("");
+      var agtr = this.byId("_IDGenRadioButtonGroup4").setSelectedButton("");
+      var drat = this.byId("_IDGenRadioButtonGroup5").setSelectedButton("");
       var atcdate = this.byId("_IDGenDatePicker1").setValue("");
 
       //Approval of change.Risk Assessment Review
@@ -162,11 +162,11 @@ sap.ui.define([
       var dat10 = this.byId("date10").setValue("");
 
       //Review
-      var wcpf = this.byId("req1").setSelectedButton("Y");
-      var wcpe = this.byId("req2").setSelectedButton("Y");
-      var niar = this.byId("req3").setSelectedButton("Y");
-      var wmcp = this.byId("req4").setSelectedButton("Y");
-      var ictq = this.byId("req5").setSelectedButton("Y");
+      var wcpf = this.byId("req1").setSelectedButton("");
+      var wcpe = this.byId("req2").setSelectedButton("");
+      var niar = this.byId("req3").setSelectedButton("");
+      var wmcp = this.byId("req4").setSelectedButton("");
+      var ictq = this.byId("req5").setSelectedButton("");
     },
     onSave: function () {
 
@@ -293,6 +293,8 @@ sap.ui.define([
       var wmcp = this.byId("req4").getSelectedButton().getText();
       var ictq = this.byId("req5").getSelectedButton().getText();
 
+      const oUploadSet = this.byId("attachmentUpl");
+
       var oData1 = {};
 
       oData1.Code = codei;
@@ -369,9 +371,10 @@ sap.ui.define([
       var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
       var obj = oData1;
       var that = this;
+      // sap.ui.core.BusyIndicator.show();
       saveModel.create("/ZMOC_DETSet", obj, {
         success: function () {
-
+          // sap.ui.core.BusyIndicator.hide();
           sap.m.MessageToast.show("Data saved successfully");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
           oRouter.navTo("View1");

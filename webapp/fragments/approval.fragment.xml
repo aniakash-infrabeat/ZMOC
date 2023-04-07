@@ -81,30 +81,30 @@
             <Text id="abc13" text="Risk Level"/>
             <ComboBox id="people">
                 <items>
-                    <core:Item text="Low" key="L" />
-                    <core:Item text="Medium" key="M" />
-                    <core:Item text="High" key="H" />
+                    <core:Item id="_IDGenItem1" text="Low" key="L" />
+                    <core:Item id="_IDGenItem2" text="Medium" key="M" />
+                    <core:Item id="_IDGenItem3" text="High" key="H" />
                 </items>
             </ComboBox>
             <ComboBox id="env">
                 <items>
-                    <core:Item text="Low" key="L" />
-                    <core:Item text="Medium" key="M" />
-                    <core:Item text="High" key="H" />
+                    <core:Item id="_IDGenItem4" text="Low" key="L" />
+                    <core:Item id="_IDGenItem5" text="Medium" key="M" />
+                    <core:Item id="_IDGenItem6" text="High" key="H" />
                 </items>
             </ComboBox>
             <ComboBox id="prop">
                 <items>
-                    <core:Item text="Low" key="L" />
-                    <core:Item text="Medium" key="M" />
-                    <core:Item text="High" key="H" />
+                    <core:Item id="_IDGenItem7" text="Low" key="L" />
+                    <core:Item id="_IDGenItem8" text="Medium" key="M" />
+                    <core:Item id="_IDGenItem9" text="High" key="H" />
                 </items>
             </ComboBox>
             <ComboBox id="plant">
                 <items>
-                    <core:Item text="Low" key="L" />
-                    <core:Item text="Medium" key="M" />
-                    <core:Item text="High" key="H" />
+                    <core:Item id="_IDGenItem10" text="Low" key="L" />
+                    <core:Item id="_IDGenItem11" text="Medium" key="M" />
+                    <core:Item id="_IDGenItem12" text="High" key="H" />
                 </items>
             </ComboBox>
         </f:SimpleForm>

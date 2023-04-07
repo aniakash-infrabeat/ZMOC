@@ -88,30 +88,30 @@ sap.ui.define([
     onReset: function () {
       // window.location.reload();
       // General fragment fields
-      var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
-      var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
-      var reqd = this.byId(Fragment.createId("generalfrag", "DP1")).setValue("");
-      var reqb = this.byId(Fragment.createId("generalfrag", "_IDGenInput3")).setValue("");
-      var toc = this.byId(Fragment.createId("generalfrag", "typeofc")).setValue("");
-      var creb = this.byId(Fragment.createId("generalfrag", "_IDGenInput4")).setValue("");
-      var dept = this.byId(Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
-      var cod = this.byId(Fragment.createId("generalfrag", "DP2")).setValue("");
-      var stat = this.byId(Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
+      // var codei = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
+      var objc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
+      var reqd = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValue("");
+      var reqb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValue("");
+      var toc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValue("");
+      var creb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValue("");
+      var dept = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
+      var cod = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValue("");
+      var stat = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
 
       //Checkboxes
-      var checkb1 = this.byId(Fragment.createId("generalfrag", "org")).setSelected(false);
-      var checkb2 = this.byId(Fragment.createId("generalfrag", "personnel")).setSelected(false);
-      var checkb3 = this.byId(Fragment.createId("generalfrag", "system")).setSelected(false);
-      var checkb4 = this.byId(Fragment.createId("generalfrag", "process")).setSelected(false);
-      var checkb5 = this.byId(Fragment.createId("generalfrag", "rig")).setSelected(false);
-      var checkb6 = this.byId(Fragment.createId("generalfrag", "equip")).setSelected(false);
-      var checkb7 = this.byId(Fragment.createId("generalfrag", "material")).setSelected(false);
-      var checkb8 = this.byId(Fragment.createId("generalfrag", "lawandreg")).setSelected(false);
+      var checkb1 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "org")).setSelected(false);
+      var checkb2 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "personnel")).setSelected(false);
+      var checkb3 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "system")).setSelected(false);
+      var checkb4 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "process")).setSelected(false);
+      var checkb5 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "rig")).setSelected(false);
+      var checkb6 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "equip")).setSelected(false);
+      var checkb7 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "material")).setSelected(false);
+      var checkb8 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "lawandreg")).setSelected(false);
 
       //Text Areas
-      var doc = this.byId(Fragment.createId("generalfrag", "mno")).setValue("");
-      var rfc = this.byId(Fragment.createId("generalfrag", "pqr")).setValue("");
-      var ptfc = this.byId(Fragment.createId("generalfrag", "vwx")).setValue("");
+      var doc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "mno")).setValue("");
+      var rfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "pqr")).setValue("");
+      var ptfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "vwx")).setValue("");
 
       // Approval fragment fields
       //Approval to continue change
@@ -170,62 +170,61 @@ sap.ui.define([
       var ictq = this.byId("req5").setSelectedButton("");
     },
     onSave: function () {
-
       // General fragment fields
-      // var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).getValue();
-      var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).getValue();
-      var reqd = this.byId(Fragment.createId("generalfrag", "DP1")).getValue();
-      var reqb = this.byId(Fragment.createId("generalfrag", "_IDGenInput3")).getValue();
-      var toc = this.byId(Fragment.createId("generalfrag", "typeofc")).getValue();
-      var creb = this.byId(Fragment.createId("generalfrag", "_IDGenInput4")).getValue();
-      var dept = this.byId(Fragment.createId("generalfrag", "_IDGenInput5")).getValue();
-      var cod = this.byId(Fragment.createId("generalfrag", "DP2")).getValue();
-      var stat = this.byId(Fragment.createId("generalfrag", "_IDGenInput9")).getValue();
+      var codei = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput1")).getValue();
+      var objc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).getValue();
+      var reqd = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).getValue();
+      var reqb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).getValue();
+      var toc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).getValue();
+      var creb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).getValue();
+      var dept = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).getValue();
+      var cod = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).getValue();
+      var stat = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput9")).getValue();
       //Checkboxes
-      if (this.byId(Fragment.createId("generalfrag", "org")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "org")).getSelected() === true) {
         var checkb1 = "YES";
       }
       else {
         checkb1 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "personnel")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "personnel")).getSelected() === true) {
         var checkb2 = "YES";
       }
       else {
         checkb2 = "NO";
       }
 
-      if (this.byId(Fragment.createId("generalfrag", "system")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "system")).getSelected() === true) {
         var checkb3 = "YES";
       }
       else {
         checkb3 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "process")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "process")).getSelected() === true) {
         var checkb4 = "YES";
       }
       else {
         checkb4 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "rig")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "rig")).getSelected() === true) {
         var checkb5 = "YES";
       }
       else {
         checkb5 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "equip")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "equip")).getSelected() === true) {
         var checkb6 = "YES";
       }
       else {
         checkb6 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "material")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "material")).getSelected() === true) {
         var checkb7 = "YES";
       }
       else {
         checkb7 = "NO";
       }
-      if (this.byId(Fragment.createId("generalfrag", "lawandreg")).getSelected() === true) {
+      if (this.byId(sap.ui.core.Fragment.createId("generalfrag", "lawandreg")).getSelected() === true) {
         var checkb8 = "YES";
       }
       else {
@@ -233,9 +232,9 @@ sap.ui.define([
       }
 
       //Text Areas
-      var doc = this.byId(Fragment.createId("generalfrag", "mno")).getValue();
-      var rfc = this.byId(Fragment.createId("generalfrag", "pqr")).getValue();
-      var ptfc = this.byId(Fragment.createId("generalfrag", "vwx")).getValue();
+      var doc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "mno")).getValue();
+      var rfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "pqr")).getValue();
+      var ptfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "vwx")).getValue();
 
       // Approval fragment fields
 
@@ -368,24 +367,24 @@ sap.ui.define([
       oData1.ReviewComplete = niar;
       oData1.ReviewMgmt = wmcp;
       oData1.ReviewQMS = ictq;
-      
-      var oUploader = this.getView().byId("attachmentUpl");
-      // var oModel = this.getView().getModel();
-      var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
-      var oAttachment = {
-          "Docadd": this.getView().byId("addedin").getValue(),
-          "Docdesc": this.getView().byId("comments").getValue()
-      };
-      oModel.create("/ZMOC_FILESet", oAttachment, {
-          success: function() {
-            sap.m.MessageToast.show("File uploaded successfully!");
-          },
-          error: function(oError) {
-            sap.m.MessageToast.show("Error uploading file: " + oError);
-          },
-          refreshAfterChange: true
-      });
-      // oUploader.removeAllHeaderParameters();
+
+      // var oUploader = this.getView().byId("attachmentUpl");
+      // // var oModel = this.getView().getModel();
+      // var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
+      // var oAttachment = {
+      //     "Docadd": this.getView().byId("addedin").getValue(),
+      //     "Docdesc": this.getView().byId("comments").getValue()
+      // };
+      // oModel.create("/ZMOC_EXT_FILESet", oAttachment, {
+      //     success: function() {
+      //       sap.m.MessageToast.show("File uploaded successfully!");
+      //     },
+      //     error: function(oError) {
+      //       sap.m.MessageToast.show("Error uploading file: " + oError);
+      //     },
+      //     refreshAfterChange: true
+      // });
+      // // oUploader.removeAllHeaderParameters();
       // oUploader.removeAllParameters();
       // oUploader.removeAllIncompleteItems();
       // oUploader.removeAllAggregation("items");
@@ -393,13 +392,13 @@ sap.ui.define([
       var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
       var obj = oData1;
       var that = this;
-      
+
       // sap.ui.core.BusyIndicator.show();
       saveModel.create("/ZMOC_DETSet", obj, {
-        success: function (oData,response) {
+        success: function (oData, response) {
           // sap.ui.core.BusyIndicator.hide();
-          // sap.m.MessageToast.show("Data saved successfully");
-          MessageBox.confirm("Data saved success");
+          sap.m.MessageToast.show("Data saved successfully");
+          // MessageBox.confirm("Data saved success");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
           oRouter.navTo("View1");
           that.onReset();
@@ -414,11 +413,11 @@ sap.ui.define([
 
     },
 
-  //Upload
+    //Upload
 
 
 
 
-       
+
   });
 });

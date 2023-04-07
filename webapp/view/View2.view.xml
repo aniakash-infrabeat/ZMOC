@@ -10,7 +10,7 @@
         </headerContent>
         <IconTabBar id="idIconTabBarNoIcons">
             <items>
-                <IconTabFilter id="_IDGenIconTabFilter1" text="General">
+                <IconTabFilter id="_IDGenIconTabFilter1" text="General" key="Gen">
                     <core:Fragment fragmentName="moc.fragments.General" id="generalfrag" type="XML" binding="{path:'ZMOC_DETSet'}"/>
                 </IconTabFilter>
 
@@ -18,7 +18,7 @@
                     <core:Fragment fragmentName="moc.fragments.approval" type="XML" binding="{path:'ZMOC_DETSet'}"/>
                 </IconTabFilter>
                 <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
-                    <core:Fragment fragmentName="moc.fragments.externalfiles" id="external" type="XML"/>
+                    <core:Fragment fragmentName="moc.fragments.externalfiles" id="external" type="XML" binding="{path:'ZMOC_EXT_FILESet'}"/>
                 </IconTabFilter>
                 <!-- <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log"/> -->
             </items>

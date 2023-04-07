@@ -14,7 +14,7 @@
             <TextArea id="comments" placeholder="" rows="2"/>
          </f:SimpleForm>
          
-        <up:UploadSet id="attachmentUpl" instantUpload="true" maxFileSize="2" noDataDescription="" noDataText="" selectionChanged="onSelectionChangeAttachment" uploadCompleted="onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_FILESet" visible="true" beforeUploadStarts="onBeforeUploadStarts" fileTypes="pdf,doc,docx,docm,ppt,pptx,xls,xlsx,jpg,jpeg,png,txt" fileTypeMismatch="onFileTypeMismatch" fileSizeExceeded="onFileSizeExceeded">
+        <up:UploadSet id="attachmentUpl" instantUpload="true" maxFileSize="2" noDataDescription="" noDataText="" selectionChanged="onSelectionChangeAttachment" uploadCompleted="onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet" visible="true" beforeUploadStarts="onBeforeUploadStarts" fileTypes="pdf,doc,docx,docm,ppt,pptx,xls,xlsx,jpg,jpeg,png,txt" fileTypeMismatch="onFileTypeMismatch" fileSizeExceeded="onFileSizeExceeded">
         </up:UploadSet>   
             <!-- <u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_FILESet" uploadComplete="handleUploadComplete" width="100px" icon="sap-icon://browse-folder"/> -->
             <!-- <Button id="upload" text="Upload File" press="handleUploadPress" icon="sap-icon://upload-to-cloud"/> -->

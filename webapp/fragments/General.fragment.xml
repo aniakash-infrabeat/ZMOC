@@ -8,13 +8,13 @@
         <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
-            <Input id="_IDGenInput1"/>
+            <Input id="_IDGenInput1" value="{ReportModel>/CODE_NO}" editable="false"/>
             <Label id="_IDGenText2" text="Object of Change"/>
-            <Input id="_IDGenInput2" />
+            <Input id="_IDGenInput2" value="{ReportModel>/OBJECTOFCHANGE}"/>
             <Label id="_IDGenText3" text="Request Date" />
-            <DatePicker id="DP1" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+            <DatePicker id="DP1" value="{ReportModel>/REQUESTDATE}" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />
-            <Input id="_IDGenInput3"/>
+            <Input id="_IDGenInput3" value="{ReportModel>/REQUESTEDBY}"/>
             <!-- </f:content> -->
             <!-- </f:SimpleForm> -->
             <!-- </VBox> -->
@@ -22,16 +22,16 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm2" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText5" text="Created by" />
-            <Input id="_IDGenInput4"/>
+            <Input id="_IDGenInput4" value="{ReportModel>/CREATEDBY}"/>
             <Label id="_IDGenText6" text="Department" />
-            <Input id="_IDGenInput5"/>
+            <Input id="_IDGenInput5" value="{ReportModel>/DEPARTMENT}"/>
             <Label id="_IDGenText7" text="Change of Date" />
-            <DatePicker id="DP2" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
+            <DatePicker id="DP2" value="{ReportModel>/CHANGEOFDATE}" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText8" text="Type of Change"/>
-            <ComboBox id="typeofc">
+            <ComboBox id="typeofc" value="{ReportModel>/TYPEOFCHANGE}">
                 <items>
-                    <core:Item text="Permanent" key="P" />
-                    <core:Item text="Temporary" key="T" />
+                    <core:Item id="_IDGenItem1" text="Permanent" key="P" />
+                    <core:Item id="_IDGenItem2" text="Temporary" key="T" />
                 </items>
             </ComboBox>
             <!-- <ComboBox id="_IDGenComboBox1" items="{path: '/typeofchanges',sorter: { path: 'text' }}">
@@ -44,7 +44,7 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm3" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText9" text="Status" />
-            <Input id="_IDGenInput9"/>
+            <Input id="_IDGenInput9" value="{ReportModel>/STATUS}"/>
             <Label id="_IDGenText10" text="Security Attribute" visible="false"/>
             <Input id="_IDGenInput10" visible="false"/>
             <!-- </f:content> -->
@@ -63,14 +63,14 @@
 
         <!-- </f:SimpleForm> -->
     </HBox>
-    <VBox>
-        <HBox>
+    <VBox id="_IDGenVBox2">
+        <HBox id="_IDGenHBox1">
             <CheckBox id="org" text="Organisation" selected="false" class="sapUiLargeMarginEnd"/>
             <CheckBox id="personnel" text="Personnel" selected="false" class="sapUiLargeMarginEnd"/>
             <CheckBox id="system" text="System" selected="false" class="sapUiLargeMarginEnd"/>
             <CheckBox id="process" text="Process/Procedure" selected="false" class="sapUiLargeMarginEnd"/>
         </HBox>
-        <HBox>
+        <HBox id="_IDGenHBox2">
             <CheckBox id="rig" text="Rig" selected="false" class="sapUiLargeMarginEnd"/>
             <CheckBox id="equip" text="Equipment" selected="false" class="sapUiLargeMarginEnd"/>
             <CheckBox id="material" text="Material" selected="false" class="sapUiLargeMarginEnd"/>
@@ -80,13 +80,13 @@
     <VBox id="def">
         <l:Splitter id="split1">
             <f:SimpleForm id="jkl" title="Details of Change:">
-                <TextArea id="mno" maxLength="400" height="150px"/>
+                <TextArea id="mno" value="{ReportModel>/DOC}" maxLength="400" height="150px"/>
             </f:SimpleForm>
             <f:SimpleForm id="ghi" title="Reason for Change:">
-                <TextArea id="pqr" maxLength="400" height="150px"/>
+                <TextArea id="pqr" value="{ReportModel>/ROC}" maxLength="400" height="150px"/>
             </f:SimpleForm>
             <f:SimpleForm id="stu" title="Proposed timeline for Change">
-                <TextArea id="vwx" maxLength="400" height="150px"/>
+                <TextArea id="vwx" value="{ReportModel>/PTFC}" maxLength="400" height="150px"/>
             </f:SimpleForm>
         </l:Splitter>
     </VBox>

@@ -41,9 +41,9 @@
             </f:SimpleForm>
             <f:SimpleForm width="700px" id="poi" title="Approval of change.Risk Assessment Review">
                 <Label id="qwe" textAlign="Begin" text="Name"/>
-                <Input id="weq"/>
+                <Input id="weq" value="{ZMOC_DETSet>/ApprovalName}"/>
                 <Label id="asd" textAlign="Begin" text="Position"/>
-                <Input id="dog"/>
+                <Input id="dog" value="{ZMOC_DETSet>/ApprovalPos}"/>
                 <Label id="dfg" textAlign="Begin" text="Date"/>
                 <DatePicker id="DP6" placeholder="Select Date" value="{ZMOC_DETSet>/ApprovalDate}" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>

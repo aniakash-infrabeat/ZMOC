@@ -50,33 +50,19 @@ sap.ui.define([
             // },
 
             onCreateNewReport: function () {
-                var code_input = null;
+                // var code_input = null;
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2", { codeno: code_input });
+                oRouter.navTo("View2");
 
             },
             onRowSelect: function (oEvent) {
 
                 var oSelectedItem = oEvent.getParameter("listItem");
-                var oContext = oSelectedItem.getBindingContext();
-                var oData = oContext.getObject();
-                var code_input = oData.Code;
-                var status_input = oData.Status;
-                var dep_input = oData.Department;
-                var requested_by = oData.RequestedBy;
-                var obj_of_change = oData.ObjectofChange;
-                var created_by = oData.CreatedBy;
-                var details_of_change = oData.DetailsofChange;
-                var reason_of_change = oData.ReasonofChange;
-                var proposed_t_for_change = oData.ProposedtforChange;
-               
-
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                // var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2", { codeno: code_input,status: status_input,department: dep_input,
-                    requestedby: requested_by,objchng: obj_of_change,crtdby: created_by,detochng: details_of_change,
-                    refchang: reason_of_change,prtfrc: proposed_t_for_change
-                });
+                var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
+                var oRouter = this.getOwnerComponent().getRouter();
+                if (oSelectedRowData.Code) {
+                    oRouter.navTo("View2", { codeno: oSelectedRowData.Code });
+                }
             },
 
 

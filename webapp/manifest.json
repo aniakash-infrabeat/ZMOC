@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV",
+                "uri": "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "2.0",
@@ -102,7 +102,7 @@
                     "target": "View1"
                 },
                 {
-                    "pattern": "View2/:codeno:/:status:/:department:/:requestedby:/:objchng:/:crtdby:/:detochng:/:refchang:/:prtfrc:",
+                    "pattern": "View2/:codeno:",
                     "name": "View2",
                     "target": "View2"
                 }

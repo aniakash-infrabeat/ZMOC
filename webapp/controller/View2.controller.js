@@ -2,6 +2,7 @@ sap.ui.define([
   "sap/ui/core/mvc/Controller",
   "sap/ui/core/routing/History",
   "sap/ui/model/json/JSONModel",
+  "sap/m/MessageBox",
   "sap/ui/core/Fragment"
 ], function (Controller, History, JSONModel, Fragment) {
   "use strict";
@@ -171,7 +172,7 @@ sap.ui.define([
     onSave: function () {
 
       // General fragment fields
-      var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).getValue();
+      // var codei = this.byId(Fragment.createId("generalfrag", "_IDGenInput1")).getValue();
       var objc = this.byId(Fragment.createId("generalfrag", "_IDGenInput2")).getValue();
       var reqd = this.byId(Fragment.createId("generalfrag", "DP1")).getValue();
       var reqb = this.byId(Fragment.createId("generalfrag", "_IDGenInput3")).getValue();
@@ -293,7 +294,7 @@ sap.ui.define([
       var wmcp = this.byId("req4").getSelectedButton().getText();
       var ictq = this.byId("req5").getSelectedButton().getText();
 
-      const oUploadSet = this.byId("attachmentUpl");
+      // const oUploadSet = this.byId("attachmentUpl");
 
       var oData1 = {};
 
@@ -367,20 +368,42 @@ sap.ui.define([
       oData1.ReviewComplete = niar;
       oData1.ReviewMgmt = wmcp;
       oData1.ReviewQMS = ictq;
+      
+      var oUploader = this.getView().byId("attachmentUpl");
+      // var oModel = this.getView().getModel();
+      var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
+      var oAttachment = {
+          "Docadd": this.getView().byId("addedin").getValue(),
+          "Docdesc": this.getView().byId("comments").getValue()
+      };
+      oModel.create("/ZMOC_FILESet", oAttachment, {
+          success: function() {
+            sap.m.MessageToast.show("File uploaded successfully!");
+          },
+          error: function(oError) {
+            sap.m.MessageToast.show("Error uploading file: " + oError);
+          },
+          refreshAfterChange: true
+      });
+      // oUploader.removeAllHeaderParameters();
+      // oUploader.removeAllParameters();
+      // oUploader.removeAllIncompleteItems();
+      // oUploader.removeAllAggregation("items");
 
       var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
       var obj = oData1;
       var that = this;
+      
       // sap.ui.core.BusyIndicator.show();
       saveModel.create("/ZMOC_DETSet", obj, {
-        success: function () {
+        success: function (oData,response) {
           // sap.ui.core.BusyIndicator.hide();
-          sap.m.MessageToast.show("Data saved successfully");
+          // sap.m.MessageToast.show("Data saved successfully");
+          MessageBox.confirm("Data saved success");
           var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
           oRouter.navTo("View1");
-
-
           that.onReset();
+          // window.location.reload();
         },
         error: function () {
 
@@ -391,5 +414,11 @@ sap.ui.define([
 
     },
 
+  //Upload
+
+
+
+
+       
   });
 });

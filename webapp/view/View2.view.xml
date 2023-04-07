@@ -18,7 +18,7 @@
                     <core:Fragment fragmentName="moc.fragments.approval" type="XML" binding="{path:'ZMOC_DETSet'}"/>
                 </IconTabFilter>
                 <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
-                    <core:Fragment fragmentName="moc.fragments.externalfiles" type="XML"/>
+                    <core:Fragment fragmentName="moc.fragments.externalfiles" id="external" type="XML"/>
                 </IconTabFilter>
                 <!-- <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log"/> -->
             </items>

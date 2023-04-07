@@ -8,7 +8,7 @@
         <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
             <!-- <f:content> -->
             <Label id="_IDGenText1" text="Code" />
-            <Input id="_IDGenInput1" />
+            <Input id="_IDGenInput1"/>
             <Label id="_IDGenText2" text="Object of Change"/>
             <Input id="_IDGenInput2" />
             <Label id="_IDGenText3" text="Request Date" />

@@ -12,6 +12,7 @@ sap.ui.define([
 
   return Controller.extend("moc.controller.View2", {
     onInit: function () {
+
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
       this.codenumber = "";
@@ -59,9 +60,9 @@ sap.ui.define([
         // this._data.ZACC_ACTIONLOGSet = [];
         // this.ActionLogModel.refresh();
         //this.setDefaultReportType("");
-        this.byId(sap.ui.core.Fragment.createId("InjuredFra", "codeinp")).setShowValueHelp(false);
-        var oTitleInputbox = this.byId(sap.ui.core.Fragment.createId("GeneralFra", "inpGen_title"));
-        oTitleInputbox.focus();
+        // this.byId(sap.ui.core.Fragment.createId("InjuredFra", "codeinp")).setShowValueHelp(false);
+        // var oTitleInputbox = this.byId(sap.ui.core.Fragment.createId("GeneralFra", "inpGen_title"));
+        // oTitleInputbox.focus();
 
       }
       // this.byId("idIconTabBarNoIcons").setSelectedKey("Gen"); //set general tab as a default
@@ -87,7 +88,7 @@ sap.ui.define([
       // var oViwewModel = new sap.ui.model.json.JSONModel({ saveBtnVisibility: true, printBtnVisibility: true });
       // this.getView().setModel(oViwewModel, "viewModel");
       var oViwewModel = new sap.ui.model.json.JSONModel();
-            this.getView().setModel(oViwewModel, "viewModel");
+      this.getView().setModel(oViwewModel, "viewModel");
     },
 
     bindData: function (sReportNo) {
@@ -202,123 +203,115 @@ sap.ui.define([
 
 
     onReset: function () {
-      // // window.location.reload();
-      // // General fragment fields
-      // // var codei = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
-      // var objc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
-      // var reqd = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValue("");
-      // var reqb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValue("");
-      // var toc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValue("");
-      // var creb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValue("");
-      // var dept = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
-      // var cod = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValue("");
-      // var stat = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
 
-      // //Checkboxes
-      // var checkb1 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "org")).setSelected(false);
-      // var checkb2 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "personnel")).setSelected(false);
-      // var checkb3 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "system")).setSelected(false);
-      // var checkb4 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "process")).setSelected(false);
-      // var checkb5 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "rig")).setSelected(false);
-      // var checkb6 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "equip")).setSelected(false);
-      // var checkb7 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "material")).setSelected(false);
-      // var checkb8 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "lawandreg")).setSelected(false);
+      // var oModel = new sap.ui.model.json.JSONModel(this.getEmptyReportModel());
+      // this.getView().setModel(oModel, "ReportModel");
+      // var codei = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput1")).setValue("");
+      var objc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValue("");
+      var reqd = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValue("");
+      var reqb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValue("");
+      var toc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValue("");
+      var creb = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValue("");
+      var dept = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
+      var cod = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValue("");
+      var stat = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
 
-      // //Text Areas
-      // var doc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "mno")).setValue("");
-      // var rfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "pqr")).setValue("");
-      // var ptfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "vwx")).setValue("");
+      //Checkboxes
+      var checkb1 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "org")).setSelected(false);
+      var checkb2 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "personnel")).setSelected(false);
+      var checkb3 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "system")).setSelected(false);
+      var checkb4 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "process")).setSelected(false);
+      var checkb5 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "rig")).setSelected(false);
+      var checkb6 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "equip")).setSelected(false);
+      var checkb7 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "material")).setSelected(false);
+      var checkb8 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "lawandreg")).setSelected(false);
 
-      // // Approval fragment fields
-      // //Approval to continue change
-      // var docd = this.byId("_IDGenRadioButtonGroup1").setSelectedButton("");
-      // var rocd = this.byId("_IDGenRadioButtonGroup2").setSelectedButton("");
-      // var cnec = this.byId("_IDGenRadioButtonGroup3").setSelectedButton("");
-      // var agtr = this.byId("_IDGenRadioButtonGroup4").setSelectedButton("");
-      // var drat = this.byId("_IDGenRadioButtonGroup5").setSelectedButton("");
-      // var atcdate = this.byId("_IDGenDatePicker1").setValue("");
+      //Text Areas
+      var doc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "mno")).setValue("");
+      var rfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "pqr")).setValue("");
+      var ptfc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "vwx")).setValue("");
 
-      // //Approval of change.Risk Assessment Review
-      // var aocname = this.byId("weq").setValue("");
-      // var aocpos = this.byId("dog").setValue("");
-      // var aocdate = this.byId("DP6").setValue("");
+      // Approval fragment fields
+      //Approval to continue change
+      var docd = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenRadioButtonGroup1")).setSelectedButton("");
+      var rocd = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenRadioButtonGroup2")).setSelectedButton("");
+      var cnec = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenRadioButtonGroup3")).setSelectedButton("");
+      var agtr = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenRadioButtonGroup4")).setSelectedButton("");
+      var drat = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenRadioButtonGroup5")).setSelectedButton("");
+      var atcdate = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenDatePicker1")).setValue("");
 
-      // //Reponsible Person
-      // var repname = this.byId("_IDGenInput19").setValue("");
-      // var reppos = this.byId("_IDGenInput21").setValue("");
-      // var repdate = this.byId("_IDGenDatePicker2").setValue("");
+      //Approval of change.Risk Assessment Review
+      var aocname = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "weq")).setValue("");
+      var aocpos = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "dog")).setValue("");
+      var aocdate = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "DP6")).setValue("");
 
-      // //Risk Assessment
-      // var risname = this.byId("abc3").setValue("");
-      // var risdate = this.byId("abc5").setValue("");
+      //Reponsible Person
+      var repname = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenInput19")).setValue("");
+      var reppos = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenInput21")).setValue("");
+      var repdate = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "_IDGenDatePicker2")).setValue("");
 
-      // //Result of Risk Assessment
-      // var rispep = this.byId("people").setValue("");
-      // var risenv = this.byId("env").setValue("");
-      // var risprp = this.byId("prop").setValue("");
-      // var rispla = this.byId("plant").setValue("");
+      //Risk Assessment
+      var risname = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "abc3")).setValue("");
+      var risdate = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "abc5")).setValue("");
 
-      // var mpdwu = this.byId("boom").setValue("");
-      // var sokma = this.byId("onam").setValue("");
-      // var iptac = this.byId("badam").setValue("");
-      // var trdat = this.byId("date15").setValue("");
-      // var ecoc = this.byId("wnkj").setValue("");
+      //Result of Risk Assessment
+      var rispep = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "people")).setValue("");
+      var risenv = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "env")).setValue("");
+      var risprp = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "prop")).setValue("");
+      var rispla = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "plant")).setValue("");
 
-      // //Implementation
-      // var dat1 = this.byId("date1").setValue("");
-      // var dat2 = this.byId("date2").setValue("");
-      // var dat3 = this.byId("date3").setValue("");
-      // var dat4 = this.byId("date4").setValue("");
-      // var dat5 = this.byId("date5").setValue("");
-      // var dat6 = this.byId("date6").setValue("");
-      // var dat7 = this.byId("date7").setValue("");
-      // var dat8 = this.byId("date8").setValue("");
-      // var dat9 = this.byId("date9").setValue("");
-      // var impn = this.byId("inp1").setValue("");
-      // var impp = this.byId("inp2").setValue("");
-      // var dat10 = this.byId("date10").setValue("");
+      var mpdwu = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "boom")).setValue("");
+      var sokma = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "onam")).setValue("");
+      var iptac = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "badam")).setValue("");
+      var trdat = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date15")).setValue("");
+      var ecoc = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "wnkj")).setValue("");
 
-      // //Review
-      // var wcpf = this.byId("req1").setSelectedButton("");
-      // var wcpe = this.byId("req2").setSelectedButton("");
-      // var niar = this.byId("req3").setSelectedButton("");
-      // var wmcp = this.byId("req4").setSelectedButton("");
-      // var ictq = this.byId("req5").setSelectedButton("");
+      //Implementation
+      var dat1 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date1")).setValue("");
+      var dat2 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date2")).setValue("");
+      var dat3 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date3")).setValue("");
+      var dat4 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date4")).setValue("");
+      var dat5 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date5")).setValue("");
+      var dat6 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date6")).setValue("");
+      var dat7 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date7")).setValue("");
+      var dat8 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date8")).setValue("");
+      var dat9 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date9")).setValue("");
+      var impn = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "inp1")).setValue("");
+      var impp = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "inp2")).setValue("");
+      var dat10 = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "date10")).setValue("");
+
+      //Review
+      var wcpf = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "req1")).setSelectedButton("");
+      var wcpe = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "req2")).setSelectedButton("");
+      var niar = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "req3")).setSelectedButton("");
+      var wmcp = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "req4")).setSelectedButton("");
+      var ictq = this.byId(sap.ui.core.Fragment.createId("approvalfrag", "req5")).setSelectedButton("");
+
     },
+
     onSave: function () {
-
-      this.obj = this.ReportModel.getData();
-      this.codenumber = this.getView.getModel("ReportModel").getProperty("/CODE_NO");
-      this.obj.CODE_NO = this.codenumber;
-      var that = this;
-      var sPath = "/ZMOC_DETSet";
-
-      var saveModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/");
-      var obj = oData1;
-      var that = this;
-
-      // sap.ui.core.BusyIndicator.show();
-      saveModel.create("/ZMOC_DETSet", obj, {
-        success: function (oData, response) {
-          // sap.ui.core.BusyIndicator.hide();
-          sap.m.MessageToast.show("Data saved successfully");
-          // MessageBox.confirm("Data saved success");
-          var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
-          oRouter.navTo("View1");
-          that.onReset();
-          // window.location.reload();
-        },
-        error: function () {
-
-          sap.m.MessageToast.show("Error while saving data");
+      var oReportModel = this.getView().getModel("ReportModel");
+      var oReportData = oReportModel.getData();
+      var oDataModel = new sap.ui.model.json.JSONModel(oReportData);
+      var sServiceUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
+      var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+      var oParams = {
+        success: function (oData, oResponse) {
+          debugger;
+          sap.m.MessageBox.success("Report saved successfully", {
+            onClose: function () {
+              var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+              oRouter.navTo("View1");
+              // that.onReset();
+            }.bind(this)
+          });
+        }.bind(this),
+        error: function (oError) {
+          sap.m.MessageBox.error("Error saving report");
         }
-
-      });
-
+      };
+      oModel.create("/ZMOC_DETSet", oDataModel.getData(), oParams);
     },
-
-    //Upload
-
 
 
 

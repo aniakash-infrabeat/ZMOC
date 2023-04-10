@@ -15,7 +15,7 @@
                 </IconTabFilter>
 
                 <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review">
-                    <core:Fragment fragmentName="moc.fragments.approval" id="apprid"  type="XML" binding="{path:'ReportModel'}"/>
+                    <core:Fragment fragmentName="moc.fragments.approval" id="approvalfrag"  type="XML" binding="{path:'ReportModel'}"/>
                 </IconTabFilter>
                 <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
                     <core:Fragment fragmentName="moc.fragments.externalfiles" id="external" type="XML"/>

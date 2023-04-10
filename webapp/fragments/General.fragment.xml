@@ -10,7 +10,7 @@
             <Label id="_IDGenText1" text="Code" />
             <Input id="_IDGenInput1" value="{ReportModel>/Code}" editable="false"/>
             <Label id="_IDGenText2" text="Object of Change"/>
-            <Input id="_IDGenInput2" value="{ReportModel>/OBJECTOFCHANGE}"/>
+            <Input id="_IDGenInput2" value="{ReportModel>/ObjOfChange}"/>
             <Label id="_IDGenText3" text="Request Date" />
             <DatePicker id="DP1" value="{ReportModel>/RequestDate}" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             <Label id="_IDGenText4" text="Requested by" />

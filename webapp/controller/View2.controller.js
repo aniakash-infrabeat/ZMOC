@@ -297,8 +297,9 @@ sap.ui.define([
       var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
       var oParams = {
         success: function (oData, oResponse) {
-          debugger;
-          sap.m.MessageBox.success("Report saved successfully", {
+          var sReportNumber = oData.Code; 
+          var sSuccessMessage = "Change " + sReportNumber + " saved successfully"; 
+          sap.m.MessageBox.success(sSuccessMessage, {
             onClose: function () {
               var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
               oRouter.navTo("View1");

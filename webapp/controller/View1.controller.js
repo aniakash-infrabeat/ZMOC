@@ -61,12 +61,13 @@ sap.ui.define([
                 var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
                 var oRouter = this.getOwnerComponent().getRouter();
                 if (oSelectedRowData.Code) {
+                    
                     oRouter.navTo("View2", { codeno: oSelectedRowData.Code });
                 }
             },
+            
 
-
-            onCodeVHPRequested: function () {
+     onCodeVHPRequested: function () {
                 var oView = this.getView();
 
                 if (!this._codeValueHelpDialog) {

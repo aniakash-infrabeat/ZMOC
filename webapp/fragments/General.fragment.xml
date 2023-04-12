@@ -65,16 +65,16 @@
     </HBox>
     <VBox id="_IDGenVBox2">
         <HBox id="_IDGenHBox1">
-            <CheckBox id="org" text="Organisation" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="personnel" text="Personnel" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="system" text="System" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="process" text="Process/Procedure" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="org" text="Organisation" selected="{=${ReportModel>/ChngTitleOrg}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="personnel" text="Personnel" selected="{=${ReportModel>/ChngTitlePerson}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="system" text="System" selected="{=${ReportModel>/ChngTitleSys}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="process" text="Process/Procedure" selected="{=${ReportModel>/ChngTitlePro}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
         </HBox>
         <HBox id="_IDGenHBox2">
-            <CheckBox id="rig" text="Rig" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="equip" text="Equipment" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="material" text="Material" selected="false" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="lawandreg" text="Laws and regulation" selected="false" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="rig" text="Rig" selected="{=${ReportModel>/ChngTitleRig}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="equip" text="Equipment" selected="{=${ReportModel>/ChngTitleEqui}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="material" text="Material" selected="{=${ReportModel>/ChngTitleMat}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="lawandreg" text="Laws and regulation" selected="{=${ReportModel>/ChngTitleLaws}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
         </HBox>
     </VBox>
     <VBox id="def">

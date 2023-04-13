@@ -25,6 +25,15 @@ sap.ui.define([
             var oIconTab = this.getView().byId("idIconTabBarNoIcons");
             this.setDefaultModel();
             var ardca;
+            var arcad;
+            var itcn;
+            var ipgtr;
+            var dratc;
+            var rev1;
+            var rev2;
+            var rev3;
+            var rev4;
+            var rev5;
 
 
         },
@@ -250,259 +259,259 @@ sap.ui.define([
 
         },
 
-        //      //-------------------------------------File Upload-----------------------------------
-        //      handleFileSizeExceed: function (oEvent) {
-        //       sap.m.MessageBox.show("File size limit exceeded 2 MB. Choose a file below 2 MB to continue file upload.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
-        //   },
+        //-------------------------------------File Upload-----------------------------------
+        handleFileSizeExceed: function (oEvent) {
+            sap.m.MessageBox.show("File size limit exceeded 2 MB. Choose a file below 2 MB to continue file upload.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
+        },
 
 
 
-        //   handleTypeMissmatch: function (oEvent) {
-        //       var fileType = oEvent.getSource().getFileType();
-        //       jQuery.each(fileType, function (key, value) { fileType[key] = "*." + value; });
-        //       var supportedFileTypes = fileType.join(", ");
-        //       sap.m.MessageBox.show("The file type *." + oEvent.getParameter("fileType") + " is not supported. Choose one of the following types : " + supportedFileTypes,
-        //           sap.m.MessageBox.Icon.ERROR, "Error", [sap.m.MessageBox.Action.CLOSE]);
-        //   },
+        handleTypeMissmatch: function (oEvent) {
+            var fileType = oEvent.getSource().getFileType();
+            jQuery.each(fileType, function (key, value) { fileType[key] = "*." + value; });
+            var supportedFileTypes = fileType.join(", ");
+            sap.m.MessageBox.show("The file type *." + oEvent.getParameter("fileType") + " is not supported. Choose one of the following types : " + supportedFileTypes,
+                sap.m.MessageBox.Icon.ERROR, "Error", [sap.m.MessageBox.Action.CLOSE]);
+        },
 
-        //   handleValueChange: function (oEvent) {
+        handleValueChange: function (oEvent) {
 
-        //   },
+        },
 
-        //   handleUploadPress: function (type) {
-        //       var that = this;
-        //       var txt = "fileUploader";
-        //       //this.byId(Fragment.createId("external", "fileUploader"));
-        //       var fileUploder = this.byId(sap.ui.core.Fragment.createId("external", "fileUploader"));
-        //       if (!fileUploder.getValue()) {
-        //           sap.m.MessageBox.show("Choose a file first.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
-        //       } else {
-        //           if (!this.busyDialogTab) {
-        //               this.busyDialogTab = new sap.m.BusyDialog({ text: 'Please Wait...' });
-        //           }
-        //           this.busyDialogTab.open();
-        //           var fileName = fileUploder.getValue();
-        //           this.byId(sap.ui.core.Fragment.createId("external", "filename")).setValue(fileName);
-        //           //this.getView().byId("filename").setValue(fileName);
-        //           /*if(this.DocNumber !== "0000000000000000000000000"){
-        //               this.getView().byId("docNumber").setValue(this.DocNumber);
-        //           }else{
-        //               this.getView().byId("docNumber").setValue("0000000000000000000000000");
-        //           }*/
+        handleUploadPress: function (type) {
+            var that = this;
+            var txt = "fileUploader";
+            //this.byId(Fragment.createId("external", "fileUploader"));
+            var fileUploder = this.byId(sap.ui.core.Fragment.createId("external", "fileUploader"));
+            if (!fileUploder.getValue()) {
+                sap.m.MessageBox.show("Choose a file first.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
+            } else {
+                if (!this.busyDialogTab) {
+                    this.busyDialogTab = new sap.m.BusyDialog({ text: 'Please Wait...' });
+                }
+                this.busyDialogTab.open();
+                var fileName = fileUploder.getValue();
+                this.byId(sap.ui.core.Fragment.createId("external", "filename")).setValue(fileName);
+                //this.getView().byId("filename").setValue(fileName);
+                /*if(this.DocNumber !== "0000000000000000000000000"){
+                    this.getView().byId("docNumber").setValue(this.DocNumber);
+                }else{
+                    this.getView().byId("docNumber").setValue("0000000000000000000000000");
+                }*/
 
-        //           var oDataModel = new sap.ui.model.odata.v2.ODataModel(this.sServiceURL, true);
-        //           oDataModel.setTokenHandlingEnabled(true);
-        //           oDataModel.refreshSecurityToken(function () {
-        //               var token = oDataModel.getSecurityToken();
-        //               that.byId(sap.ui.core.Fragment.createId("external", "CsrfId")).setValue(token);
-        //               //that.getView().byId("CsrfId").setValue(token);
-        //           });
-        //           fileUploder.upload();
-        //       }
-        //   },
+                var oDataModel = new sap.ui.model.odata.v2.ODataModel(this.sServiceURL, true);
+                oDataModel.setTokenHandlingEnabled(true);
+                oDataModel.refreshSecurityToken(function () {
+                    var token = oDataModel.getSecurityToken();
+                    that.byId(sap.ui.core.Fragment.createId("external", "CsrfId")).setValue(token);
+                    //that.getView().byId("CsrfId").setValue(token);
+                });
+                fileUploder.upload();
+            }
+        },
 
-        //   handleUploadComplete: function (oEvent) {
-        //       this.busyDialogTab.close();
-        //       var flag = 1;
-        //       var response = oEvent.getParameters("OData").responseRaw;
-        //       var startlen = response.search("<d:DocNumber>");
-        //       startlen += 13;
-        //       var endlen = response.search("</d:DocNumber>");
-        //       endlen -= 0;
-        //       var msg = response.slice(startlen, endlen);
+        handleUploadComplete: function (oEvent) {
+            this.busyDialogTab.close();
+            var flag = 1;
+            var response = oEvent.getParameters("OData").responseRaw;
+            var startlen = response.search("<d:DocNumber>");
+            startlen += 13;
+            var endlen = response.search("</d:DocNumber>");
+            endlen -= 0;
+            var msg = response.slice(startlen, endlen);
 
-        //       //var sResponse = oEvent.getParameter("response");
-        //       var m = oEvent.getParameter("status");
-        //       if (m === 201) {
-        //           sap.m.MessageBox.show("File Uploaded Successfully.", sap.m.MessageBox.Icon.SUCCESS, "Warning", [sap.m.MessageBox.Action.CLOSE]);
-        //           this.DocNumber = msg;
-        //           flag = 0;
-        //           this.byId(sap.ui.core.Fragment.createId("external", "fileUploader")).setValue("");
-        //           this.byId(sap.ui.core.Fragment.createId("external", "Upload")).setEnabled(true);
-        //           //this.getView().byId("Upload").setEnabled(true);
-        //       } else if (m === 400) {
-        //           sap.m.MessageBox.show("File NOT Uploaded Successfully.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
-        //       } else if (m === 500) {
-        //           sap.m.MessageBox.show("500 Connection timed out", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
-        //       }
-        //       return (flag);
-        //   },//end file upoad
+            //var sResponse = oEvent.getParameter("response");
+            var m = oEvent.getParameter("status");
+            if (m === 201) {
+                sap.m.MessageBox.show("File Uploaded Successfully.", sap.m.MessageBox.Icon.SUCCESS, "Warning", [sap.m.MessageBox.Action.CLOSE]);
+                this.DocNumber = msg;
+                flag = 0;
+                this.byId(sap.ui.core.Fragment.createId("external", "fileUploader")).setValue("");
+                this.byId(sap.ui.core.Fragment.createId("external", "Upload")).setEnabled(true);
+                //this.getView().byId("Upload").setEnabled(true);
+            } else if (m === 400) {
+                sap.m.MessageBox.show("File NOT Uploaded Successfully.", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
+            } else if (m === 500) {
+                sap.m.MessageBox.show("500 Connection timed out", sap.m.MessageBox.Icon.WARNING, "Alert", [sap.m.MessageBox.Action.CLOSE]);
+            }
+            return (flag);
+        },//end file upoad
 
-        //   //UPload attachment new
-        //   loadAttachments: function () {
-        //       var that = this;
-        //       var sPath = "/ZMOC_EXT_FILESet";
-        //       var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-        //       var Filter = new sap.ui.model.Filter({
-        //           path: "Code",
-        //           operator: sap.ui.model.FilterOperator.EQ,
-        //           value1: this.ReportId
-        //       });
-        //       var oReportIdFilter = [];
-        //       oReportIdFilter.push(Filter);
-        //       //oAttachmentUpl.getList().setMode("MultiSelect");
-        //       this.getView().getModel().read(sPath, {
-        //           filters: oReportIdFilter,
-        //           success: function (oData) {
-        //               var oAttachmentsModel = new JSONModel(oData);
-        //               oAttachmentUpl.setModel(oAttachmentsModel).bindAggregation("items", {
-        //                   path: "/results", templateShareable: true, template: new sap.m.upload.UploadSetItem({
-        //                       fileName: "{FILE_NAME}", mediaType: "{MIME_TYPE}", visibleEdit: false, visibleRemove: false,
-        //                       url: "/sap/opu/odata/sap/ZOD_ACCIDENT_DATA_SRV/ZACC_EXT_FILESet(Code='" + that.ReportId + "',FILE_NAME='" + "{FILE_NAME}" + "')/$value"
-        //                   })
-        //               });
-        //               /*.bindAggregation("attributes", {
-        //                       path: "/results", templateShareable: false, template: new sap.m.ObjectAttribute({ title: "Uploaded By", text: "{DOC_ADD}" })
-        //                   })*/
-        //               if (oAttachmentUpl.getItems().length > 0) {
-        //                   that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue(oData.results[0].DOC_ADD);
-        //                   that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).setValue(oData.results[0].DOC_DESC);
-        //                   //that.byId('checkbox').setVisible(true);
-        //               } else {
-        //                   that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue("");
-        //                   that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).setValue("");
-        //               }
-        //           },
-        //           error: function (oError) { that.parseErrorMsg() }
-        //       });
-        //   },
-        //   onBeforeUploadStarts: function (oEvent) { //track file upload progress
-        //       // var oUploadSet = oEvent.getSource(),
-        //       //     iOldList = oUploadSet.getIncompleteItems().length;
-        //       //setTimeout(() => this.checkFileUploadFailed(oUploadSet, iOldList), 10000); // recursive func that checks status of itemslist
-        //   },
-        //   checkFileUploadFailed: function (oUploadSet, iOldList) {
-        //       /* if (iOldList !== 0) {
-        //            var iNewList = oUploadSet.getIncompleteItems().length;
-        //            if (iNewList === iOldList) {
-        //                MessageToast.show("File upload(s) pending");
-        //                if (!this.iPendingFilesCounter) this.iPendingFilesCounter = 0;
-        //                this.iPendingFilesCounter += 1;
-        //                if (this.iPendingFilesCounter === 3) {
-        //                    MessageBox.error("File uploads taking longer than expected.");
-        //                    oUploadSet.setBusy(false);
-        //                }
-        //                var iOldList = iNewList;
-        //                setTimeout(() => this.checkFileUploadFailed(oUploadSet, iOldList), 10000);
-        //            }
-        //        }*/
-        //   },
-        //   onFileTypeMismatch: function (oEvent) {
-        //       var oItem = oEvent.getParameter("item");
-        //       this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")).removeIncompleteItem(oItem); //remove pending item user tried to add
-        //       new sap.m.MessageToast.show(oItem.getProperty("fileName").split(".")[1] + " file type is not supported"); //show message toast with the specific fileType that isn't supported
-        //   },
-        //   onFileSizeExceeded: function (oEvent) {
-        //       var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")),
-        //           oItem = oEvent.getParameter("item");
-        //       oAttachmentUpl.removeIncompleteItem(oItem); //remove pending item user tried to add
-        //       new sap.m.MessageToast.show("Maximum file size of " + oAttachmentUpl.getMaxFileSize() + " MB exceeded"); //show message toast with the max file size supported
-        //   },
-        //   onRemove: function (oEvent) {
-        //       var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-        //       oAttachmentUpl.setBusy(true);
-        //       oAttachmentUpl.getItems().forEach(oItem => {
-        //           if (oItem.getListItem().getSelected()) {
-        //               var sPath = oItem.getProperty("url").split("SRV")[1]; //eg /ZACC_EXT_FILESet
-        //               this.getView().getModel().remove(sPath, {
-        //                   success: function () {
-        //                       oAttachmentUpl.removeItem(oItem); //remove from displayed list
-        //                   },
-        //                   error: function (oError) {
-        //                       that.parseErrorMsg();
-        //                   }
-        //               });
-        //           }
-        //       });
-        //       oEvent.getSource().setEnabled(false);
-        //       this.byId("download").setEnabled(false);
+        //UPload attachment new
+        loadAttachments: function () {
+            var that = this;
+            var sPath = "/ZMOC_EXT_FILESet";
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            var Filter = new sap.ui.model.Filter({
+                path: "Code",
+                operator: sap.ui.model.FilterOperator.EQ,
+                value1: this.ReportId
+            });
+            var oReportIdFilter = [];
+            oReportIdFilter.push(Filter);
+            //oAttachmentUpl.getList().setMode("MultiSelect");
+            this.getView().getModel().read(sPath, {
+                filters: oReportIdFilter,
+                success: function (oData) {
+                    var oAttachmentsModel = new JSONModel(oData);
+                    oAttachmentUpl.setModel(oAttachmentsModel).bindAggregation("items", {
+                        path: "/results", templateShareable: true, template: new sap.m.upload.UploadSetItem({
+                            fileName: "{FILE_NAME}", mediaType: "{MIME_TYPE}", visibleEdit: false, visibleRemove: false,
+                            url: "/sap/opu/odata/sap/ZOD_ACCIDENT_DATA_SRV/ZACC_EXT_FILESet(Code='" + that.ReportId + "',FILE_NAME='" + "{FILE_NAME}" + "')/$value"
+                        })
+                    });
+                    /*.bindAggregation("attributes", {
+                            path: "/results", templateShareable: false, template: new sap.m.ObjectAttribute({ title: "Uploaded By", text: "{DOC_ADD}" })
+                        })*/
+                    if (oAttachmentUpl.getItems().length > 0) {
+                        that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue(oData.results[0].DOC_ADD);
+                        that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).setValue(oData.results[0].DOC_DESC);
+                        //that.byId('checkbox').setVisible(true);
+                    } else {
+                        that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue("");
+                        that.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).setValue("");
+                    }
+                },
+                error: function (oError) { that.parseErrorMsg() }
+            });
+        },
+        onBeforeUploadStarts: function (oEvent) { //track file upload progress
+            // var oUploadSet = oEvent.getSource(),
+            //     iOldList = oUploadSet.getIncompleteItems().length;
+            //setTimeout(() => this.checkFileUploadFailed(oUploadSet, iOldList), 10000); // recursive func that checks status of itemslist
+        },
+        checkFileUploadFailed: function (oUploadSet, iOldList) {
+            /* if (iOldList !== 0) {
+                 var iNewList = oUploadSet.getIncompleteItems().length;
+                 if (iNewList === iOldList) {
+                     MessageToast.show("File upload(s) pending");
+                     if (!this.iPendingFilesCounter) this.iPendingFilesCounter = 0;
+                     this.iPendingFilesCounter += 1;
+                     if (this.iPendingFilesCounter === 3) {
+                         MessageBox.error("File uploads taking longer than expected.");
+                         oUploadSet.setBusy(false);
+                     }
+                     var iOldList = iNewList;
+                     setTimeout(() => this.checkFileUploadFailed(oUploadSet, iOldList), 10000);
+                 }
+             }*/
+        },
+        onFileTypeMismatch: function (oEvent) {
+            var oItem = oEvent.getParameter("item");
+            this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")).removeIncompleteItem(oItem); //remove pending item user tried to add
+            new sap.m.MessageToast.show(oItem.getProperty("fileName").split(".")[1] + " file type is not supported"); //show message toast with the specific fileType that isn't supported
+        },
+        onFileSizeExceeded: function (oEvent) {
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")),
+                oItem = oEvent.getParameter("item");
+            oAttachmentUpl.removeIncompleteItem(oItem); //remove pending item user tried to add
+            new sap.m.MessageToast.show("Maximum file size of " + oAttachmentUpl.getMaxFileSize() + " MB exceeded"); //show message toast with the max file size supported
+        },
+        onRemove: function (oEvent) {
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            oAttachmentUpl.setBusy(true);
+            oAttachmentUpl.getItems().forEach(oItem => {
+                if (oItem.getListItem().getSelected()) {
+                    var sPath = oItem.getProperty("url").split("SRV")[1]; //eg /ZACC_EXT_FILESet
+                    this.getView().getModel().remove(sPath, {
+                        success: function () {
+                            oAttachmentUpl.removeItem(oItem); //remove from displayed list
+                        },
+                        error: function (oError) {
+                            that.parseErrorMsg();
+                        }
+                    });
+                }
+            });
+            oEvent.getSource().setEnabled(false);
+            this.byId("download").setEnabled(false);
 
-        //       if (oAttachmentUpl.getItems().length > 0) {
-        //           this.byId('checkbox').setVisible(true);
-        //       } else {
-        //           this.byId('checkbox').setVisible(false);
-        //       }
-        //       oAttachmentUpl.setBusy(false);
-        //   },
-        //   onDownload: function (oEvent) {
-        //       var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-        //       oAttachmentUpl.setBusy(true);
-        //       oAttachmentUpl.getItems().forEach(oItem => {
-        //           if (oItem.getListItem().getSelected()) {
-        //               oItem.download(true);
-        //               oItem.getListItem().setSelected(false);
-        //           }
-        //       });
-        //       oAttachmentUpl.setBusy(false);
-        //       oEvent.getSource().setEnabled(false);
-        //   },
-        //   onStartUpload: function () {
-        //       var that = this;
-        //       var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-        //       var sAddedBy = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).getValue();
-        //       var sDescription = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).getValue();
-        //       var aIncompleteItems = oAttachmentUpl.getIncompleteItems();
-        //       this.iIncompleteItems = aIncompleteItems.length; //used to turn off busy indicator upon completion of all pending uploads
-        //       if (this.iIncompleteItems !== 0) {
-        //           that.byId("iconTabBarInlineIcons").setSelectedKey("extFiles");
-        //           oAttachmentUpl.setBusy(true);
-        //           this.i = 0; //used to turn off busy indicator when all uploads complete
-        //           for (var i = 0; i < this.iIncompleteItems; i++) {
-        //               var sFileName = aIncompleteItems[i].getProperty("fileName");
-        //               var oXCSRFToken = new sap.ui.core.Item({
-        //                   key: "X-CSRF-Token",
-        //                   text: this.getOwnerComponent().getModel().getSecurityToken()
-        //               });
-        //               var oSlug = new sap.ui.core.Item({
-        //                   key: "SLUG",
-        //                   text: this.ReportId + "/" + sFileName + "/" + sAddedBy + "/" + sDescription,
-        //               });
-        //               oAttachmentUpl.addHeaderField(oXCSRFToken).addHeaderField(oSlug).uploadItem(aIncompleteItems[i]);
-        //               oAttachmentUpl.removeAllHeaderFields(); //at least slug header field must be reset after each upload
-        //           }
-        //       } else {
-        //           var sDispMessage = "Report " + this.ReportId + " Saved Successfully.";
-        //           sap.m.MessageBox.success(sDispMessage, {
-        //               actions: [sap.m.MessageBox.Action.OK],
-        //               emphasizedAction: sap.m.MessageBox.Action.OK,
-        //               onClose: function (sAction) {
-        //                   that.onNavBack();
-        //               }
-        //           });
-        //       }
-        //   },
-        //   onUploadCompleted: function () {
-        //       var that = this;
-        //       this.i += 1;
-        //       if (this.i === this.iIncompleteItems) { //turn off busy indicator when all attachments have completed uploading
-        //           this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")).setBusy(false);
-        //           var sDispMessage = "Report " + this.ReportId + " Saved Successfully.";
-        //           sap.m.MessageBox.success(sDispMessage, {
-        //               actions: [sap.m.MessageBox.Action.OK],
-        //               emphasizedAction: sap.m.MessageBox.Action.OK,
-        //               onClose: function (sAction) {
-        //                   that.onNavBack();
-        //               }
-        //           });
-        //       }
-        //   },
-        //   parseErrorMsg: function (oError) { //parses oData error messages dependent on different return values
-        //       var oMessage, sType;
-        //       if (oError) { //for update
-        //           if (oError.response) {
-        //               sType = typeof oError.response;
-        //               if (sType === "string" || sType === "object") oMessage = JSON.parse(oError.response.body).error.message.value;
-        //               else return MessageBox.error("Unhandled server error:\n\n" + oError.response + "\n\nReport this issue to Admin for a future fix.");
-        //           } else if (oError.responseText) { //for create
-        //               sType = typeof oError.responseText;
-        //               if (sType === "string" || sType === "object") oMessage = JSON.parse(oError.responseText).error.message.value;
-        //               else return MessageBox.error("Unhandled server error:\n\n" + oError.responseText + "\n\nReport this issue to Admin for a future fix.");
-        //           }
-        //       } else {
-        //           return MessageToast.show("Error message is undefined");
-        //       }
-        //       MessageBox.error(oMessage);
-        //   },  //Upload attachment new end here
+            if (oAttachmentUpl.getItems().length > 0) {
+                this.byId('checkbox').setVisible(true);
+            } else {
+                this.byId('checkbox').setVisible(false);
+            }
+            oAttachmentUpl.setBusy(false);
+        },
+        onDownload: function (oEvent) {
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            oAttachmentUpl.setBusy(true);
+            oAttachmentUpl.getItems().forEach(oItem => {
+                if (oItem.getListItem().getSelected()) {
+                    oItem.download(true);
+                    oItem.getListItem().setSelected(false);
+                }
+            });
+            oAttachmentUpl.setBusy(false);
+            oEvent.getSource().setEnabled(false);
+        },
+        onStartUpload: function () {
+            var that = this;
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            var sAddedBy = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).getValue();
+            var sDescription = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentDesc")).getValue();
+            var aIncompleteItems = oAttachmentUpl.getIncompleteItems();
+            this.iIncompleteItems = aIncompleteItems.length; //used to turn off busy indicator upon completion of all pending uploads
+            if (this.iIncompleteItems !== 0) {
+                that.byId("iconTabBarInlineIcons").setSelectedKey("extFiles");
+                oAttachmentUpl.setBusy(true);
+                this.i = 0; //used to turn off busy indicator when all uploads complete
+                for (var i = 0; i < this.iIncompleteItems; i++) {
+                    var sFileName = aIncompleteItems[i].getProperty("fileName");
+                    var oXCSRFToken = new sap.ui.core.Item({
+                        key: "X-CSRF-Token",
+                        text: this.getOwnerComponent().getModel().getSecurityToken()
+                    });
+                    var oSlug = new sap.ui.core.Item({
+                        key: "SLUG",
+                        text: this.ReportId + "/" + sFileName + "/" + sAddedBy + "/" + sDescription,
+                    });
+                    oAttachmentUpl.addHeaderField(oXCSRFToken).addHeaderField(oSlug).uploadItem(aIncompleteItems[i]);
+                    oAttachmentUpl.removeAllHeaderFields(); //at least slug header field must be reset after each upload
+                }
+            } else {
+                var sDispMessage = "Report " + this.ReportId + " Saved Successfully.";
+                sap.m.MessageBox.success(sDispMessage, {
+                    actions: [sap.m.MessageBox.Action.OK],
+                    emphasizedAction: sap.m.MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        that.onNavBack();
+                    }
+                });
+            }
+        },
+        onUploadCompleted: function () {
+            var that = this;
+            this.i += 1;
+            if (this.i === this.iIncompleteItems) { //turn off busy indicator when all attachments have completed uploading
+                this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")).setBusy(false);
+                var sDispMessage = "Report " + this.ReportId + " Saved Successfully.";
+                sap.m.MessageBox.success(sDispMessage, {
+                    actions: [sap.m.MessageBox.Action.OK],
+                    emphasizedAction: sap.m.MessageBox.Action.OK,
+                    onClose: function (sAction) {
+                        that.onNavBack();
+                    }
+                });
+            }
+        },
+        parseErrorMsg: function (oError) { //parses oData error messages dependent on different return values
+            var oMessage, sType;
+            if (oError) { //for update
+                if (oError.response) {
+                    sType = typeof oError.response;
+                    if (sType === "string" || sType === "object") oMessage = JSON.parse(oError.response.body).error.message.value;
+                    else return MessageBox.error("Unhandled server error:\n\n" + oError.response + "\n\nReport this issue to Admin for a future fix.");
+                } else if (oError.responseText) { //for create
+                    sType = typeof oError.responseText;
+                    if (sType === "string" || sType === "object") oMessage = JSON.parse(oError.responseText).error.message.value;
+                    else return MessageBox.error("Unhandled server error:\n\n" + oError.responseText + "\n\nReport this issue to Admin for a future fix.");
+                }
+            } else {
+                return MessageToast.show("Error message is undefined");
+            }
+            MessageBox.error(oMessage);
+        },  //Upload attachment new end here
 
         onNavBack: function () {
             var oHistory = History.getInstance();
@@ -608,21 +617,159 @@ sap.ui.define([
         },
         radioselect: function (oEvent) {
             var ab = oEvent.mParameters.selectedIndex;
-            switch (ab !== "") {
+            switch (ab) {
                 case 0:
+                    // console.log("Yes");
                     this.ardca = "Y";
                     // code block
                     break;
                 case 1:
+                    // console.log("No");
                     this.ardca = "N";
                     // code block
                     break;
                 case 2:
+                    // console.log("NA");
                     this.ardca = "NA";
                     // code block
                     break;
                 default:
                 // code block
+            }
+        },
+        radioselect1: function (oEvent) {
+            var ab1 = oEvent.mParameters.selectedIndex;
+            switch (ab1) {
+                case 0:
+                    this.arcad = "Y";
+                    break;
+                case 1:
+                    this.arcad = "N";
+                    break;
+                case 2:
+                    this.arcad = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect2: function (oEvent) {
+            var ab2 = oEvent.mParameters.selectedIndex;
+            switch (ab2) {
+                case 0:
+                    this.itcn = "Y";
+                    break;
+                case 1:
+                    this.itcn = "N";
+                    break;
+                case 2:
+                    this.itcn = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect3: function (oEvent) {
+            var ab3 = oEvent.mParameters.selectedIndex;
+            switch (ab3) {
+                case 0:
+                    this.ipgtr = "Y";
+                    break;
+                case 1:
+                    this.ipgtr = "N";
+                    break;
+                case 2:
+                    this.ipgtr = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect4: function (oEvent) {
+            var ab4 = oEvent.mParameters.selectedIndex;
+            switch (ab4) {
+                case 0:
+                    this.dratc = "Y";
+                    break;
+                case 1:
+                    this.dratc = "N";
+                    break;
+                case 2:
+                    this.dratc = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect5: function (oEvent) {
+            var ab5 = oEvent.mParameters.selectedIndex;
+            switch (ab5) {
+                case 0:
+                    this.rev1 = "Y";
+                    break;
+                case 1:
+                    this.rev1 = "N";
+                    break;
+                case 2:
+                    this.rev1 = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect6: function (oEvent) {
+            var ab6 = oEvent.mParameters.selectedIndex;
+            switch (ab6) {
+                case 0:
+                    this.rev2 = "Y";
+                    break;
+                case 1:
+                    this.rev2 = "N";
+                    break;
+                case 2:
+                    this.rev2 = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect7: function (oEvent) {
+            var ab7 = oEvent.mParameters.selectedIndex;
+            switch (ab7) {
+                case 0:
+                    this.rev3 = "Y";
+                    break;
+                case 1:
+                    this.rev3 = "N";
+                    break;
+                case 2:
+                    this.rev3 = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect8: function (oEvent) {
+            var ab8 = oEvent.mParameters.selectedIndex;
+            switch (ab8) {
+                case 0:
+                    this.rev4 = "Y";
+                    break;
+                case 1:
+                    this.rev4 = "N";
+                    break;
+                case 2:
+                    this.rev4 = "NA";
+                    break;
+                default:
+            }
+        },
+        radioselect9: function (oEvent) {
+            var ab9 = oEvent.mParameters.selectedIndex;
+            switch (ab9) {
+                case 0:
+                    this.rev5 = "Y";
+                    break;
+                case 1:
+                    this.rev5 = "N";
+                    break;
+                case 2:
+                    this.rev5 = "NA";
+                    break;
+                default:
             }
         },
         onSave: function () {
@@ -661,6 +808,15 @@ sap.ui.define([
                 oReportData.ChngTitleLaws = "X";
             }
             oReportData.AppDetChange = this.ardca;
+            oReportData.AppReasonChange = this.arcad;
+            oReportData.AppNecessary = this.itcn;
+            oReportData.AppRiskApproval = this.ipgtr;
+            oReportData.AppRiskComplete = this.dratc;
+            oReportData.ReviewProcess = this.rev1;
+            oReportData.ReviewEffective = this.rev2;
+            oReportData.ReviewComplete = this.rev3;
+            oReportData.ReviewMgmt = this.rev4;
+            oReportData.ReviewQMS = this.rev5;
             var oDataModel = new sap.ui.model.json.JSONModel(oReportData);
             var sServiceUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
             var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);

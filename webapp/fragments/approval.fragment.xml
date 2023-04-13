@@ -14,25 +14,25 @@
                     <RadioButton id="na1" selected="{=${ReportModel>/AppDetChange}==='NA' ? true : false}" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel2" text="Are the reasons of change adequately defined?"/>
-                <RadioButtonGroup id="_IDGenRadioButtonGroup2" columns="3">
+                <RadioButtonGroup id="_IDGenRadioButtonGroup2" select="radioselect1" columns="3">
                     <RadioButton id="y2" selected="{=${ReportModel>/AppReasonChange}==='Y' ? true : false}" text="Y" width="100px"/>
                     <RadioButton id="n2" selected="{=${ReportModel>/AppReasonChange}==='N' ? true : false}" text="N" width="100px"/>
                     <RadioButton id="na2" selected="{=${ReportModel>/AppReasonChange}==='NA' ? true : false}" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel3" text="Is the change necessary?"/>
-                <RadioButtonGroup id="_IDGenRadioButtonGroup3" columns="3">
+                <RadioButtonGroup id="_IDGenRadioButtonGroup3" select="radioselect2" columns="3">
                     <RadioButton id="y3" selected="{=${ReportModel>/AppNecessary}==='Y' ? true : false}" text="Y" width="100px"/>
                     <RadioButton id="n3" selected="{=${ReportModel>/AppNecessary}==='N' ? true : false}" text="N" width="100px"/>
                     <RadioButton id="na3" selected="{=${ReportModel>/AppNecessary}==='NA' ? true : false}" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel4" text="Is approval given to risk assessment?"/>
-                <RadioButtonGroup id="_IDGenRadioButtonGroup4" columns="3">
+                <RadioButtonGroup id="_IDGenRadioButtonGroup4" select="radioselect3" columns="3">
                     <RadioButton id="y4" selected="{=${ReportModel>/AppRiskApproval}==='Y' ? true : false}" text="Y" width="100px"/>
                     <RadioButton id="n4" selected="{=${ReportModel>/AppRiskApproval}==='N' ? true : false}" text="N" width="100px"/>
                     <RadioButton id="na4" selected="{=${ReportModel>/AppRiskApproval}==='NA' ? true : false}" text="NA" width="100px"/>
                 </RadioButtonGroup>
                 <Label id="_IDGenLabel5" text="Date risk assessment to be completed by"/>
-                <RadioButtonGroup id="_IDGenRadioButtonGroup5" columns="3">
+                <RadioButtonGroup id="_IDGenRadioButtonGroup5" select="radioselect4" columns="3">
                     <RadioButton id="y5" selected="{=${ReportModel>/AppRiskComplete}==='Y' ? true : false}" text="Y" width="100px"/>
                     <RadioButton id="n5" selected="{=${ReportModel>/AppRiskComplete}==='N' ? true : false}" text="N" width="100px"/>
                     <RadioButton id="na5" selected="{=${ReportModel>/AppRiskComplete}==='NA' ? true : false}" text="NA" width="100px"/>
@@ -165,42 +165,42 @@
             <f:SimpleForm id="fad" title="Review">
                 <Label id="imp13" text="Was change process followed" textAlign="Begin"/>
                 <HBox id="rad1">
-                    <RadioButtonGroup id="req1" columns="3">
-                        <RadioButton id="reqy1" text="Y" width="100px"/>
-                        <RadioButton id="reqn1" text="N" width="100px"/>
-                        <RadioButton id="reqna1" text="NA" width="100px"/>
+                    <RadioButtonGroup id="req1" select="radioselect5" columns="3">
+                        <RadioButton id="reqy1" selected="{=${ReportModel>/ReviewProcess}==='Y' ? true : false}" text="Y" width="100px"/>
+                        <RadioButton id="reqn1" selected="{=${ReportModel>/ReviewProcess}==='N' ? true : false}" text="N" width="100px"/>
+                        <RadioButton id="reqna1" selected="{=${ReportModel>/ReviewProcess}==='NA' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp14" text="Was change effective?"/>
                 <HBox id="rad2">
-                    <RadioButtonGroup id="req2" columns="3">
-                        <RadioButton id="reqy2" text="Y" width="100px"/>
-                        <RadioButton id="reqn2" text="N" width="100px"/>
-                        <RadioButton id="reqna2" text="NA" width="100px"/>
+                    <RadioButtonGroup id="req2" select="radioselect6" columns="3">
+                        <RadioButton id="reqy2" selected="{=${ReportModel>/ReviewEffective}==='Y' ? true : false}" text="Y" width="100px"/>
+                        <RadioButton id="reqn2" selected="{=${ReportModel>/ReviewEffective}==='N' ? true : false}" text="N" width="100px"/>
+                        <RadioButton id="reqna2" selected="{=${ReportModel>/ReviewEffective}==='NA' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp15" text="If no, identify actions required to be completed "/>
                 <HBox id="rad3">
-                    <RadioButtonGroup id="req3" columns="3">
-                        <RadioButton id="reqy3" text="Y" width="100px"/>
-                        <RadioButton id="reqn3" text="N" width="100px"/>
-                        <RadioButton id="reqna3" text="NA" width="100px"/>
+                    <RadioButtonGroup id="req3" select="radioselect7" columns="3">
+                        <RadioButton id="reqy3" selected="{=${ReportModel>/ReviewComplete}==='Y' ? true : false}" text="Y" width="100px"/>
+                        <RadioButton id="reqn3" selected="{=${ReportModel>/ReviewComplete}==='N' ? true : false}" text="N" width="100px"/>
+                        <RadioButton id="reqna3" selected="{=${ReportModel>/ReviewComplete}==='NA' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp16" text="Was the management of change process effective?"/>
                 <HBox id="rad4">
-                    <RadioButtonGroup id="req4" columns="3">
-                        <RadioButton id="reqy4" text="Y" width="100px"/>
-                        <RadioButton id="reqn4" text="N" width="100px"/>
-                        <RadioButton id="reqna4" text="NA" width="100px"/>
+                    <RadioButtonGroup id="req4" select="radioselect8" columns="3">
+                        <RadioButton id="reqy4" selected="{=${ReportModel>/ReviewMgmt}==='Y' ? true : false}" text="Y" width="100px"/>
+                        <RadioButton id="reqn4" selected="{=${ReportModel>/ReviewMgmt}==='N' ? true : false}" text="N" width="100px"/>
+                        <RadioButton id="reqna4" selected="{=${ReportModel>/ReviewMgmt}==='NA' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
                 <Label id="imp17" text="If no, identify amendments and initiate a change to QMS"/>
                 <HBox id="rad5">
-                    <RadioButtonGroup id="req5" columns="3">
-                        <RadioButton id="reqy5" text="Y" width="100px"/>
-                        <RadioButton id="reqn5" text="N" width="100px"/>
-                        <RadioButton id="reqna5" text="NA" width="100px"/>
+                    <RadioButtonGroup id="req5" select="radioselect9" columns="3">
+                        <RadioButton id="reqy5" selected="{=${ReportModel>/ReviewQMS}==='Y' ? true : false}" text="Y" width="100px"/>
+                        <RadioButton id="reqn5" selected="{=${ReportModel>/ReviewQMS}==='N' ? true : false}" text="N" width="100px"/>
+                        <RadioButton id="reqna5" selected="{=${ReportModel>/ReviewQMS}==='A' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
             </f:SimpleForm>

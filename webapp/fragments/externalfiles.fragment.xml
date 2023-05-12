@@ -8,8 +8,8 @@
     <!-- <l:VerticalLayout id="_IDGenVerticalLayout1"> -->
     <VBox id="vbox1" class="sapUiLargeMarginEnd">
         <f:SimpleForm id="externalfile" title="Attachment Details" editable="true" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" layout="ResponsiveGridLayout">
-            <Label id="addedby" text="Added By"/>
-            <Input id="addedin"/>
+            <Label id="lblAttachAddedBy" text="Added By"/>
+            <Input id="inAttachmentAddedBy"/>
             <Label id="comment" text="Comments"/>
             <TextArea id="comments" placeholder="" rows="2"/>
          </f:SimpleForm>

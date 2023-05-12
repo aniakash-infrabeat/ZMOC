@@ -1,7 +1,7 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
-	<SelectDialog
+	<SelectDialog id="_IDGenSelectDialog1"
 		noDataText="No Codes"
 		title="Select code"
 		search=".onCodeSearch"
@@ -16,6 +16,6 @@
 				descending: false
 			}
 		}">
-		<StandardListItem title="{Code}" iconDensityAware="false" iconInset="false" type="Active" />
+		<StandardListItem id="_IDGenStandardListItem1" title="{Code}" iconDensityAware="false" iconInset="false" type="Active" />
 	</SelectDialog>
 </core:FragmentDefinition>

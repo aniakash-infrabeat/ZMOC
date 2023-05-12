@@ -55,19 +55,47 @@ sap.ui.define([
                 oRouter.navTo("View2");
 
             },
-            onRowSelect: function (oEvent) {
+            // onRowSelect: function (oEvent) {
 
+            //     var oSelectedItem = oEvent.getParameter("listItem");
+            //     var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
+            //     var oRouter = this.getOwnerComponent().getRouter();
+            //     if (oSelectedRowData.Code) {
+
+            //         oRouter.navTo("View2", { codeno: oSelectedRowData.Code });
+            //     }
+            // },
+            onRowSelect: function (oEvent) {
                 var oSelectedItem = oEvent.getParameter("listItem");
                 var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
                 var oRouter = this.getOwnerComponent().getRouter();
                 if (oSelectedRowData.Code) {
-                    
                     oRouter.navTo("View2", { codeno: oSelectedRowData.Code });
+
+                    // // Get the attachment ID or file name from the selected row data
+                    // var attachmentId = oSelectedRowData.Code;
+                    // var Filename = oSelectedRowData.FileName;
+
+                    // // Create the attachment URL
+                    // // var attachmentUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Code='" + attachmentId + "')/$value";
+                    // var attachmentUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Code='" + attachmentId + "',Filename='" + Filename + "')/$value";
+
+                    // // Fetch the attachment data from the backend using an AJAX call or a FileUploader control
+                    // jQuery.ajax({
+                    //     url: attachmentUrl,
+                    //     type: "GET",
+                    //     success: function (data) {
+                    //         // Handle the success case by displaying the attachment data in a popup or downloading the file
+                    //     },
+                    //     error: function (error) {
+                    //         // Handle the error case
+                    //     }
+                    // });
                 }
             },
-            
 
-     onCodeVHPRequested: function () {
+
+            onCodeVHPRequested: function () {
                 var oView = this.getView();
 
                 if (!this._codeValueHelpDialog) {
@@ -169,14 +197,17 @@ sap.ui.define([
                         oBindingParams.filters.push(new sap.ui.model.Filter("Plant", "EQ", sFilterValue));
                     }
                 }
+                // 
                 oCustomControl = oSmartFilterBar.getControlByKey("CreatedDate");
                 if (oCustomControl) {
                     sFilterValue = oCustomControl.getValue();
                     if (sFilterValue) {
                         var sSelectedDate = new Date(new Date(sFilterValue).toDateString());
+                        sSelectedDate.setDate(sSelectedDate.getDate() + 1); 
                         oBindingParams.filters.push(new sap.ui.model.Filter("CreatedDate", "EQ", sSelectedDate));
                     }
                 }
+
 
             },
         });

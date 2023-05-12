@@ -39,7 +39,8 @@
                     <!-- <smartFilterBar:ControlConfiguration id="sfb_status" key="STATUS" visibleInAdvancedArea="true" /> -->
                     <smartFilterBar:ControlConfiguration id="created_date" key="CreatedDate" visibleInAdvancedArea="true">
                         <smartFilterBar:customControl>
-                            <DatePicker id="filterDate" value="{ path:'CreatedDate', type:'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" />
+                            <DatePicker id="filterDate" />
+                            <!-- <DatePicker id="filterDate" value="{ path:'', type:'sap.ui.model.type.Date', formatOptions: { strictParsing: true, UTC: true } }" /> -->
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
 

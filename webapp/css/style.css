@@ -12,5 +12,24 @@
     text-align: left;
     margin-bottom: 10px;
   }
-
+  .boldTitle {
+    font-weight: bold;
+  }
   
+  .layoutBorder {
+    border-right: 1px solid #000000;
+}
+  .layoutbelowborder{
+    margin-bottom: 10px;
+    /* border-bottom: 1px solid #000000; */
+    
+  }
+  .layoutaboveborder{
+    border-top: 1px solid #000000;
+  }
+  .layoutleftborder{
+    border-left: 1px solid #000000;
+  }
+  .layoutopborder{
+    border-top: 1px solid #000000;
+  }

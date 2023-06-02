@@ -1,7 +1,7 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
-	<SelectDialog
+	<SelectDialog id="_IDGenSelectDialog1"
 		noDataText="No Plant"
 		title="Select Plant"
 		search=".onPlantSearch"
@@ -10,13 +10,13 @@
 		cancel=".onPlantValueHelpDialogClose"
 		showClearButton="false"
 		items="{
-			path: '/ZMOC_PLANTSet',
+			path: '/F4_PlantSet',
 			sorter: {
 				path: 'Plant',
 				descending: false
 			}
 		}">
-		<StandardListItem
+		<StandardListItem id="_IDGenStandardListItem1"
 			title="{Plant}"
 			iconDensityAware="false"
 			iconInset="false"

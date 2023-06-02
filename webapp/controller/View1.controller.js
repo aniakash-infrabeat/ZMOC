@@ -69,8 +69,8 @@ sap.ui.define([
                 var oSelectedItem = oEvent.getParameter("listItem");
                 var oSelectedRowData = oSelectedItem.getBindingContext().getObject();
                 var oRouter = this.getOwnerComponent().getRouter();
-                if (oSelectedRowData.Code) {
-                    oRouter.navTo("View2", { codeno: oSelectedRowData.Code });
+                if (oSelectedRowData.Doc_No) {
+                    oRouter.navTo("View2", { codeno: oSelectedRowData.Doc_No });
 
                     // // Get the attachment ID or file name from the selected row data
                     // var attachmentId = oSelectedRowData.Code;
@@ -115,7 +115,7 @@ sap.ui.define([
             },
             onCodeSearch: function (oEvent) {
                 var sValue = oEvent.getParameter("value");
-                var oFilter = new sap.ui.model.Filter("Code", sap.ui.model.FilterOperator.Contains, sValue);
+                var oFilter = new sap.ui.model.Filter("Doc_No", sap.ui.model.FilterOperator.Contains, sValue);
                 var oBinding = oEvent.getParameter("itemsBinding");
                 oBinding.filter([oFilter]);
             },
@@ -176,11 +176,11 @@ sap.ui.define([
                 var oSmartFilterBar = this.byId(oSmartTable.getSmartFilterId());
 
                 // Custom control for Smart Filter Bar //
-                var oCustomControl = oSmartFilterBar.getControlByKey("Code");
+                var oCustomControl = oSmartFilterBar.getControlByKey("Doc_No");
                 if (oCustomControl) {
                     sFilterValue = oCustomControl.getValue();
                     if (sFilterValue) {
-                        oBindingParams.filters.push(new sap.ui.model.Filter("Code", "EQ", sFilterValue))
+                        oBindingParams.filters.push(new sap.ui.model.Filter("Doc_No", "EQ", sFilterValue))
                     }
                 }
                 oCustomControl = oSmartFilterBar.getControlByKey("Status");

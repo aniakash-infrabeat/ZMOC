@@ -4,7 +4,71 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:html="http://www.w3.org/1999/xhtml">
-    <VBox class="sapUiSmallMargin" id="form1">
+    <l:VerticalLayout id="ver4" width="30%">
+        <f:SimpleForm id="simpleform1" editable="true" class="layoutBorder" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="1" labelSpanL="4" title="Approval to continue change">
+            <Label id="_IDGenLabel1" textAlign="Begin" wrapping="true" text="Are the 'details of change' adequately defined?" />
+            <RadioButtonGroup id="_IDGenRadioButtonGroup1" select="radioselect" columns="3">
+                <RadioButton id="y1" selected="{=${ReportModel>/AppDetChange}==='Y' ? true : false}" text="Y"/>
+                <RadioButton id="n1" selected="{=${ReportModel>/AppDetChange}==='N' ? true : false}" text="N"/>
+                <RadioButton id="na1" selected="{=${ReportModel>/AppDetChange}==='NA' ? true : false}" text="NA"/>
+            </RadioButtonGroup>
+            <Label id="_IDGenLabel2" text="Are the reasons of change adequately defined?" />
+            <RadioButtonGroup id="_IDGenRadioButtonGroup2" select="radioselect1" columns="3">
+                <RadioButton id="y2" selected="{=${ReportModel>/AppReasonChange}==='Y' ? true : false}" text="Y"/>
+                <RadioButton id="n2" selected="{=${ReportModel>/AppReasonChange}==='N' ? true : false}" text="N"/>
+                <RadioButton id="na2" selected="{=${ReportModel>/AppReasonChange}==='NA' ? true : false}" text="NA"/>
+            </RadioButtonGroup>
+            <Label id="_IDGenLabel3" text="Is the change necessary?" />
+            <RadioButtonGroup id="_IDGenRadioButtonGroup3" select="radioselect2" columns="3">
+                <RadioButton id="y3" selected="{=${ReportModel>/AppNecessary}==='Y' ? true : false}" text="Y"/>
+                <RadioButton id="n3" selected="{=${ReportModel>/AppNecessary}==='N' ? true : false}" text="N"/>
+                <RadioButton id="na3" selected="{=${ReportModel>/AppNecessary}==='NA' ? true : false}" text="NA"/>
+            </RadioButtonGroup>
+            <Label id="_IDGenLabel4" text="Is approval given to risk assessment?" />
+            <RadioButtonGroup id="_IDGenRadioButtonGroup4" select="radioselect3" columns="3">
+                <RadioButton id="y4" selected="{=${ReportModel>/AppRiskApproval}==='Y' ? true : false}" text="Y"/>
+                <RadioButton id="n4" selected="{=${ReportModel>/AppRiskApproval}==='N' ? true : false}" text="N"/>
+                <RadioButton id="na4" selected="{=${ReportModel>/AppRiskApproval}==='NA' ? true : false}" text="NA"/>
+            </RadioButtonGroup>
+            <Label id="_IDGenLabel5" text="Date risk assessment to be completed by" />
+            <RadioButtonGroup id="_IDGenRadioButtonGroup5" select="radioselect4" columns="3">
+                <RadioButton id="y5" selected="{=${ReportModel>/AppRiskComplete}==='Y' ? true : false}" text="Y"/>
+                <RadioButton id="n5" selected="{=${ReportModel>/AppRiskComplete}==='N' ? true : false}" text="N"/>
+                <RadioButton id="na5" selected="{=${ReportModel>/AppRiskComplete}==='NA' ? true : false}" text="NA"/>
+            </RadioButtonGroup>
+            <!-- <Label id="abc" text="" /> -->
+            <DatePicker id="_IDGenDatePicker1" value="{ReportModel>/AppRiskDate}" placeholder="Select Date" valueFormat="yyyy-MM-dd"/>
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver5" width="29%">
+        <f:SimpleForm id="poi" class="layoutBorder" title="Approval of change.Risk Assessment Review" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="2">
+            <Label id="qwe" textAlign="Begin" text="Name" />
+            <Input id="weq" value="{ReportModel>/ApprovalName}" width="60%" />
+            <Label id="asd" textAlign="Begin" text="Position" />
+            <Input id="dog" value="{ReportModel>/ApprovalPos}" width="60%" />
+            <Label id="dfg" textAlign="Begin" text="Date" />
+            <DatePicker id="DP6" width="60%" value="{ReportModel>/ApprovalDate}" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver6" width="20%">
+        <f:SimpleForm id="_IDGenSimpleForm1" class="layoutBorder" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="2" title="Responsible Person">
+            <Label id="_IDGenLabel6" text="Name" />
+            <Input id="_IDGenInput19" value="{ReportModel>/PersonName}" width="60%" />
+            <Label id="_IDGenLabel7" text="Position" />
+            <Input id="_IDGenInput21" value="{ReportModel>/PersonPosition}" width="60%" />
+            <Label id="_IDGenLabel8" text="Date" />
+            <DatePicker id="_IDGenDatePicker2" value="{ReportModel>/PersonDate}" width="60%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver7" width="20%">
+        <f:SimpleForm id="abc1" title="Risk Assessment">
+            <Label id="abc2" text="Who is reponsible for the change?" />
+            <Input id="abc3" value="{ReportModel>/RiskChange}" width="60%" />
+            <Label id="abc4" text="Risk Assessment Date" />
+            <DatePicker id="abc5" placeholder="Select Date" width="60%" value="{ReportModel>/RiskDate}" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <!-- <VBox class="sapUiSmallMargin" id="form1">
         <l:Splitter id="split5">
             <f:SimpleForm width="600px" id="simpleform1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="1" title="Approval to continue change">
                 <Label id="_IDGenLabel1" textAlign="Begin" wrapping="false" text="Are the 'details of change' adequately defined?"/>
@@ -49,8 +113,8 @@
                 <DatePicker id="DP6" placeholder="Select Date" value="{ReportModel>/ApprovalDate}" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
         </l:Splitter>
-    </VBox>
-    <VBox id="_IDGenVBox123">
+    </VBox> -->
+    <!-- <VBox id="_IDGenVBox123">
         <l:Splitter id="split2">
             <f:SimpleForm width="700px" id="_IDGenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="1" columnsXL="2" title="Responsible Person">
                 <Label id="_IDGenLabel6" text="Name" width="100px"/>
@@ -60,8 +124,6 @@
                 <Label id="_IDGenLabel8" text="Date" width="100px"/>
                 <DatePicker id="_IDGenDatePicker2" value="{ReportModel>/PersonDate}" placeholder="Select Date" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
-            <!-- </VBox> -->
-            <!-- <VBox id="_IDGenVBox2"> -->
             <f:SimpleForm id="abc1" title="Risk Assessment" width="700px">
                 <Label id="abc2" text="Who is reponsible for the change?" width="250px"/>
                 <Input id="abc3" value="{ReportModel>/RiskChange}"/>
@@ -69,72 +131,182 @@
                 <DatePicker id="abc5" placeholder="Select Date" value="{ReportModel>/RiskDate}" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
             </f:SimpleForm>
         </l:Splitter>
-    </VBox>
+    </VBox> -->
     <VBox id="_IDGenVBox212">
-        <f:SimpleForm id="abc1212" title="Result of Risk Assesment">
+        <!-- <f:SimpleForm id="abc1212" title="Result of Risk Assesment">
             <Text id="abc8" text="Elements"/>
             <Text id="abc9" text="People"/>
             <Text id="abc10" text="Environment"/>
             <Text id="abc11" text="Property/Material"/>
             <Text id="abc12" text="Plant/Equipment"/>
-        </f:SimpleForm>
-        <f:SimpleForm id="abc1313">
-            <Text id="abc13" text="Risk Level"/>
-            <ComboBox id="people" value="{ReportModel>/People}">
-                <items>
-                    <core:Item id="_IDGenItem1" text="Low" key="L" />
-                    <core:Item id="_IDGenItem2" text="Medium" key="M" />
-                    <core:Item id="_IDGenItem3" text="High" key="H" />
-                </items>
-            </ComboBox>
-            <ComboBox id="env" value="{ReportModel>/Environment}">
-                <items>
-                    <core:Item id="_IDGenItem4" text="Low" key="L" />
-                    <core:Item id="_IDGenItem5" text="Medium" key="M" />
-                    <core:Item id="_IDGenItem6" text="High" key="H" />
-                </items>
-            </ComboBox>
-            <ComboBox id="prop" value="{ReportModel>/Material}">
-                <items>
-                    <core:Item id="_IDGenItem7" text="Low" key="L" />
-                    <core:Item id="_IDGenItem8" text="Medium" key="M" />
-                    <core:Item id="_IDGenItem9" text="High" key="H" />
-                </items>
-            </ComboBox>
-            <ComboBox id="plant" value="{ReportModel>/RiskPlant}">
-                <items>
-                    <core:Item id="_IDGenItem10" text="Low" key="L" />
-                    <core:Item id="_IDGenItem11" text="Medium" key="M" />
-                    <core:Item id="_IDGenItem12" text="High" key="H" />
-                </items>
-            </ComboBox>
-        </f:SimpleForm>
+        </f:SimpleForm> -->
+        <f:SimpleForm id="abc1212" title="Result of Risk Assesment" class="layoutaboveborder"/>
+        <HBox id="_IDGenHBox1">
+            <VBox id="_IDGenVBox1" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="_IDGenText1" text="Elements" class="boldTitle"/>
+            </VBox>
+            <VBox id="_IDGenVBox2" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="_IDGenText2" text="People"/>
+            </VBox>
+            <VBox id="_IDGenVBox3" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="_IDGenText3" text="Environment"/>
+            </VBox>
+            <VBox id="_IDGenVBox4" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="_IDGenText4" text="Property/Material"/>
+            </VBox>
+            <VBox id="_IDGenVBox5" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="_IDGenText5" text="Plant/Equipment"/>
+            </VBox>
+        </HBox>
+        <HBox id="_IDGenHBox2">
+            <!-- <f:SimpleForm id="abc1313"> -->
+            <VBox id="_IDGenVBox6" width="15%" class="layoutbelowborder layoutBorder">
+                <Text id="abc13" text="Risk Level" class="boldTitle"/>
+            </VBox>
+            <VBox id="_IDGenVBox7" width="15%" class="layoutbelowborder layoutBorder">
+                <ComboBox id="people" width="100%" value="{ReportModel>/People}">
+                    <items>
+                        <core:Item id="_IDGenItem1" text="Low" key="L" />
+                        <core:Item id="_IDGenItem2" text="Medium" key="M" />
+                        <core:Item id="_IDGenItem3" text="High" key="H" />
+                    </items>
+                </ComboBox>
+            </VBox>
+            <VBox id="_IDGenVBox8" width="15%" class="layoutbelowborder layoutBorder">
+                <ComboBox id="env" width="100%" value="{ReportModel>/Environment}">
+                    <items>
+                        <core:Item id="_IDGenItem4" text="Low" key="L" />
+                        <core:Item id="_IDGenItem5" text="Medium" key="M" />
+                        <core:Item id="_IDGenItem6" text="High" key="H" />
+                    </items>
+                </ComboBox>
+            </VBox>
+            <VBox id="_IDGenVBox9" width="15%" class="layoutbelowborder layoutBorder">
+                <ComboBox id="prop" width="100%" value="{ReportModel>/Material}">
+                    <items>
+                        <core:Item id="_IDGenItem7" text="Low" key="L" />
+                        <core:Item id="_IDGenItem8" text="Medium" key="M" />
+                        <core:Item id="_IDGenItem9" text="High" key="H" />
+                    </items>
+                </ComboBox>
+            </VBox>
+            <VBox id="_IDGenVBox10" width="15%" class="layoutbelowborder layoutBorder">
+                <ComboBox id="plant" width="100%" value="{ReportModel>/RiskPlant}">
+                    <items>
+                        <core:Item id="_IDGenItem10" text="Low" key="L" />
+                        <core:Item id="_IDGenItem11" text="Medium" key="M" />
+                        <core:Item id="_IDGenItem12" text="High" key="H" />
+                    </items>
+                </ComboBox>
+            </VBox>
+            <!-- </f:SimpleForm> -->
+        </HBox>
     </VBox>
-    <VBox id="vbox12">
-        <!-- <l:Splitter id="split3"> -->
-        <f:SimpleForm id="kadab" title="What manuals/procedures/drawings will need an update?">
-            <TextArea id="boom" value="{ReportModel>/ProcUpdate}" maxLength="400"/>
+    <!-- <VBox id="vbox12"> -->
+    <l:VerticalLayout id="ver8" width="50%">
+        <f:SimpleForm id="kadab" title="What manuals/procedures/drawings will need an update?" class="layoutBorder">
+            <TextArea id="boom" value="{ReportModel>/ProcUpdate}" maxLength="400" />
         </f:SimpleForm>
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver9" width="50%">
         <f:SimpleForm id="abra" title="Summary of key mitigating actions">
-            <TextArea id="onam" value="{ReportModel>/Summary}" maxLength="400"/>
+            <TextArea id="onam" value="{ReportModel>/Summary}" maxLength="400" />
         </f:SimpleForm>
+    </l:VerticalLayout>
 
-        <!-- </l:Splitter> -->
-    </VBox>
-    <VBox id="vbox13">
-        <l:Splitter id="split4">
-            <f:SimpleForm id="bam" title="Identify persons/teams affected by change:">
-                <TextArea id="badam" value="{ReportModel>/AffectChange}" maxLength="400"/>
-            </f:SimpleForm>
-            <f:SimpleForm id="boon" title="What is target date of completion?">
-                <DatePicker id="date15" value="{ReportModel>/CompletionDate}" placeholder="Select date of completion" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy"/>
-            </f:SimpleForm>
-        </l:Splitter>
-        <f:SimpleForm id="mnb" title="What is estimated cost of change, including all mitigating measures?">
-            <TextArea id="wnkj" value="{ReportModel>/EstimateCost}" maxLength="400"/>
+    <!-- </VBox> -->
+    <!-- <VBox id="vbox13"> -->
+    <!-- <l:Splitter id="split4"> -->
+    <l:VerticalLayout id="ver10" width="50%">
+        <f:SimpleForm id="bam" title="Identify persons/teams affected by change:" class="layoutBorder">
+            <TextArea id="badam" value="{ReportModel>/AffectChange}" maxLength="400" />
         </f:SimpleForm>
-    </VBox>
-    <VBox id="vbox14">
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver11" width="50%">
+        <f:SimpleForm id="boon" title="What is target date of completion?">
+            <DatePicker id="date15" value="{ReportModel>/CompletionDate}" placeholder="Select date of completion" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <!-- </l:Splitter> -->
+    <f:SimpleForm id="mnb" title="What is estimated cost of change, including all mitigating measures?">
+        <TextArea id="wnkj" value="{ReportModel>/EstimateCost}" maxLength="400" />
+    </f:SimpleForm>
+    <!-- </VBox> -->
+
+    <l:VerticalLayout id="ver12" width="65%">
+        <f:SimpleForm id="tyu" title="Implementation" class="layoutBorder">
+            <Label id="imp1" text="Mitigation measure completed" />
+            <DatePicker id="date1" value="{ReportModel>/ImpMigration}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp2" text="Notification of change completed" />
+            <DatePicker id="date2" value="{ReportModel>/ImpNotification}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp3" text="All appropriate manuals/procedures/drawings updated" />
+            <DatePicker id="date3" value="{ReportModel>/ImpUpdated}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp4" text="Appropriate training conducted" />
+            <DatePicker id="date4" value="{ReportModel>/ImpConducted}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp5" text="Details of change communicated" />
+            <DatePicker id="date5" value="{ReportModel>/ImpCommunicated}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp6" text="Change process completed" />
+            <DatePicker id="date6" value="{ReportModel>/ImpCompleted}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp7" text="Request for extension to target date" />
+            <DatePicker id="date7" value="{ReportModel>/ImpTargetDate}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp8" text="Approval of extend target date, if applicable" />
+            <DatePicker id="date8" value="{ReportModel>/ImpApprovalDate}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp9" text="Additional requirements to extend target date completed" />
+            <DatePicker id="date9" value="{ReportModel>/ImpExtendDate}" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <Label id="imp10" text="Name" />
+            <Input id="inp1" value="{ReportModel>/ImpName}" width="40%" />
+            <Label id="imp11" text="Position" />
+            <Input id="inp2" value="{ReportModel>/ImpPosition}" width="40%" />
+            <Label id="imp12" text="Date" />
+            <DatePicker id="date10" value="{ReportModel>/ImpDate}" placeholder="" width="40%" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+        </f:SimpleForm>
+    </l:VerticalLayout>
+    <l:VerticalLayout id="ver13" width="35%">
+        <f:SimpleForm id="fad" width="70%" title="Review">
+            <Label id="imp13" text="Was change process followed" textAlign="Begin" />
+            <HBox id="rad1">
+                <RadioButtonGroup id="req1" select="radioselect5" columns="3">
+                    <RadioButton id="reqy1" selected="{=${ReportModel>/ReviewProcess}==='Y' ? true : false}" text="Y"/>
+                    <RadioButton id="reqn1" selected="{=${ReportModel>/ReviewProcess}==='N' ? true : false}" text="N"/>
+                    <RadioButton id="reqna1" selected="{=${ReportModel>/ReviewProcess}==='NA' ? true : false}" text="NA"/>
+                </RadioButtonGroup>
+            </HBox>
+            <Label id="imp14" text="Was change effective?" />
+            <HBox id="rad2">
+                <RadioButtonGroup id="req2" select="radioselect6" columns="3">
+                    <RadioButton id="reqy2" selected="{=${ReportModel>/ReviewEffective}==='Y' ? true : false}" text="Y"/>
+                    <RadioButton id="reqn2" selected="{=${ReportModel>/ReviewEffective}==='N' ? true : false}" text="N"/>
+                    <RadioButton id="reqna2" selected="{=${ReportModel>/ReviewEffective}==='NA' ? true : false}" text="NA"/>
+                </RadioButtonGroup>
+            </HBox>
+            <Label id="imp15" text="If no, identify actions required to be completed " />
+            <HBox id="rad3">
+                <RadioButtonGroup id="req3" select="radioselect7" columns="3">
+                    <RadioButton id="reqy3" selected="{=${ReportModel>/ReviewComplete}==='Y' ? true : false}" text="Y"/>
+                    <RadioButton id="reqn3" selected="{=${ReportModel>/ReviewComplete}==='N' ? true : false}" text="N"/>
+                    <RadioButton id="reqna3" selected="{=${ReportModel>/ReviewComplete}==='NA' ? true : false}" text="NA"/>
+                </RadioButtonGroup>
+            </HBox>
+            <Label id="imp16" text="Was the management of change process effective?" />
+            <HBox id="rad4">
+                <RadioButtonGroup id="req4" select="radioselect8" columns="3">
+                    <RadioButton id="reqy4" selected="{=${ReportModel>/ReviewMgmt}==='Y' ? true : false}" text="Y"/>
+                    <RadioButton id="reqn4" selected="{=${ReportModel>/ReviewMgmt}==='N' ? true : false}" text="N"/>
+                    <RadioButton id="reqna4" selected="{=${ReportModel>/ReviewMgmt}==='NA' ? true : false}" text="NA"/>
+                </RadioButtonGroup>
+            </HBox>
+            <Label id="imp17" text="If no, identify amendments &amp; initiate a change to QMS" />
+            <HBox id="rad5">
+                <RadioButtonGroup id="req5" select="radioselect9" columns="3">
+                    <RadioButton id="reqy5" selected="{=${ReportModel>/ReviewQMS}==='Y' ? true : false}" text="Y"/>
+                    <RadioButton id="reqn5" selected="{=${ReportModel>/ReviewQMS}==='N' ? true : false}" text="N"/>
+                    <RadioButton id="reqna5" selected="{=${ReportModel>/ReviewQMS}==='A' ? true : false}" text="NA" />
+                </RadioButtonGroup>
+            </HBox>
+        </f:SimpleForm>
+    </l:VerticalLayout>
+
+    <!-- <VBox id="vbox14">
         <l:Splitter id="split6">
             <f:SimpleForm id="tyu" title="Implementation" width="1000px">
                 <Label id="imp1" text="Mitigation measure completed"/>
@@ -195,7 +367,7 @@
                         <RadioButton id="reqna4" selected="{=${ReportModel>/ReviewMgmt}==='NA' ? true : false}" text="NA" width="100px"/>
                     </RadioButtonGroup>
                 </HBox>
-                <Label id="imp17" text="If no, identify amendments and initiate a change to QMS"/>
+                <Label id="imp17" text="If no, identify amendments &amp; initiate a change to QMS"/>
                 <HBox id="rad5">
                     <RadioButtonGroup id="req5" select="radioselect9" columns="3">
                         <RadioButton id="reqy5" selected="{=${ReportModel>/ReviewQMS}==='Y' ? true : false}" text="Y" width="100px"/>
@@ -205,5 +377,5 @@
                 </HBox>
             </f:SimpleForm>
         </l:Splitter>
-    </VBox>
+    </VBox> -->
 </core:FragmentDefinition>

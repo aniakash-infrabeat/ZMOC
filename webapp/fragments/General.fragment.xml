@@ -3,12 +3,14 @@
     xmlns:l="sap.ui.layout"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:up="sap.m.upload"
     xmlns:html="http://www.w3.org/1999/xhtml">
     <VBox id="_IDGenVB2" class="sapUiSmallMargin">
-        <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="1" columnsL="2" columnsXL="3">
+        <f:SimpleForm id="GenSimpleForm1" editable="true" layout="ColumnLayout" columnsM="2" columnsL="3" columnsXL="4">
             <!-- <f:content> -->
-            <Label id="_IDGenText1" text="Code" />
-            <Input id="_IDGenInput1" value="{ReportModel>/Code}" editable="false"/>
+            <Label id="_IDGenText1" text="Doc No."/>
+            <Input id="_IDGenInput1" value="{ReportModel>/Doc_No}" editable="false"/>
             <Label id="_IDGenText2" text="Object of Change"/>
             <Input id="_IDGenInput2" value="{ReportModel>/ObjOfChange}"/>
             <Label id="_IDGenText3" text="Request Date" />
@@ -44,14 +46,28 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm3" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText9" text="Status" />
-            <Input id="_IDGenInput9" value="{ReportModel>/Status}"/>
-            <Label id="_IDGenText10" text="Security Attribute" visible="false"/>
-            <Input id="_IDGenInput10" visible="false"/>
+            <Input id="_IDGenInput9" value="{ReportModel>/Status}" editable="false"/>
+            <Label id="_IDGenText10" text="Plant"/>
+            <ComboBox id="plant"  value="{ReportModel>/Plant}">
+                <items>
+                    <core:Item id="_IDGenItem3" text="VK01" key="V1" />
+                    <core:Item id="_IDGenItem4" text="VK02" key="V2" />
+                    <core:Item id="_IDGenItem5" text="VK03" key="V3" />
+                    <core:Item id="_IDGenItem6" text="S103" key="V4" />
+                    <core:Item id="_IDGenItem7" text="AB01" key="V5" />
+                    <core:Item id="_IDGenItem8" text="FD09" key="V6" />
+                </items>
+            </ComboBox>
             <!-- </f:content> -->
 
             <!-- </VBox> -->
         </f:SimpleForm>
     </VBox>
+
+
+
+
+
 
 
     <HBox id="_IDGenVBox1" class="sapUiSmallMargin">
@@ -69,25 +85,43 @@
             <CheckBox id="personnel" text="Personnel" selected="{=${ReportModel>/ChngTitlePerson}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
             <CheckBox id="system" text="System" selected="{=${ReportModel>/ChngTitleSys}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
             <CheckBox id="process" text="Process/Procedure" selected="{=${ReportModel>/ChngTitlePro}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
-        </HBox>
-        <HBox id="_IDGenHBox2">
             <CheckBox id="rig" text="Rig" selected="{=${ReportModel>/ChngTitleRig}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
             <CheckBox id="equip" text="Equipment" selected="{=${ReportModel>/ChngTitleEqui}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
             <CheckBox id="material" text="Material" selected="{=${ReportModel>/ChngTitleMat}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
-            <CheckBox id="lawandreg" text="Laws and regulation" selected="{=${ReportModel>/ChngTitleLaws}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
+            <CheckBox id="lawandreg" text="Laws &amp; regulation" selected="{=${ReportModel>/ChngTitleLaws}==='X' ? true : false}" class="sapUiLargeMarginEnd"/>
         </HBox>
     </VBox>
-    <VBox id="def">
-        <l:Splitter id="split1">
-            <f:SimpleForm id="jkl" title="Details of Change:">
+        <l:VerticalLayout id="ver1" width="33%">
+        <f:SimpleForm id="jkl" title="Details of Change:" class="layoutbelowborder layoutBorder layoutleftborder layoutopborder">
                 <TextArea id="mno" value="{ReportModel>/DetailsOfChange}" maxLength="400" height="150px"/>
             </f:SimpleForm>
-            <f:SimpleForm id="ghi" title="Reason for Change:">
+        </l:VerticalLayout>
+        
+        <l:VerticalLayout id="ver2" width="33%">
+        <f:SimpleForm id="ghi" title="Reason for Change:" class="layoutbelowborder layoutBorder layoutopborder">
                 <TextArea id="pqr" value="{ReportModel>/ReasonOfChange}" maxLength="400" height="150px"/>
             </f:SimpleForm>
-            <f:SimpleForm id="stu" title="Proposed timeline for Change">
+        </l:VerticalLayout>
+        
+        <l:VerticalLayout id="ver3" width="33%">
+         <f:SimpleForm id="stu" title="Proposed timeline for Change:" class="layoutbelowborder layoutBorder layoutopborder">
                 <TextArea id="vwx" value="{ReportModel>/ProposeChange}" maxLength="400" height="150px"/>
             </f:SimpleForm>
-        </l:Splitter>
-    </VBox>
+        </l:VerticalLayout>
+    <!-- </VBox> -->
+
+ // External Files/ Upload
+    <VBox id="vbox1" class="sapUiLargeMarginEnd">
+        <f:SimpleForm id="externalfile" title="Attachment Details" editable="true" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" layout="ResponsiveGridLayout">
+            <Label id="lblAttachAddedBy" text="Added By"/>
+            <Input id="inAttachmentAddedBy"/>
+            <Label id="comment" text="Comments"/>
+            <TextArea id="comments" placeholder="" rows="2"/>
+         </f:SimpleForm>
+         
+        <up:UploadSet id="attachmentUpl" instantUpload="true" maxFileSize="2" noDataDescription="" noDataText="" selectionChanged="onSelectionChangeAttachment" uploadCompleted="onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet" visible="true" beforeUploadStarts="onBeforeUploadStarts" fileTypes="pdf,doc,docx,docm,ppt,pptx,xls,xlsx,jpg,jpeg,png,txt" fileTypeMismatch="onFileTypeMismatch" fileSizeExceeded="onFileSizeExceeded">
+        </up:UploadSet>   
+	
+   </VBox>
+
 </core:FragmentDefinition>

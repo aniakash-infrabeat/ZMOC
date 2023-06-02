@@ -5,7 +5,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress=".onNavBack">
         <headerContent>
-            <Image id="image1" src="/images/logo_forc.png" height="35px"/>
+            <!-- <Image id="image1" src="/images/logo_forc.png" height="35px"/> -->
             <!-- <Image id="image2" src="/images/infrabeat.png" height="20px"/> -->
         </headerContent>
         <IconTabBar id="idIconTabBarNoIcons">
@@ -17,9 +17,9 @@
                 <IconTabFilter id="_IDGenIconTabFilter2" text="Approval/Review">
                     <core:Fragment fragmentName="moc.fragments.approval" id="approvalfrag"  type="XML" binding="{path:'ReportModel'}"/>
                 </IconTabFilter>
-                <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
+                <!-- <IconTabFilter id="_IDGenIconTabFilter3" text="External Files">
                     <core:Fragment fragmentName="moc.fragments.externalfiles" id="external" type="XML"/>
-                </IconTabFilter>
+                </IconTabFilter> -->
                 <!-- <IconTabFilter id="_IDGenIconTabFilter4" text="Workflow Log"/> -->
             </items>
         </IconTabBar>
@@ -27,6 +27,7 @@
         <footer>
             <Toolbar id="_IDGenToolbar1">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <Button id="_IDGenButton0" type="Accept" text="Draft" press="" width="100px" icon="sap-icon://notes"/>
                 <Button id="_IDGenButton1" type="Accept" text="Submit" press=".onSave" width="100px" icon="sap-icon://save"/>
                 <Button id="_IDGenButton2" type="Neutral" text="Reset" press=".onReset" width="100px" icon="sap-icon://reset"/>
                 <Button id="_IDPrintButton" text="Print" type="Accept" press=".onPrint" width="100px" icon="sap-icon://print"/>

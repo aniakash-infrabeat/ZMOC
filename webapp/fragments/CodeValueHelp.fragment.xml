@@ -12,10 +12,10 @@
 		items="{
 			path: '/F4_CodeSet',
 			sorter: {
-				path: 'Code',
+				path: 'Doc_No',
 				descending: false
 			}
 		}">
-		<StandardListItem id="_IDGenStandardListItem1" title="{Code}" iconDensityAware="false" iconInset="false" type="Active" />
+		<StandardListItem id="_IDGenStandardListItem1" title="{Doc_No}" iconDensityAware="false" iconInset="false" type="Active" />
 	</SelectDialog>
 </core:FragmentDefinition>

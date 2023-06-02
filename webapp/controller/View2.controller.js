@@ -16,6 +16,7 @@ sap.ui.define([
     return Controller.extend("moc.controller.View2", {
         onInit: function () {
 
+
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
             this.codenumber = "";
@@ -36,12 +37,13 @@ sap.ui.define([
             var rev5;
 
 
+
         },
 
 
         getEmptyReportModel: function () {
             var oEntity = {
-                "Code": "",
+                "Doc_No": "",
                 "RequestedBy": "",
                 "Status": "",
                 "Plant": "",
@@ -118,6 +120,16 @@ sap.ui.define([
 
         _onRouteMatched: function (oEvent) {
 
+
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValueState();
+            this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValueState();
+
             this.ReportModel = this.getView().getModel("ReportModel");
             this.ReportId = oEvent.getParameter("arguments").codeno;
             if (this.ReportId) {
@@ -128,11 +140,11 @@ sap.ui.define([
 
             }
             this.byId("idIconTabBarNoIcons").setSelectedKey("Gen"); //set general tab as a default
-            // var oAddedBy = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy"));
-            // var oDesc = this.byId(sap.ui.core.Fragment.createId("external", "comments"));
+            // var oAddedBy = this.byId(sap.ui.core.Fragment.createId("generalfrag", "inAttachmentAddedBy"));
+            // var oDesc = this.byId(sap.ui.core.Fragment.createId("generalfrag", "comments"));
             // oAddedBy.setValue("");
             // oDesc.setValue("");
-            // var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            // var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl"));
             // var aResults = { results: [] };
             // var oResultsModel = new sap.ui.model.json.JSONModel(aResults);
             // oAttachmentUpl.removeAllItems();
@@ -159,16 +171,16 @@ sap.ui.define([
             this.getView().setModel(oViwewModel, "viewModel");
         },
         onBeforeRendering: function () {
-            var e = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl")).getDefaultFileUploader();
+            var e = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl")).getDefaultFileUploader();
             e.setIcon("sap-icon://attachment").setIconOnly(false)
         },
 
         loadAttachments: function () {
             var e = this;
             var a = "/ZMOC_EXT_FILESet";
-            var l = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
+            var l = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl"));
             var s = new sap.ui.model.Filter({
-                path: "Code",
+                path: "Doc_No",
                 operator: sap.ui.model.FilterOperator.EQ,
                 value1: this.ReportId
             });
@@ -187,16 +199,16 @@ sap.ui.define([
                             visibleEdit: false,
                             visibleRemove: false,
                             // url: "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Code ='" + e.ReportId + "',FILE_NAME ='" + "{FILE_NAME}" + "')/$value"
-                            url: "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Code='" + e.ReportId + "',Filename='" + "{Filename}" + "')/$value"
+                            url: "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Doc_No='" + e.ReportId + "',Filename='" + "{Filename}" + "')/$value"
                             // url: "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Code= '" + e.ReportId + "' and Filename='" + "{Filename}" + "')/$value"
                         })
                     });
                     if (l.getItems().length > 0) {
-                        e.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue(a.results[0].Docadd);
-                        e.byId(sap.ui.core.Fragment.createId("external", "comments")).setValue(a.results[0].Docdesc)
+                        e.byId(sap.ui.core.Fragment.createId("generalfrag", "inAttachmentAddedBy")).setValue(a.results[0].Docadd);
+                        e.byId(sap.ui.core.Fragment.createId("generalfrag", "comments")).setValue(a.results[0].Docdesc)
                     } else {
-                        e.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).setValue("");
-                        e.byId(sap.ui.core.Fragment.createId("external", "comments")).setValue("")
+                        e.byId(sap.ui.core.Fragment.createId("generalfrag", "inAttachmentAddedBy")).setValue("");
+                        e.byId(sap.ui.core.Fragment.createId("generalfrag", "comments")).setValue("")
                     }
                 },
                 error: function (t) {
@@ -213,7 +225,7 @@ sap.ui.define([
 
                 var sServiceurl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
                 var omodel = new sap.ui.model.odata.ODataModel(sServiceurl, true);
-                var url = "/ZMOC_DETSet?$filter=(Code eq '" + sReportNo + "')";
+                var url = "/ZMOC_DETSet?$filter=(Doc_No eq '" + sReportNo + "')";
                 sap.ui.core.BusyIndicator.show();
                 omodel.read(url, null, null, true, function (data, reponse) {
                     sap.ui.core.BusyIndicator.hide();
@@ -260,6 +272,7 @@ sap.ui.define([
             var dept = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValue("");
             var cod = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValue("");
             var stat = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput9")).setValue("");
+            var pla = this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValue("");
 
             //Checkboxes
             var checkb1 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "org")).setSelected(false);
@@ -488,12 +501,15 @@ sap.ui.define([
             var print = new sap.m.PDFViewer;
             this.getView().addDependent(print);
             var t = this.getView().getModel().sServiceUrl;
-            var a = t + "/ZMOC_EXT_FILESet(Code='" + this.ReportId + "',TYPE='NM')/$value";
+            // var a = t + "/ZMOC_EXT_FILESet(Code='" + this.ReportId + "',TYPE='NM')/$value";
+            // var a = t + /sap/opu/odata/sap/ZGW_MOC_DATA_SRV/ZMOC_EXT_FILESet(Doc_No='" + this.ReportId + "',TYPE='')/$value;
+            var a = t + "/ZMOC_FINAL_REPORTSet(Doc_No='" + this.ReportId + "',TYPE='" + "" + "')/$value";
             print.setSource(a);
-            print.setTitle("Code");
+            print.setTitle("Print Preview");
             print.setShowDownloadButton(true);
             print.open()
         },
+        
         onSave: function () {
             var oReportModel = this.getView().getModel("ReportModel");
             var oReportData = oReportModel.getData();
@@ -540,74 +556,190 @@ sap.ui.define([
             oReportData.ReviewMgmt = this.rev4;
             oReportData.ReviewQMS = this.rev5;
 
-            //Upload
-            var code = this.ReportId;
-            var attachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-            var files = attachmentUpl.getIncompleteItems();
-            var attachments = [];
+            //Validations
 
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                var attachment = {
-                    FileName: file.getFileName(),
-                    FileContent: file.getFileObject(),
-                    Code: code
-                };
-                attachments.push(attachment);
+            var val1 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).getValue(); //object of change
+            var val2 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).getValue(); //Request date
+            var val3 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).getValue(); //Requested by
+            var val4 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).getValue(); //created by
+            var val5 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).getValue(); //department
+            var val6 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).getValue(); //change of date
+            var val7 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).getValue(); //type of change
+            var val8 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).getValue(); //plant
+            // var val9 = this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).getValue();
+            // var val10 = this.byId(sap.ui.core.Fragment.createId("generalfrag","org")).getValue(); //organisation check box
+            // var val11 = this.byId(sap.ui.core.Fragment.createId("generalfrag","personnel")).getValue(); //Personnel check box
+            // var val12 = this.byId(sap.ui.core.Fragment.createId("generalfrag","system")).getValue(); //System check box
+            // var val13 = this.byId(sap.ui.core.Fragment.createId("generalfrag","process")).getValue(); //Process check box
+            // var val14 = this.byId(sap.ui.core.Fragment.createId("generalfrag","rig")).getValue(); //Rig check box
+            // var val15 = this.byId(sap.ui.core.Fragment.createId("generalfrag","equip")).getValue(); //Equip check box
+            // var val16 = this.byId(sap.ui.core.Fragment.createId("generalfrag","material")).getValue(); //Material check box
+            // var val17 = this.byId(sap.ui.core.Fragment.createId("generalfrag","lawandreg")).getValue(); //Law & Reg check box
+
+            var orgCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "org"));
+            var personnelCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "personnel"));
+            var systemCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "system"));
+            var processCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "process"));
+            var rigCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "rig"));
+            var equipCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "equip"));
+            var materialCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "material"));
+            var lawandregCheckBox = this.byId(sap.ui.core.Fragment.createId("generalfrag", "lawandreg"));
+
+            var counter = 0;
+
+            if (val1.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValueStateText("Object of change required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput2")).setValueStateText("")
             }
 
-            var FN = file.getFileName();
-            var sAddedBy = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).getValue();
-            var sDescription = this.byId(sap.ui.core.Fragment.createId("external", "comments")).getValue();
-            var sSlug = "file-" + new Date().getTime();
-            var oHeaders = {
-                "slug": sSlug,
-                text: this.ReportId + "/" + FN + "/" + sAddedBy + "/" + sDescription
-                // "Content-type": ct
-            };
+            if (val2.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValueStateText("Request date required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP1")).setValueStateText("")
+            }
+
+            if (val3.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValueStateText("Requested by required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput3")).setValueStateText("")
+            }
+
+            if (val4.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValueStateText("Created by required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput4")).setValueStateText("")
+            }
+
+            if (val5.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValueStateText("Department required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "_IDGenInput5")).setValueStateText("")
+            }
+
+            if (val6.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValueStateText("Change of date required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "DP2")).setValueStateText("")
+            }
+
+            if (val7.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValueStateText("Type of change required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "typeofc")).setValueStateText("")
+            }
+
+            if (val8.length == 0) {
+                counter++;
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValueState("Error");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValueStateText("Plant required")
+            } else {
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValueState("None");
+                this.byId(sap.ui.core.Fragment.createId("generalfrag", "plant")).setValueStateText("")
+            }
+
+            if (!orgCheckBox.getSelected() && !personnelCheckBox.getSelected() && !systemCheckBox.getSelected() &&
+                !processCheckBox.getSelected() && !rigCheckBox.getSelected() && !equipCheckBox.getSelected() &&
+                !materialCheckBox.getSelected() && !lawandregCheckBox.getSelected()) {
+                counter++;
+                sap.m.MessageBox.error("Please select at least one Change Title");
+            }
 
 
-            var oModel = this.getView().getModel();
-            oModel.create("/ZMOC_EXT_FILESet", attachments, {
-                headers: oHeaders,
-                success: function (data) {
-                    sap.m.MessageBox.success("File Uploaded Succesfully");
-                },
-                error: function (error) {
-                    sap.m.MessageBox.error("Error uploading file");
+            if (counter == 0) {
+                //Upload
+                var code = this.ReportId;
+                var attachmentUpl = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl"));
+                var files = attachmentUpl.getIncompleteItems();
+                var attachments = [];
+
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var attachment = {
+                        FileName: file.getFileName(),
+                        FileContent: file.getFileObject(),
+                        Doc_No: code
+                    };
+                    attachments.push(attachment);
                 }
-            });
+
+                // var FN = file.getFileName();
+                var sAddedBy = this.byId(sap.ui.core.Fragment.createId("generalfrag", "inAttachmentAddedBy")).getValue();
+                var sDescription = this.byId(sap.ui.core.Fragment.createId("generalfrag", "comments")).getValue();
+                var sSlug = "file-" + new Date().getTime();
+                var oHeaders = {
+                    "slug": sSlug,
+                    text: this.ReportId + "/" + sAddedBy + "/" + sDescription
+                    // "Content-type": ct
+                };
 
 
-            var that = this;
-            var oDataModel = new sap.ui.model.json.JSONModel(oReportData);
-            var sServiceUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
-            var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-            var oParams = {
-                success: function (oData, oResponse) {
-                    var sReportNumber = oData.Code;
-                    var sSuccessMessage = "Change " + sReportNumber + " saved successfully";
-                    // that.onStartUpload();
-                    sap.m.MessageBox.success(sSuccessMessage, {
-                        onClose: function () {
-                            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                            oRouter.navTo("View1");
-                            //   that.onReset();
-                        }.bind(this)
-                    });
-                }.bind(this),
-                error: function (oError) {
-                    sap.m.MessageBox.error("Error saving report");
-                }
-            };
-            oModel.create("/ZMOC_DETSet", oDataModel.getData(), oParams);
+                var oModel = this.getView().getModel();
+                oModel.create("/ZMOC_EXT_FILESet", attachments, {
+                    headers: oHeaders,
+                    success: function (data) {
+                        sap.m.MessageBox.success("File Uploaded Succesfully");
+                    },
+                    error: function (error) {
+                        sap.m.MessageBox.error("Error uploading file");
+                    }
+                });
+
+
+                var that = this;
+                var oDataModel = new sap.ui.model.json.JSONModel(oReportData);
+                var sServiceUrl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
+                var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+                var oParams = {
+                    success: function (oData, oResponse) {
+                        var sReportNumber = oData.Doc_No;
+                        var sSuccessMessage = "Change " + sReportNumber + " saved successfully";
+                        // that.onStartUpload();
+                        sap.m.MessageBox.success(sSuccessMessage, {
+                            onClose: function () {
+                                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                                oRouter.navTo("View1");
+                                //   that.onReset();
+                            }.bind(this)
+                        });
+                    }.bind(this),
+                    error: function (oError) {
+                        sap.m.MessageBox.error("Error saving report");
+                    }
+                };
+                oModel.create("/ZMOC_DETSet", oDataModel.getData(), oParams);
+            }
+            else {
+                sap.m.MessageBox.error("Please fill in all the mandatory fields");
+            }
         },
 
         onStartUpload: function () {
             var that = this;
-            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("external", "attachmentUpl"));
-            var sAddedBy = this.byId(sap.ui.core.Fragment.createId("external", "inAttachmentAddedBy")).getValue();
-            var sDescription = this.byId(sap.ui.core.Fragment.createId("external", "comments")).getValue();
+            var oAttachmentUpl = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl"));
+            var sAddedBy = this.byId(sap.ui.core.Fragment.createId("generalfrag", "inAttachmentAddedBy")).getValue();
+            var sDescription = this.byId(sap.ui.core.Fragment.createId("generalfrag", "comments")).getValue();
             var aIncompleteItems = oAttachmentUpl.getIncompleteItems();
             this.iIncompleteItems = aIncompleteItems.length; //used to turn off busy indicator upon completion of all pending uploads
             if (this.iIncompleteItems !== 0) {

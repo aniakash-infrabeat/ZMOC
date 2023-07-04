@@ -5,8 +5,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress=".onNavBack">
         <headerContent>
-            <!-- <Image id="image1" src="/images/logo_forc.png" height="35px"/> -->
-            <!-- <Image id="image2" src="/images/infrabeat.png" height="20px"/> -->
+            <!-- <Button id="_IDGenButton0" type="Accept" text="Draft" press="" width="100px" icon="sap-icon://notes"/> -->
         </headerContent>
         <IconTabBar id="idIconTabBarNoIcons">
             <items>
@@ -27,9 +26,9 @@
         <footer>
             <Toolbar id="_IDGenToolbar1">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                <Button id="_IDGenButton0" type="Accept" text="Draft" press="" width="100px" icon="sap-icon://notes"/>
+                <!-- <Button id="_IDGenButton0" type="Accept" text="Draft" press="" width="100px" icon="sap-icon://notes"/> -->
                 <Button id="_IDGenButton1" type="Accept" text="Submit" press=".onSave" width="100px" icon="sap-icon://save"/>
-                <Button id="_IDGenButton2" type="Neutral" text="Reset" press=".onReset" width="100px" icon="sap-icon://reset"/>
+                <!-- <Button id="_IDGenButton2" type="Neutral" text="Reset" press=".onReset" width="100px" icon="sap-icon://reset"/> -->
                 <Button id="_IDPrintButton" text="Print" type="Accept" press=".onPrint" width="100px" icon="sap-icon://print"/>
                 <Button id="_IDGenButton3" type="Reject" text="Back" press=".onNavBack" width="100px" icon="sap-icon://sys-back"/>
             </Toolbar>

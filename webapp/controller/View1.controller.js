@@ -15,7 +15,7 @@ sap.ui.define([
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.getRoute("View1").attachPatternMatched(this._onRouteMatched, this);
                 this.CreateReportFlag = true;
-
+                this.getUserDetails();
             },
 
             _onRouteMatched: function (oEvent) {
@@ -26,28 +26,51 @@ sap.ui.define([
 
                 this.oTable = this.getView().byId("tblreport");
                 this.oTable.removeSelections();
-                // this.getUserDetails();
+                this.getUserDetails();
             },
 
-            // getUserDetails: function () {
-            //     var oCreatreportBtn = this.getView().byId("createReportbtn");
-            //     if (this.CreateReportFlag) {
-            //         var that = this;
-            //         this.getView().getModel().read("/ZMOC_DETSet('')", {
-            //             success: function (data) {
-            //                 if (data.CREATEREPORTFLAG === "X") {
-            //                     oCreatreportBtn.setVisible(true);
-            //                     that.CreateReportFlag = true;
-            //                 } else {
-            //                     oCreatreportBtn.setVisible(false);
-            //                     that.CreateReportFlag = false;
-            //                 }
-            //             },
-            //             error: function (e) {
-            //             }
-            //         });
-            //     }
-            // },
+            getUserDetails: function () {
+                // var oCreatreportBtn = this.getView().byId("createReportbtn");
+                // if (this.CreateReportFlag) {
+                //     var that = this;
+                //     this.getView().getModel().read("/ZMOC_USERSSet('')", {
+                //         success: function (data) {
+                //             if (data.CREATEREPORTFLAG === "X") {
+                //                 oCreatreportBtn.setVisible(true);
+                //                 that.CreateReportFlag = true;
+                //             } else {
+                //                 oCreatreportBtn.setVisible(false);
+                //                 that.CreateReportFlag = false;
+                //             }
+                //         },
+                //         error: function (e) {
+                //         }
+                //     });
+                // }
+                var that=this;
+                var sServiceurl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
+                var omodel = new sap.ui.model.odata.ODataModel(sServiceurl, true);
+                var url = "/ZMOC_USERSSet?$filter=(StatusId eq '1')";
+                //sap.ui.core.BusyIndicator.show();
+                omodel.read(url, null, null, true, function (data, reponse) {
+                    var a = data;
+                    // a.results[0].Flag;
+                    var oCreatreportBtn = that.getView().byId("createReportbtn");
+                    if(a.results[0].Flag === "X"){
+                        oCreatreportBtn.setVisible(true);
+                        // that.CreateReportFlag = true;
+                    } else{
+                        oCreatreportBtn.setVisible(false);
+                        // that.CreateReportFlag = false;
+                    }
+                    //sap.ui.core.BusyIndicator.hide();
+                    //npx fiori add deploy-configthat.ReportModel.setData(data.results[0]);
+                    // that.getView().setModel(that.ReportModel, "ReportModel");
+                },
+                    function (err, orepnse) {
+
+                    });
+            },
 
             onCreateNewReport: function () {
                 // var code_input = null;
@@ -203,7 +226,7 @@ sap.ui.define([
                     sFilterValue = oCustomControl.getValue();
                     if (sFilterValue) {
                         var sSelectedDate = new Date(new Date(sFilterValue).toDateString());
-                        sSelectedDate.setDate(sSelectedDate.getDate() + 1); 
+                        sSelectedDate.setDate(sSelectedDate.getDate() + 1);
                         oBindingParams.filters.push(new sap.ui.model.Filter("CreatedDate", "EQ", sSelectedDate));
                     }
                 }

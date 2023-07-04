@@ -46,7 +46,7 @@
             <!-- <f:SimpleForm id="_IDGenSimpleForm3" editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="2"> -->
             <!-- <f:content> -->
             <Label id="_IDGenText9" text="Status" />
-            <Input id="_IDGenInput9" value="{ReportModel>/Status}" editable="false"/>
+            <Input id="_IDGenInput9" value="{ReportModel>/StatusDesc}" editable="false"/>
             <Label id="_IDGenText10" text="Plant"/>
             <ComboBox id="plant"  value="{ReportModel>/Plant}">
                 <items>
@@ -57,6 +57,11 @@
                     <core:Item id="_IDGenItem7" text="AB01" key="V5" />
                     <core:Item id="_IDGenItem8" text="FD09" key="V6" />
                 </items>
+            
+            </ComboBox>
+            <Label id="_IDGenLabel1" text="Action Change"/>
+            <ComboBox id="actionchange" visible="false">
+
             </ComboBox>
             <!-- </f:content> -->
 

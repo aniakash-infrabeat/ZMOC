@@ -224,7 +224,7 @@
     </l:VerticalLayout>
     <l:VerticalLayout id="ver11" width="50%">
         <f:SimpleForm id="boon" title="What is target date of completion?">
-            <DatePicker id="date15" value="{ReportModel>/CompletionDate}" placeholder="Select date of completion" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
+            <DatePicker id="date15" width="30%" value="{ReportModel>/CompletionDate}" placeholder="Select date of completion" valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" />
         </f:SimpleForm>
     </l:VerticalLayout>
     <!-- </l:Splitter> -->
@@ -232,6 +232,13 @@
         <TextArea id="wnkj" value="{ReportModel>/EstimateCost}" maxLength="400" />
     </f:SimpleForm>
     <!-- </VBox> -->
+
+
+
+
+
+
+
 
     <l:VerticalLayout id="ver12" width="65%">
         <f:SimpleForm id="tyu" title="Implementation" class="layoutBorder">

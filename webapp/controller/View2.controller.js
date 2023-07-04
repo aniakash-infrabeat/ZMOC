@@ -16,7 +16,7 @@ sap.ui.define([
     return Controller.extend("moc.controller.View2", {
         onInit: function () {
 
-
+           
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.getRoute("View2").attachPatternMatched(this._onRouteMatched, this);
             this.codenumber = "";
@@ -35,9 +35,10 @@ sap.ui.define([
             var rev3;
             var rev4;
             var rev5;
+            
+           
 
-
-
+            
         },
 
 
@@ -170,6 +171,8 @@ sap.ui.define([
             var oViwewModel = new sap.ui.model.json.JSONModel();
             this.getView().setModel(oViwewModel, "viewModel");
         },
+
+        
         onBeforeRendering: function () {
             var e = this.byId(sap.ui.core.Fragment.createId("generalfrag", "attachmentUpl")).getDefaultFileUploader();
             e.setIcon("sap-icon://attachment").setIconOnly(false)
@@ -231,6 +234,7 @@ sap.ui.define([
                     sap.ui.core.BusyIndicator.hide();
                     that.ReportModel.setData(data.results[0]);
                     // that.getView().setModel(that.ReportModel, "ReportModel");
+                    that.bindactiondata();
                 },
                     function (err, orepnse) {
 
@@ -241,6 +245,39 @@ sap.ui.define([
             this.loadAttachments();
 
         },
+
+        bindactiondata : function(){
+
+            var that = this;
+            var sServiceurl = "/sap/opu/odata/sap/ZGW_MOC_DATA_SRV/";
+            var omodel = new sap.ui.model.odata.ODataModel(sServiceurl, true);
+            var actionmodel = new sap.ui.model.json.JSONModel();
+            var url = "/Approval_StatusSet?$filter=(ToStatus eq '2')";
+            omodel.read(url, null, null, true, function (data, reponse){
+            var a = data;
+            var actiond = data.results;
+            var oActionChange = that.byId(sap.ui.core.Fragment.createId("generalfrag","actionchange"));
+            if(actiond === []){
+                // oActionChange.setVisible(true);
+            }
+            else{       
+                        oActionChange.setVisible(true);
+                        var locData={
+                            "items":actiond
+                        };
+                        actionmodel.setData(locData);
+                        that.byId(sap.ui.core.Fragment.createId("generalfrag", "actionchange")).setModel(actionmodel);
+                        // that.getView().byId("actionchange").setModel(actionmodel);
+                        that.byId(sap.ui.core.Fragment.createId("generalfrag", "actionchange")).bindAggregation("items"
+                           , "/items", new sap.ui.core.ListItem({
+                       text: "{StatDesc}",
+                       key:"{StatusId}"
+                        }));
+                    }
+                    });
+
+        },
+
 
 
         onNavBack: function () {
@@ -498,6 +535,9 @@ sap.ui.define([
         },
 
         onPrint: function () {
+
+            var oUserInfoService = sap.ushell.Container.getService("UserInfo");
+            var sUserId = oUserInfoService.getId();
             var print = new sap.m.PDFViewer;
             this.getView().addDependent(print);
             var t = this.getView().getModel().sServiceUrl;
@@ -555,6 +595,7 @@ sap.ui.define([
             oReportData.ReviewComplete = this.rev3;
             oReportData.ReviewMgmt = this.rev4;
             oReportData.ReviewQMS = this.rev5;
+            oReportData.Status = "2";
 
             //Validations
 
